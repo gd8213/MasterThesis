@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fmiModelDescription
+  fmiVersion="2.0"
+  modelName="Conveyor"
+  guid="{263dd877-ce0e-51b0-8eea-374ccd73e883}"
+  description=""
+  generationTool="Simulink (R2020b)"
+  version="1.1"
+  variableNamingConvention="structured"
+  generationDateAndTime="2022-03-04T17:29:03Z"
+  numberOfEventIndicators="0">
+
+<CoSimulation
+  modelIdentifier="Conveyor"
+  canBeInstantiatedOnlyOncePerProcess="true"
+  canNotUseMemoryManagementFunctions="true"
+  />
+<DefaultExperiment startTime="0" stopTime="10" stepSize="0.001"/>
+<VendorAnnotations>
+  <Tool name="Simulink">
+    <Simulink>
+      <ImportCompatibility requireRelease="all" requireMATLABOnPath="no" />
+    </Simulink>
+  </Tool>
+</VendorAnnotations>
+<ModelVariables>
+  <ScalarVariable name="Velocity" valueReference="0" description="Velocity" causality="input" variability="continuous" >
+    <Real start="0"  />
+  </ScalarVariable> <!-- index="1" -->
+  <ScalarVariable name="Distance" valueReference="1" description="Distance" causality="output" variability="continuous" initial="calculated">
+    <Real  />
+  </ScalarVariable> <!-- index="2" -->
+  <ScalarVariable name="time" valueReference="2" description="time" causality="independent" variability="continuous" >
+    <Real  />
+  </ScalarVariable> <!-- index="3" -->
+</ModelVariables>
+<ModelStructure>
+  <Outputs>
+    <Unknown index="2" />
+  </Outputs>
+  <InitialUnknowns>
+    <Unknown index="2" />
+  </InitialUnknowns>
+</ModelStructure>
+</fmiModelDescription>
+

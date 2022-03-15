@@ -1,0 +1,28 @@
+
+% Autoref Bezeichnungen		--- von Geiger D.
+	\ifthenelse{\boolean{english}} {\renewcommand{\sectionautorefname}{Sec.} } 	 {\renewcommand{\sectionautorefname}{Abschn.}}
+	
+	\ifthenelse{\boolean{english}} {\renewcommand{\subsectionautorefname}{Sec.} } 	 {\renewcommand{\subsectionautorefname}{Abschn.}}
+		
+	\ifthenelse{\boolean{english}} {\renewcommand{\subsubsectionautorefname}{Sec.} } 	 {\renewcommand{\subsubsectionautorefname}{Abschn.}}
+			
+	\ifthenelse{\boolean{english}}	 {\renewcommand{\figureautorefname}{Fig.} } 	 {\renewcommand{\figureautorefname}{Abb.}}
+				
+	\ifthenelse{\boolean{english}} 		{\renewcommand{\tableautorefname}{Tab.} } 	 {\renewcommand{\tableautorefname}{Tab.} }
+
+	\ifthenelse{\boolean{english}} 				{\def\equationautorefname{Eq.} } 			 {\def\equationautorefname{Glg.} }
+	
+	\ifthenelse{\boolean{english}} 				{\def\lstl{Eq.} } 			 {\def\equationautorefname{Glg.} }
+	
+	
+	%% Label bei Listings
+	\ifthenelse{\boolean{english}} 				{	\renewcommand{\lstlistingname}{Sourcecode} } 			 {	\renewcommand{\lstlistingname}{Quellcode} }
+	\renewcommand{\lstlistingname}{Quellcode}
+	
+	%% Überschrift beim Listingverzeichnis
+	\ifthenelse{\boolean{english}}			 {\renewcommand{\lstlistlistingname}{List of Code}} 	 {\renewcommand{\lstlistlistingname}{Quellcodeverzeichnis}}		%%Überschrift von Verzeichnis
+	
+	
+	
+
+	
