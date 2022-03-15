@@ -40,7 +40,7 @@
     <ParamWithValue>
       <name>myAbs</name>
       <typeCode>mm</typeCode>
-      <value>120.00000000 mm</value>
+      <value>1 mm</value>
       <comment />
       <isKey>false</isKey>
     </ParamWithValue>

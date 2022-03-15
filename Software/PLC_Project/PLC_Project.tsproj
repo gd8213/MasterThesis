@@ -3,7 +3,7 @@
 	<Project ProjectGUID="{408988C3-0A8C-4CF1-B493-82E72712AFED}" Target64Bit="true" ShowHideConfigurations="#x106">
 		<System>
 			<Tasks>
-				<Task Id="3" Priority="20" CycleTime="100000" AmsPort="350" AdtTasks="true">
+				<Task Id="3" Priority="20" CycleTime="5000000" AmsPort="350" AdtTasks="true">
 					<Name>PlcTask</Name>
 				</Task>
 			</Tasks>
@@ -15,10 +15,18 @@
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Contexts>
 						<Context>
-							<Id>1</Id>
-							<Name>Default</Name>
+							<Id NeedCalleeCall="true">0</Id>
+							<Name>PlcTask</Name>
+							<ManualConfig>
+								<OTCID>#x02010030</OTCID>
+							</ManualConfig>
+							<Priority>20</Priority>
+							<CycleTime>500000000</CycleTime>
 						</Context>
 					</Contexts>
+					<TaskPouOids>
+						<TaskPouOid Prio="20" OTCID="#x08502001"/>
+					</TaskPouOids>
 				</Instance>
 			</Project>
 		</Plc>

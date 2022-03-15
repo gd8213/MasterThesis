@@ -7,10 +7,18 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[counter := counter + 1;]]></ST>
+      <ST><![CDATA[counter := counter + 1;
+IF counter > 50 THEN
+	counter := 0;
+END_IF
+
+AdsVariables.adsAbstand := counter /2;]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
       <LineId Id="2" Count="0" />
+      <LineId Id="9" Count="2" />
+      <LineId Id="8" Count="0" />
+      <LineId Id="7" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

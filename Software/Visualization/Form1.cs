@@ -8,27 +8,43 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// Inventor stuff
 using Inventor;
 using System.Runtime.InteropServices;
+
+// TwinCAT stuff
+using TwinCAT.Ads;
+using System.IO;
+
 
 namespace Visualization
 {
     public partial class Form1 : Form
     {
+        // Inventor Variables
         Inventor.Application _invApp = default(Inventor.Application);
         Inventor.AssemblyDocument _assDoc = default(Inventor.AssemblyDocument);
         Inventor.UserParameters _userParameters = default(Inventor.UserParameters);
-        bool _started = false;
 
-        public Form1()
-        {
+        // TwinCAT Variables
+        TwinCAT.Ads.TcAdsClient adsClient;
+        TwinCAT.Ads.AdsStream dataStream;
+        BinaryReader binReader;
+
+        AdsVariable adsAbstand;
+
+        public Form1() {
             InitializeComponent();
 
             // Get Inventor App
-            try {
+            try
+            {
                 _invApp = (Inventor.Application)Marshal.GetActiveObject("Inventor.Application");
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show("Start inventor, open an assembly and try it again");
+                Close();
                 /*       MessageBox.Show(ex.ToString());
 
                        // Start Inventor if not open
@@ -51,19 +67,41 @@ namespace Visualization
                        }
                 */
             }
-
-
         }
 
         private void btConnectPLC_Click(object sender, EventArgs e)
         {
-            ConnectToADS();
+            bool connected = ConnectToPLC();
+
+            adsAbstand = new AdsVariable("adsAbstand");
+            adsAbstand.handle = adsClient.AddDeviceNotification(adsAbstand.designation, dataStream, 0, 2, AdsTransMode.OnChange, 100, 0, adsAbstand.dValue);
+
+
+            adsClient.AdsNotification += new AdsNotificationEventHandler(OnAdsNotification);
         }
 
         private void btWriteParameter_Click(object sender, EventArgs e)
         {
             WriteParameterToInventor();
         }
+
+
+        private void Form1_FormClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            //Resourcen wieder freigeben
+            /*      try
+                  {
+                      adsClient.DeleteVariableHandle(hVar);
+                  }
+                  catch (Exception err)
+                  {
+                      MessageBox.Show(err.Message);
+                  }
+            */
+            MessageBox.Show("Close me");
+            adsClient.Dispose();
+        }
+
 
 
         private void WriteParameterToInventor()
@@ -73,9 +111,14 @@ namespace Visualization
             // Write parameters
             foreach (Inventor.UserParameter parameter in _userParameters)
             {
-                parameter.Value = 12;
-                parameter.Expression = "1";
-                string name = parameter.Name;
+                if (parameter.Name == "myAbs") {
+                    parameter.Expression = adsAbstand.dValue.ToString();
+                } else {
+                    parameter.Value = 12;
+                    parameter.Expression = "1";
+                    string name = parameter.Name;
+                }
+                
             }
 
             // Update Assembly with new Parameter values
@@ -93,10 +136,31 @@ namespace Visualization
             return true;
         }
 
-        private bool ConnectToADS()
+        private bool ConnectToPLC()
         {
+            adsClient = new TwinCAT.Ads.TcAdsClient();
+            adsClient.Connect(851);     // instead of 801
+
+            if (adsClient.IsConnected == false)    return false;
+
+            dataStream = new AdsStream(31);
+            binReader = new BinaryReader(dataStream, System.Text.Encoding.ASCII);
 
             return true;
+        }
+
+
+        // Wird aufgerufen wenn ein Read-Bool im TwinCAT den Status wechselt
+        private void OnAdsNotification(object sender, AdsNotificationEventArgs e)
+        {
+            if (adsAbstand.handle == e.NotificationHandle)
+            {
+                e.DataStream.Position = e.Offset;
+                adsAbstand.dValue = binReader.ReadInt16();
+                adsAbstand.hasChanged = true;
+            }
+
+            WriteParameterToInventor();
         }
 
 
