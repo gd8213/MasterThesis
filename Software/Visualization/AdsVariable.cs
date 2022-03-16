@@ -9,7 +9,8 @@ namespace Visualization
     internal class AdsVariable
     {
         public int handle;
-        public string designation;          // Bezeichnung in TwinCAT
+        public string nameTwinCAT;          // Bezeichnung in TwinCAT
+        public string nameInventor;
 
         public bool bValue = false;
         public double dValue = 0;
@@ -21,7 +22,8 @@ namespace Visualization
 
         public AdsVariable(string bezeichnung)
         {
-            designation = "AdsVariables." + bezeichnung;          // Bezeichnung mit GVL erweitern
+            nameInventor = bezeichnung;
+            nameTwinCAT = "AdsVariables." + bezeichnung;          // Bezeichnung mit GVL erweitern
         }
     }
 }

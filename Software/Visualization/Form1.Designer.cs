@@ -31,6 +31,7 @@
             this.btConnectPLC = new System.Windows.Forms.Button();
             this.btWriteParameter = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btReadParameter = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -65,14 +66,28 @@
             // groupBox1
             // 
             this.groupBox1.AutoSize = true;
+            this.groupBox1.Controls.Add(this.btReadParameter);
             this.groupBox1.Controls.Add(this.btConnectPLC);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(265, 42);
+            this.groupBox1.Size = new System.Drawing.Size(265, 65);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // btReadParameter
+            // 
+            this.btReadParameter.AutoSize = true;
+            this.btReadParameter.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btReadParameter.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btReadParameter.Location = new System.Drawing.Point(3, 39);
+            this.btReadParameter.Name = "btReadParameter";
+            this.btReadParameter.Size = new System.Drawing.Size(259, 23);
+            this.btReadParameter.TabIndex = 1;
+            this.btReadParameter.Text = "Read Parameters";
+            this.btReadParameter.UseVisualStyleBackColor = true;
+            this.btReadParameter.Click += new System.EventHandler(this.btReadParameter_Click);
             // 
             // groupBox2
             // 
@@ -80,7 +95,7 @@
             this.groupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox2.Controls.Add(this.btWriteParameter);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(0, 42);
+            this.groupBox2.Location = new System.Drawing.Point(0, 65);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(265, 42);
             this.groupBox2.TabIndex = 3;
@@ -111,6 +126,7 @@
         private System.Windows.Forms.Button btWriteParameter;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btReadParameter;
     }
 }
 

@@ -16,6 +16,9 @@ using System.Runtime.InteropServices;
 using TwinCAT.Ads;
 using System.IO;
 
+// Generel Stuff
+using System.Xml;       // Read Parameter from file
+
 
 namespace Visualization
 {
@@ -27,10 +30,14 @@ namespace Visualization
         Inventor.UserParameters _userParameters = default(Inventor.UserParameters);
 
         // TwinCAT Variables
-        TwinCAT.Ads.TcAdsClient adsClient;
+        TwinCAT.Ads.TcAdsClient adsClient = new TwinCAT.Ads.TcAdsClient();
         TwinCAT.Ads.AdsStream dataStream;
         BinaryReader binReader;
 
+
+        // Parameter List
+        List<AdsVariable> adsParameterList = new List<AdsVariable>();
+        string AdsKeyWord = "ADS";
         AdsVariable adsAbstand;
 
         public Form1() {
@@ -71,18 +78,43 @@ namespace Visualization
 
         private void btConnectPLC_Click(object sender, EventArgs e)
         {
-            bool connected = ConnectToPLC();
+            if(adsClient.IsConnected == false)          // Connect to TwinCAT
+            {
+                btConnectPLC.Text = "Disconnect from PLC";
 
-            adsAbstand = new AdsVariable("adsAbstand");
-            adsAbstand.handle = adsClient.AddDeviceNotification(adsAbstand.designation, dataStream, 0, 2, AdsTransMode.OnChange, 100, 0, adsAbstand.dValue);
+                if (ConnectToPLC() == false)        return;
 
+                // Create ADS-Handles
+                int adsOffset = 0;
+                int adsLength = 2;
 
-            adsClient.AdsNotification += new AdsNotificationEventHandler(OnAdsNotification);
+                foreach (var adsParameter in adsParameterList)
+                {
+                    adsParameter.handle = adsClient.AddDeviceNotification(adsParameter.nameTwinCAT, dataStream, adsOffset, adsLength, AdsTransMode.OnChange, 100, 0, adsParameter.dValue);
+                    adsOffset = adsOffset + adsLength;
+                }
+
+                adsClient.AdsNotification += new AdsNotificationEventHandler(OnAdsNotification);
+            }
+            else                // Disconnect
+            {
+                btConnectPLC.Text = "Connect to PLC";
+
+                adsClient.Disconnect();
+                adsClient.Dispose();
+            }
+
+            
         }
 
         private void btWriteParameter_Click(object sender, EventArgs e)
         {
             WriteParameterToInventor();
+        }
+
+        private void btReadParameter_Click(object sender, EventArgs e)
+        {
+            ReadParametersFromFile("Assembly-params.xml");
         }
 
 
@@ -99,30 +131,25 @@ namespace Visualization
                   }
             */
             MessageBox.Show("Close me");
-            adsClient.Dispose();
         }
 
 
 
         private void WriteParameterToInventor()
         {
-            if (CheckInventorDocument() == false) return;
+            if (CheckInventorDocument() == false)           return;
 
             // Write parameters
-            foreach (Inventor.UserParameter parameter in _userParameters)
+            foreach (Inventor.UserParameter userParam in _userParameters)
             {
-                if (parameter.Name == "myAbs") {
-                    parameter.Expression = adsAbstand.dValue.ToString();
-                } else {
-                    parameter.Value = 12;
-                    parameter.Expression = "1";
-                    string name = parameter.Name;
-                }
-                
-            }
+                if (userParam.Comment != AdsKeyWord)        continue;           // Only ADS variables
 
-            // Update Assembly with new Parameter values
-            _assDoc.Update();       
+                AdsVariable found = adsParameterList.Find(i => i.nameInventor == userParam.Name);       // Find parameter in list
+                userParam.Expression = found.dValue.ToString();             // Set Value in Inventor
+            }
+            
+            _assDoc.Update();                                               // Update Assembly with new Parameter values
+            _assDoc.Rebuild();
         }
 
         private bool CheckInventorDocument()
@@ -150,19 +177,43 @@ namespace Visualization
         }
 
 
-        // Wird aufgerufen wenn ein Read-Bool im TwinCAT den Status wechselt
+        // Is called when a parameter in TwinCAT changes
         private void OnAdsNotification(object sender, AdsNotificationEventArgs e)
         {
-            if (adsAbstand.handle == e.NotificationHandle)
-            {
-                e.DataStream.Position = e.Offset;
-                adsAbstand.dValue = binReader.ReadInt16();
-                adsAbstand.hasChanged = true;
-            }
+            // Update Value in List
+            AdsVariable found = adsParameterList.Find(i => i.handle == e.NotificationHandle);       // Find parameter in list
+            int index = adsParameterList.FindIndex(i => i.handle == e.NotificationHandle);
+            if (index == -1) return;
 
+            e.DataStream.Position = e.Offset;
+            adsParameterList[index].dValue = binReader.ReadInt16();
+
+            // Write new Value to Inventor
             WriteParameterToInventor();
         }
 
+        private int ReadParametersFromFile(string file)
+        {
+            adsParameterList.Clear();
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load(file);
+
+            XmlNode nodes =  doc.DocumentElement.SelectSingleNode("/ParamWithValueList/parameters");
+
+            foreach (XmlNode node in nodes.ChildNodes) {
+                string nodeCommend = node.SelectSingleNode("comment").InnerText;
+
+                if (nodeCommend == AdsKeyWord) {
+                    string nodeName = node.SelectSingleNode("name").InnerText;
+                    adsParameterList.Add(new AdsVariable(nodeName));
+                }
+            }
+
+
+            MessageBox.Show("Found " + adsParameterList.Count + " Parameters");
+            return 0;
+        }
 
 
     }
