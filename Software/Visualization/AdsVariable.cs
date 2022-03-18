@@ -8,16 +8,16 @@ namespace Visualization
 {
     internal class AdsVariable
     {
-        public int handle;
+        public int handle;                  // EtherCAT Handle
         public string nameTwinCAT;          // Bezeichnung in TwinCAT
-        public string nameInventor;
+        public string nameInventor;         // Bezeichnung in Inventor
 
-        public bool bValue = false;
-        public double dValue = 0;
-        public string stringValue = "";
+       // public bool bValue = false;
+        public float dValue = 0;
+       // public string stringValue = "";
 
 
-        public bool hasChanged = false;     // Variable wurde verandert und muss gelesen/geschrieben werden
+       // public bool hasChanged = false;     // Variable wurde verandert und muss gelesen/geschrieben werden
 
 
         public AdsVariable(string bezeichnung)

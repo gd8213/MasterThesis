@@ -3,8 +3,8 @@
   <GVL Name="AdsVariables" Id="{186c5690-a863-4347-bace-605c9d8bf706}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
-	upperDistance 	: 	INT 	:= 10;
-	lowerDistance	: 	INT 	:= 1;
+	upperDistance 	: 	REAL 	:= 10;
+	lowerDistance	: 	REAL 	:= 1;
 	counter3	:	INT		:= 69;	
 END_VAR]]></Declaration>
   </GVL>

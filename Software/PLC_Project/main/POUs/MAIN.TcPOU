@@ -12,8 +12,8 @@ IF counter > 50 THEN
 	counter := 0;
 END_IF
 
-AdsVariables.lowerDistance := counter /2;
-AdsVariables.upperDistance := counter;]]></ST>
+// AdsVariables.lowerDistance := counter /2;
+// AdsVariables.upperDistance := counter;]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
       <LineId Id="2" Count="0" />

@@ -42,69 +42,6 @@ namespace Visualization
 
         public Form1() {
             InitializeComponent();
-
-            // Get Inventor App
-            try
-            {
-                _invApp = (Inventor.Application)Marshal.GetActiveObject("Inventor.Application");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Start inventor, open an assembly and try it again");
-                Close();
-                /*       MessageBox.Show(ex.ToString());
-
-                       // Start Inventor if not open
-                       try {
-                           Type invAppType = Type.GetTypeFromProgID("Inventor.Application");
-
-                           _invApp = (Inventor.Application)System.Activator.CreateInstance(invAppType);
-                           _invApp.Visible = true;
-
-                           //Note: if the Inventor session is left running after this
-                           //form is closed, there will still an be and Inventor.exe 
-                           //running. We will use this Boolean to test in Form1.Designer.cs 
-                           //in the dispose method whether or not the Inventor App should
-                           //be shut down when the form is closed.
-                           _started = true;
-
-                       } catch (Exception ex2) {
-                           MessageBox.Show(ex2.ToString());
-                           MessageBox.Show("Unable to get or start Inventor");
-                       }
-                */
-            }
-        }
-
-        private void btConnectPLC_Click(object sender, EventArgs e)
-        {
-            if(adsClient.IsConnected == false)          // Connect to TwinCAT
-            {
-                btConnectPLC.Text = "Disconnect from PLC";
-
-                if (ConnectToPLC() == false)        return;
-
-                // Create ADS-Handles
-                int adsOffset = 0;
-                int adsLength = 2;
-
-                foreach (var adsParameter in adsParameterList)
-                {
-                    adsParameter.handle = adsClient.AddDeviceNotification(adsParameter.nameTwinCAT, dataStream, adsOffset, adsLength, AdsTransMode.OnChange, 100, 0, adsParameter.dValue);
-                    adsOffset = adsOffset + adsLength;
-                }
-
-                adsClient.AdsNotification += new AdsNotificationEventHandler(OnAdsNotification);
-            }
-            else                // Disconnect
-            {
-                btConnectPLC.Text = "Connect to PLC";
-
-                adsClient.Disconnect();
-                adsClient.Dispose();
-            }
-
-            
         }
 
         private void btWriteParameter_Click(object sender, EventArgs e)
@@ -115,6 +52,11 @@ namespace Visualization
         private void btReadParameter_Click(object sender, EventArgs e)
         {
             ReadParametersFromFile("Assembly-params.xml");
+        }
+
+        private void btConnectInventor_Click(object sender, EventArgs e)
+        {
+            ConnectToInventor();
         }
 
 
@@ -137,7 +79,7 @@ namespace Visualization
 
         private void WriteParameterToInventor()
         {
-            if (CheckInventorDocument() == false)           return;
+            if (_invApp == null)           return;
 
             // Write parameters
             foreach (Inventor.UserParameter userParam in _userParameters)
@@ -150,6 +92,31 @@ namespace Visualization
             
             _assDoc.Update();                                               // Update Assembly with new Parameter values
             _assDoc.Rebuild();
+        }
+
+        private bool ConnectToInventor()
+        {
+            // Get Inventor App
+            try
+            {
+                _invApp = (Inventor.Application)Marshal.GetActiveObject("Inventor.Application");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Start inventor, open an assembly and try it again");
+                return false;
+            }
+
+            if (CheckInventorDocument() == false)
+            {
+                MessageBox.Show("Start inventor, open an assembly and try it again");
+                _invApp = null;
+                return false;
+            }
+
+            ReadParametersFromInventor();
+            MessageBox.Show("Connected succesfully and added " + adsParameterList.Count.ToString() + " Parameters.");
+            return true;
         }
 
         private bool CheckInventorDocument()
@@ -186,7 +153,7 @@ namespace Visualization
             if (index == -1) return;
 
             e.DataStream.Position = e.Offset;
-            adsParameterList[index].dValue = binReader.ReadInt16();
+            adsParameterList[index].dValue = binReader.ReadSingle();
 
             // Write new Value to Inventor
             WriteParameterToInventor();
@@ -215,6 +182,49 @@ namespace Visualization
             return 0;
         }
 
+        private int ReadParametersFromInventor()
+        {
+            if (_invApp == null) return -1;
 
+            adsParameterList.Clear();
+            foreach (Inventor.UserParameter parameter in _userParameters)
+            {
+                if (parameter.Comment == AdsKeyWord)
+                {
+                    adsParameterList.Add(new AdsVariable(parameter.Name));
+                }
+            }
+
+            return adsParameterList.Count;
+        }
+
+        private void btConnectPLC_Click_1(object sender, EventArgs e)
+        {
+            if (adsClient.IsConnected == false)          // Connect to TwinCAT
+            {
+                btConnectPLC.Text = "Disconnect from PLC";
+
+                if (ConnectToPLC() == false) return;
+
+                // Create ADS-Handles
+                int adsOffset = 0;      // Starting Offset
+                int adsLength = 4;      // Size of Real
+
+                foreach (var adsParameter in adsParameterList)
+                {
+                    adsParameter.handle = adsClient.AddDeviceNotification(adsParameter.nameTwinCAT, dataStream, adsOffset, adsLength, AdsTransMode.OnChange, 100, 0, adsParameter.dValue);
+                    adsOffset = adsOffset + adsLength;
+                }
+
+                adsClient.AdsNotification += new AdsNotificationEventHandler(OnAdsNotification);
+            }
+            else                // Disconnect
+            {
+                btConnectPLC.Text = "Connect to PLC";
+
+                adsClient.Disconnect();
+                adsClient.Dispose();
+            }
+        }
     }
 }
