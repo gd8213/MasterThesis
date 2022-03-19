@@ -3,21 +3,75 @@
   <POU Name="MAIN" Id="{fef2700b-e0b1-4384-91dc-030dd6cbb394}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
+	iState 		: INT 	:= 0;	
+	iMethod		: SINT 	:= 0;
+	
+	bCreateContainer	: 	BOOL := FALSE;
+	bRemoveContainer	:	BOOL := FALSE;
+	
+	bSensorOben		: BOOL;
+	bSensorMitte	: BOOL;
+	bSensorUnten	: BOOL;
+	bSensor1		: BOOL;
+	bSensor2		: BOOL; 
+	
+	bHubmagnetOben	: BOOL := TRUE;
+	bHubmagnetUnten	: BOOL := TRUE;
+	
+	
+	
+	Vereinzelung : POU_Vereinzelung_ST;
 	counter : int := 0;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[counter := counter + 1;
+      <ST><![CDATA[Vereinzelung(
+	ssMethodType:= iMethod, 
+	Signal_CreateContainer:= BOOL_TO_LREAL(bCreateContainer), 
+	Hw_HubmagnetOben:= bHubmagnetOben, 
+	Hw_HubmagnetUnten:= bHubmagnetUnten, 
+	SamplingTime:= 0.01, 
+	c_Signal_RemoveContainerOnC:= bRemoveContainer, 
+	Signal_Storage1=> bSensor1,
+	Signal_Storage2=> bSensor2,
+	Hw_SensorOben=> bSensorOben, 
+	Hw_SensorMitte=> bSensorMitte, 
+	Hw_SensorUnten=> bSensorUnten);
+
+
+counter := counter + 1;
 IF counter > 50 THEN
 	counter := 0;
 END_IF
+
+
+CASE iState OF
+	0:
+		
+		iState := iState +1;
+	1:
+		iMethod := 1;
+END_CASE
 
 // AdsVariables.lowerDistance := counter /2;
 // AdsVariables.upperDistance := counter;]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
+      <LineId Id="35" Count="6" />
+      <LineId Id="73" Count="0" />
+      <LineId Id="78" Count="0" />
+      <LineId Id="42" Count="1" />
+      <LineId Id="32" Count="2" />
       <LineId Id="2" Count="0" />
       <LineId Id="9" Count="2" />
+      <LineId Id="23" Count="1" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="50" Count="0" />
+      <LineId Id="27" Count="0" />
       <LineId Id="8" Count="0" />
       <LineId Id="7" Count="0" />
       <LineId Id="16" Count="0" />

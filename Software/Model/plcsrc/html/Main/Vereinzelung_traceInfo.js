@@ -1,5 +1,7 @@
 function RTW_Sid2UrlHash() {
 	this.urlHashMap = new Array();
+	/* <S1>/Cast To Boolean */
+	this.urlHashMap["Main:47:154"] = "Main.st:178";
 	this.getUrlHash = function(sid) { return this.urlHashMap[sid];}
 }
 RTW_Sid2UrlHash.instance = new RTW_Sid2UrlHash();
@@ -16,6 +18,10 @@ function RTW_rtwnameSIDMap() {
 	this.sidHashMap["Main:47:3"] = {rtwname: "<S1>/Hw_HubmagnetUnten"};
 	this.rtwnameHashMap["<S1>/SamplingTime"] = {sid: "Main:47:54"};
 	this.sidHashMap["Main:47:54"] = {rtwname: "<S1>/SamplingTime"};
+	this.rtwnameHashMap["<S1>/Signal_RemoveContainerOnConveyor"] = {sid: "Main:47:144"};
+	this.sidHashMap["Main:47:144"] = {rtwname: "<S1>/Signal_RemoveContainerOnConveyor"};
+	this.rtwnameHashMap["<S1>/Cast To Boolean"] = {sid: "Main:47:154"};
+	this.sidHashMap["Main:47:154"] = {rtwname: "<S1>/Cast To Boolean"};
 	this.rtwnameHashMap["<S1>/From1"] = {sid: "Main:47:51"};
 	this.sidHashMap["Main:47:51"] = {rtwname: "<S1>/From1"};
 	this.rtwnameHashMap["<S1>/From2"] = {sid: "Main:47:52"};
@@ -36,6 +42,10 @@ function RTW_rtwnameSIDMap() {
 	this.sidHashMap["Main:47:18"] = {rtwname: "<S1>/Hw_SensorMitte"};
 	this.rtwnameHashMap["<S1>/Hw_SensorUnten"] = {sid: "Main:47:19"};
 	this.sidHashMap["Main:47:19"] = {rtwname: "<S1>/Hw_SensorUnten"};
+	this.rtwnameHashMap["<S1>/Signal_Storage1"] = {sid: "Main:47:145"};
+	this.sidHashMap["Main:47:145"] = {rtwname: "<S1>/Signal_Storage1"};
+	this.rtwnameHashMap["<S1>/Signal_Storage2"] = {sid: "Main:47:146"};
+	this.sidHashMap["Main:47:146"] = {rtwname: "<S1>/Signal_Storage2"};
 	this.getSID = function(rtwname) { return this.rtwnameHashMap[rtwname];}
 	this.getRtwname = function(sid) { return this.sidHashMap[sid];}
 }

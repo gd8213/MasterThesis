@@ -1,25 +1,8 @@
-(*
- *
- * File: Main.st
- *
- * IEC 61131-3 Structured Text (ST) code generated for subsystem "Main/Vereinzelung"
- *
- * Model name                      : Main
- * Model version                   : 1.27
- * Model creator                   : kaebi
- * Model last modified by          : kaebi
- * Model last modified on          : Sat Mar 19 17:21:19 2022
- * Model sample time               : 0.01s
- * Subsystem name                  : Main/Vereinzelung
- * Subsystem sample time           : 0.01s
- * Simulink PLC Coder version      : 3.3 (R2020b) 29-Jul-2020
- * ST code generated on            : Sat Mar 19 17:21:24 2022
- *
- * Target IDE selection            : Beckhoff TwinCAT 3
- * Test Bench included             : No
- *
- *)
-FUNCTION_BLOCK Vereinzelung
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="POU_Vereinzelung_ST" Id="{8c80ff1d-5107-4f26-aed0-02e5c1cc29f2}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK POU_Vereinzelung_ST
+
 VAR_INPUT
     ssMethodType: SINT;
     Signal_CreateContainer: LREAL;
@@ -81,8 +64,9 @@ VAR_TEMP
     rtb_Switch: BOOL;
     i: DINT;
     rtb_Divide_h_tmp: LREAL;
-END_VAR
-CASE ssMethodType OF
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CASE ssMethodType OF
     SS_INITIALIZE: 
         (* SystemInitialize for Atomic SubSystem: '<Root>/Vereinzelung' *)
         (* InitializeConditions for Delay: '<S2>/Delay4' *)
@@ -449,9 +433,11 @@ CASE ssMethodType OF
         (* Update for UnitDelay: '<S26>/Unit Delay' *)
         UnitDelay_DSTATE_m := rtb_Delay10;
         (* End of Outputs for SubSystem: '<Root>/Vereinzelung' *)
-END_CASE;
-END_FUNCTION_BLOCK
-VAR_GLOBAL CONSTANT
-    SS_INITIALIZE: SINT := 0;
-    SS_STEP: SINT := 1;
-END_VAR
+END_CASE;]]></ST>
+    </Implementation>
+    <LineIds Name="POU_Vereinzelung_ST">
+      <LineId Id="1068" Count="366" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
