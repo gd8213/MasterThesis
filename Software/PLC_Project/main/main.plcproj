@@ -31,7 +31,7 @@
     <Compile Include="POUs\MAIN.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\POU_Vereinzelung_ST.TcPOU">
+    <Compile Include="POUs\Vereinzelung.TcPOU">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

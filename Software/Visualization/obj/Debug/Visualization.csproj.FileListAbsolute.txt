@@ -11,3 +11,4 @@ C:\Users\kaebi\OneDrive - mci4me.at\03_MCI Master\4.Semester_SS2022\Masterarbeit
 C:\Users\kaebi\OneDrive - mci4me.at\03_MCI Master\4.Semester_SS2022\Masterarbeit\Software\Visualization\bin\Debug\TwinCAT.Ads.dll
 C:\Users\kaebi\OneDrive - mci4me.at\03_MCI Master\4.Semester_SS2022\Masterarbeit\Software\Visualization\bin\Debug\TwinCAT.Ads.xml
 C:\Users\kaebi\OneDrive - mci4me.at\03_MCI Master\4.Semester_SS2022\Masterarbeit\Software\Visualization\obj\Debug\Visualization.csproj.CopyComplete
+C:\Users\kaebi\OneDrive - mci4me.at\03_MCI Master\4.Semester_SS2022\Masterarbeit\Software\Visualization\obj\Debug\Visualization.csproj.AssemblyReference.cache

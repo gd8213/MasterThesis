@@ -1,0 +1,12 @@
+<DriverConfigurations>
+  <DriverConfig>
+    <ProjectParameters />
+    <FmuParameters>
+      <Parameter Name="InputFile">C:\Users\kaebi\OneDrive - mci4me.at\03_MCI Master\4.Semester_SS2022\Masterarbeit\Software\Model\Main.fmu</Parameter>
+      <Parameter Name="GenerationTool">OTHER</Parameter>
+      <Parameter Name="TcComWrapperFb">true</Parameter>
+      <Parameter Name="MonitorExecutionTime">true</Parameter>
+      <Parameter Name="CreateLibraryFmuValue">createLibraryFmu</Parameter>
+    </FmuParameters>
+  </DriverConfig>
+</DriverConfigurations>

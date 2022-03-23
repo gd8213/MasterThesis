@@ -12,39 +12,46 @@ VAR
 	bSensorOben		: BOOL;
 	bSensorMitte	: BOOL;
 	bSensorUnten	: BOOL;
-	bSensor1		: BOOL;
-	bSensor2		: BOOL; 
+	bSensorLagerUnten		: BOOL;
+	bSensorLagerMitte		: BOOL; 
 	
 	bHubmagnetOben	: BOOL := TRUE;
 	bHubmagnetUnten	: BOOL := TRUE;
 	
 	
 	
-	Vereinzelung : POU_Vereinzelung_ST;
+	instVereinzelung : Vereinzelung;
 	counter : int := 0;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[Vereinzelung(
+      <ST><![CDATA[// Call models
+instVereinzelung(
 	ssMethodType:= iMethod, 
 	Signal_CreateContainer:= BOOL_TO_LREAL(bCreateContainer), 
+	c_Signal_RemoveContainerOnC:= bRemoveContainer, 
+	SamplingTime:= 0.01, 
 	Hw_HubmagnetOben:= bHubmagnetOben, 
 	Hw_HubmagnetUnten:= bHubmagnetUnten, 
-	SamplingTime:= 0.01, 
-	c_Signal_RemoveContainerOnC:= bRemoveContainer, 
-	Signal_Storage1=> bSensor1,
-	Signal_Storage2=> bSensor2,
+	Signal_Storage2=> bSensorLagerMitte, 
+	Signal_Storage1=> bSensorLagerUnten, 
 	Hw_SensorOben=> bSensorOben, 
 	Hw_SensorMitte=> bSensorMitte, 
 	Hw_SensorUnten=> bSensorUnten);
 
 
-counter := counter + 1;
-IF counter > 50 THEN
-	counter := 0;
-END_IF
+AdsVariables.Container1_ADS := BOOL_TO_REAL(bSensorUnten);
+AdsVariables.Container2_ADS := BOOL_TO_REAL(bSensorMitte);
+AdsVariables.Container3_ADS := BOOL_TO_REAL(bSensorOben);
+AdsVariables.Container4_ADS := BOOL_TO_REAL(bSensorLagerUnten);
+AdsVariables.Container5_ADS := BOOL_TO_REAL(bSensorLagerMitte);
+AdsVariables.HubmagnetOben_ADS := BOOL_TO_REAL(bHubmagnetOben);
+AdsVariables.HubmagnetUnten_ADS := BOOL_TO_REAL(bHubmagnetUnten);
+	
 
 
+
+// State Machine
 CASE iState OF
 	0:
 		
@@ -53,18 +60,21 @@ CASE iState OF
 		iMethod := 1;
 END_CASE
 
-// AdsVariables.lowerDistance := counter /2;
-// AdsVariables.upperDistance := counter;]]></ST>
+]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
-      <LineId Id="35" Count="6" />
-      <LineId Id="73" Count="0" />
-      <LineId Id="78" Count="0" />
-      <LineId Id="42" Count="1" />
-      <LineId Id="32" Count="2" />
-      <LineId Id="2" Count="0" />
-      <LineId Id="9" Count="2" />
-      <LineId Id="23" Count="1" />
+      <LineId Id="148" Count="0" />
+      <LineId Id="135" Count="10" />
+      <LineId Id="134" Count="0" />
+      <LineId Id="33" Count="1" />
+      <LineId Id="126" Count="4" />
+      <LineId Id="132" Count="0" />
+      <LineId Id="131" Count="0" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="147" Count="0" />
+      <LineId Id="146" Count="0" />
+      <LineId Id="125" Count="0" />
+      <LineId Id="24" Count="0" />
       <LineId Id="22" Count="0" />
       <LineId Id="26" Count="0" />
       <LineId Id="29" Count="0" />
@@ -73,7 +83,6 @@ END_CASE
       <LineId Id="50" Count="0" />
       <LineId Id="27" Count="0" />
       <LineId Id="8" Count="0" />
-      <LineId Id="7" Count="0" />
       <LineId Id="16" Count="0" />
     </LineIds>
   </POU>

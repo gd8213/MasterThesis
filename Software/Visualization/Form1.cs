@@ -91,7 +91,7 @@ namespace Visualization
             }
             
             _assDoc.Update();                                               // Update Assembly with new Parameter values
-            _assDoc.Rebuild();
+          //  _assDoc.Rebuild();
         }
 
         private bool ConnectToInventor()
@@ -191,6 +191,7 @@ namespace Visualization
             {
                 if (parameter.Comment == AdsKeyWord)
                 {
+                    Inventor.ObjectTypeEnum parameterType = parameter.Type;
                     adsParameterList.Add(new AdsVariable(parameter.Name));
                 }
             }
