@@ -11,6 +11,10 @@ VAR_GLOBAL
 	
 	HubmagnetOben_ADS	: 	REAL := 0;
 	HubmagnetUnten_ADS	:	REAL := 0;
+	
+	
+	VonMatlab		: REAL := 1;
+	NachMatlab		: REAL := 1;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
