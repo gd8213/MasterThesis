@@ -2,31 +2,33 @@
  *
  * File: Main.st
  *
- * IEC 61131-3 Structured Text (ST) code generated for subsystem "Main/Vereinzelung"
+ * IEC 61131-3 Structured Text (ST) code generated for subsystem "Main/Model_Seperator"
  *
  * Model name                      : Main
- * Model version                   : 1.36
+ * Model version                   : 1.59
  * Model creator                   : kaebi
  * Model last modified by          : kaebi
- * Model last modified on          : Wed Mar 23 14:39:40 2022
- * Model sample time               : 0.01s
- * Subsystem name                  : Main/Vereinzelung
- * Subsystem sample time           : 0.01s
+ * Model last modified on          : Mon Mar 28 15:47:13 2022
+ * Model sample time               : 0.001s
+ * Subsystem name                  : Main/Model_Seperator
+ * Subsystem sample time           : 0.001s
  * Simulink PLC Coder version      : 3.3 (R2020b) 29-Jul-2020
- * ST code generated on            : Wed Mar 23 14:39:46 2022
+ * ST code generated on            : Mon Mar 28 15:47:19 2022
  *
  * Target IDE selection            : Beckhoff TwinCAT 3
  * Test Bench included             : No
  *
  *)
-FUNCTION_BLOCK Vereinzelung
+FUNCTION_BLOCK Model_Seperator
 VAR_INPUT
     ssMethodType: SINT;
     Signal_CreateContainer: LREAL;
     c_Signal_RemoveContainerOnC: BOOL;
     SamplingTime: LREAL;
-    Hw_HubmagnetOben: BOOL;
-    Hw_HubmagnetUnten: BOOL;
+    Hw_AktOben1: BOOL;
+    Hw_AktOben2: BOOL;
+    Hw_AktUnten1: BOOL;
+    Hw_AktUnten2: BOOL;
 END_VAR
 VAR_OUTPUT
     Signal_Storage2: BOOL;
@@ -36,21 +38,19 @@ VAR_OUTPUT
     Hw_SensorUnten: BOOL;
 END_VAR
 VAR
-    Delay_DSTATE_d: ARRAY [0..2499] OF BOOL;
     Delay7_DSTATE: ARRAY [0..2499] OF BOOL;
     Delay10_DSTATE: ARRAY [0..2499] OF BOOL;
     Delay1_DSTATE: ARRAY [0..2499] OF BOOL;
-    Delay_DSTATE_f: ARRAY [0..2499] OF BOOL;
     Delay_DSTATE: ARRAY [0..2499] OF BOOL;
     DelayInput1_DSTATE_b: BOOL;
-    DelayInput1_DSTATE_p: BOOL;
-    DelayInput1_DSTATE_n: BOOL;
-    DelayInput1_DSTATE_l: BOOL;
-    DelayInput1_DSTATE_h: BOOL;
-    UnitDelay_DSTATE_o: BOOL;
-    UnitDelay_DSTATE_a: BOOL;
+    DelayInput1_DSTATE_ml: BOOL;
+    DelayInput1_DSTATE_j: BOOL;
+    DelayInput1_DSTATE_m: BOOL;
+    DelayInput1_DSTATE_e: BOOL;
+    UnitDelay_DSTATE_im: BOOL;
+    UnitDelay_DSTATE_k: BOOL;
+    UnitDelay_DSTATE_i: BOOL;
     UnitDelay_DSTATE_b: BOOL;
-    UnitDelay_DSTATE_f: BOOL;
     UnitDelay_DSTATE: BOOL;
     Delay4_DSTATE: BOOL;
     DelayInput1_DSTATE: BOOL;
@@ -64,28 +64,28 @@ VAR
     Delay2_DSTATE: BOOL;
 END_VAR
 VAR_TEMP
+    rtb_Uk1: BOOL;
+    rtb_NOT6: BOOL;
+    rtb_AND: BOOL;
     rtb_Compare: BOOL;
     rtb_AND1: BOOL;
-    rtb_AND2: BOOL;
+    rtb_AND2_g: BOOL;
     rtb_AND3: BOOL;
-    rtb_Uk1: BOOL;
-    rtb_AND4: BOOL;
-    rtb_Compare_h: BOOL;
-    rtb_Compare_f: BOOL;
-    rtb_Compare_e: BOOL;
+    rtb_Compare_o: BOOL;
     rtb_Compare_l: BOOL;
+    rtb_Compare_f: BOOL;
+    rtb_Compare_n: BOOL;
     rtb_Divide: LREAL;
-    rtb_Delay: BOOL;
     rtb_Delay1: BOOL;
     rtb_Delay10: BOOL;
     rtb_Delay7: BOOL;
     rtb_Switch: BOOL;
     i: DINT;
-    rtb_Divide_n_tmp: LREAL;
+    rtb_Uk1_tmp: BOOL;
 END_VAR
 CASE ssMethodType OF
     SS_INITIALIZE: 
-        (* SystemInitialize for Atomic SubSystem: '<Root>/Vereinzelung' *)
+        (* SystemInitialize for Atomic SubSystem: '<Root>/Model_Seperator' *)
         (* InitializeConditions for Delay: '<S2>/Delay4' *)
         Delay4_DSTATE := FALSE;
         (* InitializeConditions for UnitDelay: '<S5>/Delay Input1'
@@ -110,65 +110,74 @@ CASE ssMethodType OF
         Delay11_DSTATE := FALSE;
         (* InitializeConditions for Delay: '<S2>/Delay12' *)
         Delay12_DSTATE := FALSE;
-        (* End of SystemInitialize for SubSystem: '<Root>/Vereinzelung' *)
-        (* SystemInitialize for Atomic SubSystem: '<Root>/Vereinzelung' *)
-        FOR i := 0 TO 2499 DO 
-            (* InitializeConditions for Delay: '<S3>/Delay' *)
-            Delay_DSTATE[i] := FALSE;
-            (* InitializeConditions for Delay: '<S2>/Delay' *)
-            Delay_DSTATE_f[i] := FALSE;
-            (* InitializeConditions for Delay: '<S2>/Delay1' *)
-            Delay1_DSTATE[i] := FALSE;
-            (* InitializeConditions for Delay: '<S2>/Delay10' *)
-            Delay10_DSTATE[i] := FALSE;
-            (* InitializeConditions for Delay: '<S2>/Delay7' *)
-            Delay7_DSTATE[i] := FALSE;
-            (* InitializeConditions for Delay: '<S4>/Delay' *)
-            Delay_DSTATE_d[i] := FALSE;
-        END_FOR;
-        (* InitializeConditions for UnitDelay: '<S6>/Delay Input1'
-         *
-         * Block description for '<S6>/Delay Input1':
-         *  
-         *  Store in Global RAM *)
-        DelayInput1_DSTATE_h := FALSE;
-        (* InitializeConditions for UnitDelay: '<S7>/Delay Input1'
-         *
-         * Block description for '<S7>/Delay Input1':
-         *  
-         *  Store in Global RAM *)
-        DelayInput1_DSTATE_l := FALSE;
-        (* InitializeConditions for UnitDelay: '<S8>/Delay Input1'
-         *
-         * Block description for '<S8>/Delay Input1':
-         *  
-         *  Store in Global RAM *)
-        DelayInput1_DSTATE_n := FALSE;
-        (* InitializeConditions for UnitDelay: '<S9>/Delay Input1'
-         *
-         * Block description for '<S9>/Delay Input1':
-         *  
-         *  Store in Global RAM *)
-        DelayInput1_DSTATE_p := FALSE;
         (* InitializeConditions for UnitDelay: '<S10>/Delay Input1'
          *
          * Block description for '<S10>/Delay Input1':
          *  
          *  Store in Global RAM *)
         DelayInput1_DSTATE_b := FALSE;
+        (* End of SystemInitialize for SubSystem: '<Root>/Model_Seperator' *)
+        (* SystemInitialize for Atomic SubSystem: '<Root>/Model_Seperator' *)
+        FOR i := 0 TO 2499 DO 
+            (* InitializeConditions for Delay: '<S2>/Delay' *)
+            Delay_DSTATE[i] := FALSE;
+            (* InitializeConditions for Delay: '<S2>/Delay1' *)
+            Delay1_DSTATE[i] := FALSE;
+            (* InitializeConditions for Delay: '<S2>/Delay10' *)
+            Delay10_DSTATE[i] := FALSE;
+            (* InitializeConditions for Delay: '<S2>/Delay7' *)
+            Delay7_DSTATE[i] := FALSE;
+        END_FOR;
+        (* InitializeConditions for UnitDelay: '<S6>/Delay Input1'
+         *
+         * Block description for '<S6>/Delay Input1':
+         *  
+         *  Store in Global RAM *)
+        DelayInput1_DSTATE_e := FALSE;
+        (* InitializeConditions for UnitDelay: '<S7>/Delay Input1'
+         *
+         * Block description for '<S7>/Delay Input1':
+         *  
+         *  Store in Global RAM *)
+        DelayInput1_DSTATE_m := FALSE;
+        (* InitializeConditions for UnitDelay: '<S8>/Delay Input1'
+         *
+         * Block description for '<S8>/Delay Input1':
+         *  
+         *  Store in Global RAM *)
+        DelayInput1_DSTATE_j := FALSE;
+        (* InitializeConditions for UnitDelay: '<S9>/Delay Input1'
+         *
+         * Block description for '<S9>/Delay Input1':
+         *  
+         *  Store in Global RAM *)
+        DelayInput1_DSTATE_ml := FALSE;
         (* InitializeConditions for UnitDelay: '<S22>/Unit Delay' *)
         UnitDelay_DSTATE := FALSE;
         (* InitializeConditions for UnitDelay: '<S23>/Unit Delay' *)
-        UnitDelay_DSTATE_f := FALSE;
-        (* InitializeConditions for UnitDelay: '<S24>/Unit Delay' *)
         UnitDelay_DSTATE_b := FALSE;
+        (* InitializeConditions for UnitDelay: '<S24>/Unit Delay' *)
+        UnitDelay_DSTATE_i := FALSE;
         (* InitializeConditions for UnitDelay: '<S25>/Unit Delay' *)
-        UnitDelay_DSTATE_a := FALSE;
+        UnitDelay_DSTATE_k := FALSE;
         (* InitializeConditions for UnitDelay: '<S26>/Unit Delay' *)
-        UnitDelay_DSTATE_o := FALSE;
-        (* End of SystemInitialize for SubSystem: '<Root>/Vereinzelung' *)
+        UnitDelay_DSTATE_im := FALSE;
+        (* End of SystemInitialize for SubSystem: '<Root>/Model_Seperator' *)
     SS_STEP: 
-        (* Outputs for Atomic SubSystem: '<Root>/Vereinzelung' *)
+        (* Outputs for Atomic SubSystem: '<Root>/Model_Seperator' *)
+        (* Logic: '<S4>/XOR' *)
+        rtb_Uk1 := Hw_AktOben1 XOR Hw_AktOben2;
+        (* Logic: '<S4>/AND2' incorporates:
+         *  Logic: '<S4>/NOT' *)
+        rtb_Compare :=  NOT Hw_AktOben2;
+        (* Logic: '<S2>/NOT6' incorporates:
+         *  Logic: '<S4>/AND2'
+         *  Logic: '<S4>/NOT1' *)
+        rtb_NOT6 := (Hw_AktOben1 OR rtb_Compare) OR ( NOT rtb_Uk1);
+        (* Logic: '<S4>/AND' *)
+        rtb_AND := (rtb_Uk1 AND Hw_AktOben1) AND rtb_Compare;
+        (* Logic: '<S3>/XOR' *)
+        rtb_Uk1 := Hw_AktUnten1 XOR Hw_AktUnten2;
         (* Product: '<S2>/Divide' incorporates:
          *  Constant: '<S2>/Constant' *)
         rtb_Divide := 0.25 / SamplingTime;
@@ -191,7 +200,7 @@ CASE ssMethodType OF
          *  Delay: '<S2>/Delay5'
          *  Delay: '<S2>/Delay6'
          *  Logic: '<S2>/NOT2' *)
-        rtb_AND2 := Delay5_DSTATE AND ( NOT Delay6_DSTATE);
+        rtb_AND2_g := Delay5_DSTATE AND ( NOT Delay6_DSTATE);
         (* Delay: '<S2>/Delay9' *)
         Hw_SensorMitte := Delay9_DSTATE;
         (* Logic: '<S2>/AND3' incorporates:
@@ -202,38 +211,20 @@ CASE ssMethodType OF
         (* Outport: '<Root>/Hw_SensorUnten' incorporates:
          *  Delay: '<S2>/Delay12' *)
         Hw_SensorUnten := Delay12_DSTATE;
-        (* Product: '<S3>/Divide' incorporates:
-         *  Constant: '<S3>/Constant'
-         *  Product: '<S4>/Divide' *)
-        rtb_Divide_n_tmp := 0.5 / SamplingTime;
-        (* Delay: '<S3>/Delay' incorporates:
-         *  Product: '<S3>/Divide' *)
-        IF rtb_Divide_n_tmp < 1.0 THEN 
-            rtb_Uk1 := Hw_HubmagnetOben;
-        ELSE 
-            IF rtb_Divide_n_tmp > 2500.0 THEN 
-                i := 2500;
-            ELSE 
-                i := UDINT_TO_DINT(DINT_TO_UDINT(TRUNC(rtb_Divide_n_tmp)));
-            END_IF;
-            rtb_Uk1 := Delay_DSTATE[2500 - DINT_TO_UDINT(i)];
-        END_IF;
-        (* End of Delay: '<S3>/Delay' *)
-        
         (* Logic: '<S2>/AND4' incorporates:
          *  Delay: '<S2>/Delay11'
          *  Delay: '<S2>/Delay12'
-         *  Logic: '<S2>/NOT5'
-         *  Logic: '<S2>/NOT6' *)
-        rtb_AND4 := (Delay11_DSTATE AND ( NOT Delay12_DSTATE)) AND ( NOT rtb_Uk1);
+         *  Logic: '<S2>/AND5'
+         *  Logic: '<S2>/NOT5' *)
+        rtb_NOT6 := (Delay11_DSTATE AND ( NOT Delay12_DSTATE)) AND (rtb_NOT6 AND rtb_AND);
         (* Delay: '<S2>/Delay' incorporates:
          *  Delay: '<S2>/Delay1'
          *  Delay: '<S2>/Delay10'
          *  Delay: '<S2>/Delay7' *)
         IF rtb_Divide < 1.0 THEN 
-            rtb_Delay := rtb_AND1;
-            rtb_Delay1 := rtb_AND2;
-            rtb_Delay10 := rtb_AND4;
+            rtb_AND := rtb_AND1;
+            rtb_Delay1 := rtb_AND2_g;
+            rtb_Delay10 := rtb_NOT6;
             rtb_Delay7 := rtb_AND3;
         ELSE 
             IF rtb_Divide > 2500.0 THEN 
@@ -241,7 +232,7 @@ CASE ssMethodType OF
             ELSE 
                 i := UDINT_TO_DINT(DINT_TO_UDINT(TRUNC(rtb_Divide)));
             END_IF;
-            rtb_Delay := Delay_DSTATE_f[2500 - DINT_TO_UDINT(i)];
+            rtb_AND := Delay_DSTATE[2500 - DINT_TO_UDINT(i)];
             IF rtb_Divide > 2500.0 THEN 
                 i := 2500;
             ELSE 
@@ -263,31 +254,18 @@ CASE ssMethodType OF
         END_IF;
         (* End of Delay: '<S2>/Delay' *)
         
-        (* Delay: '<S4>/Delay' *)
-        IF rtb_Divide_n_tmp < 1.0 THEN 
-            rtb_Uk1 := Hw_HubmagnetUnten;
-        ELSE 
-            IF rtb_Divide_n_tmp > 2500.0 THEN 
-                i := 2500;
-            ELSE 
-                i := UDINT_TO_DINT(DINT_TO_UDINT(TRUNC(rtb_Divide_n_tmp)));
-            END_IF;
-            rtb_Uk1 := Delay_DSTATE_d[2500 - DINT_TO_UDINT(i)];
-        END_IF;
-        (* End of Delay: '<S4>/Delay' *)
-        
         (* RelationalOperator: '<S17>/Compare' incorporates:
          *  Delay: '<S2>/Delay3' *)
-        rtb_Compare_h := Delay3_DSTATE;
+        rtb_Compare_o := Delay3_DSTATE;
         (* RelationalOperator: '<S18>/Compare' incorporates:
          *  Delay: '<S2>/Delay6' *)
-        rtb_Compare_f := Delay6_DSTATE;
+        rtb_Compare_l := Delay6_DSTATE;
         (* RelationalOperator: '<S19>/Compare' incorporates:
          *  Delay: '<S2>/Delay9' *)
-        rtb_Compare_e := Delay9_DSTATE;
+        rtb_Compare_f := Delay9_DSTATE;
         (* RelationalOperator: '<S20>/Compare' incorporates:
          *  Delay: '<S2>/Delay12' *)
-        rtb_Compare_l := Delay12_DSTATE;
+        rtb_Compare_n := Delay12_DSTATE;
         (* Switch: '<S22>/Switch' incorporates:
          *  Delay: '<S2>/Delay3'
          *  Delay: '<S2>/Delay4'
@@ -309,7 +287,7 @@ CASE ssMethodType OF
          * Block description for '<S6>/Delay Input1':
          *  
          *  Store in Global RAM *)
-        rtb_Switch := ((BOOL_TO_DINT(rtb_Compare) > BOOL_TO_DINT(DelayInput1_DSTATE)) AND ( NOT Delay4_DSTATE)) OR ((BOOL_TO_DINT(Delay3_DSTATE) <= BOOL_TO_DINT(DelayInput1_DSTATE_h)) AND UnitDelay_DSTATE);
+        rtb_Switch := ((BOOL_TO_DINT(rtb_Compare) > BOOL_TO_DINT(DelayInput1_DSTATE)) AND ( NOT Delay4_DSTATE)) OR ((BOOL_TO_DINT(Delay3_DSTATE) <= BOOL_TO_DINT(DelayInput1_DSTATE_e)) AND UnitDelay_DSTATE);
         (* Switch: '<S23>/Switch' incorporates:
          *  Delay: '<S2>/Delay6'
          *  Logic: '<S23>/Logical Operator'
@@ -322,7 +300,7 @@ CASE ssMethodType OF
          * Block description for '<S7>/Delay Input1':
          *  
          *  Store in Global RAM *)
-        rtb_Delay := rtb_Delay OR ((BOOL_TO_DINT(Delay6_DSTATE) <= BOOL_TO_DINT(DelayInput1_DSTATE_l)) AND UnitDelay_DSTATE_f);
+        rtb_AND := rtb_AND OR ((BOOL_TO_DINT(Delay6_DSTATE) <= BOOL_TO_DINT(DelayInput1_DSTATE_m)) AND UnitDelay_DSTATE_b);
         (* Switch: '<S24>/Switch' incorporates:
          *  Delay: '<S2>/Delay9'
          *  Logic: '<S24>/Logical Operator'
@@ -335,7 +313,7 @@ CASE ssMethodType OF
          * Block description for '<S8>/Delay Input1':
          *  
          *  Store in Global RAM *)
-        rtb_Delay1 := rtb_Delay1 OR ((BOOL_TO_DINT(Delay9_DSTATE) <= BOOL_TO_DINT(DelayInput1_DSTATE_n)) AND UnitDelay_DSTATE_b);
+        rtb_Delay1 := rtb_Delay1 OR ((BOOL_TO_DINT(Delay9_DSTATE) <= BOOL_TO_DINT(DelayInput1_DSTATE_j)) AND UnitDelay_DSTATE_i);
         (* Switch: '<S25>/Switch' incorporates:
          *  Delay: '<S2>/Delay12'
          *  Logic: '<S25>/Logical Operator'
@@ -348,13 +326,21 @@ CASE ssMethodType OF
          * Block description for '<S9>/Delay Input1':
          *  
          *  Store in Global RAM *)
-        rtb_Delay7 := rtb_Delay7 OR ((BOOL_TO_DINT(Delay12_DSTATE) <= BOOL_TO_DINT(DelayInput1_DSTATE_p)) AND UnitDelay_DSTATE_a);
+        rtb_Delay7 := rtb_Delay7 OR ((BOOL_TO_DINT(Delay12_DSTATE) <= BOOL_TO_DINT(DelayInput1_DSTATE_ml)) AND UnitDelay_DSTATE_k);
+        (* Logic: '<S3>/NOT1' incorporates:
+         *  Logic: '<S3>/AND' *)
+        rtb_Uk1_tmp :=  NOT Hw_AktUnten1;
         (* Switch: '<S26>/Switch' incorporates:
          *  Logic: '<S26>/Logical Operator'
          *  Logic: '<S26>/Logical Operator4'
          *  Logic: '<S26>/Logical Operator5'
+         *  Logic: '<S2>/AND6'
+         *  Logic: '<S2>/AND7'
          *  Logic: '<S2>/NOT4'
-         *  Logic: '<S2>/OR'
+         *  Logic: '<S3>/AND'
+         *  Logic: '<S3>/AND2'
+         *  Logic: '<S3>/NOT'
+         *  Logic: '<S3>/NOT1'
          *  RelationalOperator: '<S10>/FixPt Relational Operator'
          *  RelationalOperator: '<S21>/Compare'
          *  UnitDelay: '<S10>/Delay Input1'
@@ -363,7 +349,7 @@ CASE ssMethodType OF
          * Block description for '<S10>/Delay Input1':
          *  
          *  Store in Global RAM *)
-        rtb_Uk1 := rtb_Delay10 OR (((BOOL_TO_DINT(c_Signal_RemoveContainerOnC) <= BOOL_TO_DINT(DelayInput1_DSTATE_b)) AND rtb_Uk1) AND UnitDelay_DSTATE_o);
+        rtb_Uk1 := rtb_Delay10 OR (((BOOL_TO_DINT(c_Signal_RemoveContainerOnC) <= BOOL_TO_DINT(DelayInput1_DSTATE_b)) OR (((rtb_Uk1_tmp AND Hw_AktUnten2) AND rtb_Uk1) OR ((( NOT rtb_Uk1) OR rtb_Uk1_tmp) OR Hw_AktUnten2))) AND UnitDelay_DSTATE_im);
         (* Update for Delay: '<S2>/Delay4' *)
         Delay4_DSTATE := rtb_Switch;
         (* Update for UnitDelay: '<S5>/Delay Input1'
@@ -375,7 +361,7 @@ CASE ssMethodType OF
         (* Update for Delay: '<S2>/Delay2' *)
         Delay2_DSTATE := Signal_Storage2;
         (* Update for Delay: '<S2>/Delay3' *)
-        Delay3_DSTATE := rtb_Delay;
+        Delay3_DSTATE := rtb_AND;
         (* Update for Delay: '<S2>/Delay5' *)
         Delay5_DSTATE := Signal_Storage1;
         (* Update for Delay: '<S2>/Delay6' *)
@@ -388,56 +374,6 @@ CASE ssMethodType OF
         Delay11_DSTATE := Hw_SensorMitte;
         (* Update for Delay: '<S2>/Delay12' *)
         Delay12_DSTATE := rtb_Uk1;
-        FOR i := 0 TO 2498 DO 
-            (* Update for Delay: '<S3>/Delay' *)
-            Delay_DSTATE[i] := Delay_DSTATE[i + 1];
-            (* Update for Delay: '<S2>/Delay' *)
-            Delay_DSTATE_f[i] := Delay_DSTATE_f[i + 1];
-            (* Update for Delay: '<S2>/Delay1' *)
-            Delay1_DSTATE[i] := Delay1_DSTATE[i + 1];
-            (* Update for Delay: '<S2>/Delay10' *)
-            Delay10_DSTATE[i] := Delay10_DSTATE[i + 1];
-            (* Update for Delay: '<S2>/Delay7' *)
-            Delay7_DSTATE[i] := Delay7_DSTATE[i + 1];
-            (* Update for Delay: '<S4>/Delay' *)
-            Delay_DSTATE_d[i] := Delay_DSTATE_d[i + 1];
-        END_FOR;
-        (* Update for Delay: '<S3>/Delay' *)
-        Delay_DSTATE[2499] := Hw_HubmagnetOben;
-        (* Update for Delay: '<S2>/Delay' *)
-        Delay_DSTATE_f[2499] := rtb_AND1;
-        (* Update for Delay: '<S2>/Delay1' *)
-        Delay1_DSTATE[2499] := rtb_AND2;
-        (* Update for Delay: '<S2>/Delay10' *)
-        Delay10_DSTATE[2499] := rtb_AND4;
-        (* Update for Delay: '<S2>/Delay7' *)
-        Delay7_DSTATE[2499] := rtb_AND3;
-        (* Update for Delay: '<S4>/Delay' *)
-        Delay_DSTATE_d[2499] := Hw_HubmagnetUnten;
-        (* Update for UnitDelay: '<S6>/Delay Input1'
-         *
-         * Block description for '<S6>/Delay Input1':
-         *  
-         *  Store in Global RAM *)
-        DelayInput1_DSTATE_h := rtb_Compare_h;
-        (* Update for UnitDelay: '<S7>/Delay Input1'
-         *
-         * Block description for '<S7>/Delay Input1':
-         *  
-         *  Store in Global RAM *)
-        DelayInput1_DSTATE_l := rtb_Compare_f;
-        (* Update for UnitDelay: '<S8>/Delay Input1'
-         *
-         * Block description for '<S8>/Delay Input1':
-         *  
-         *  Store in Global RAM *)
-        DelayInput1_DSTATE_n := rtb_Compare_e;
-        (* Update for UnitDelay: '<S9>/Delay Input1'
-         *
-         * Block description for '<S9>/Delay Input1':
-         *  
-         *  Store in Global RAM *)
-        DelayInput1_DSTATE_p := rtb_Compare_l;
         (* Update for UnitDelay: '<S10>/Delay Input1' incorporates:
          *  RelationalOperator: '<S21>/Compare'
          *
@@ -445,17 +381,59 @@ CASE ssMethodType OF
          *  
          *  Store in Global RAM *)
         DelayInput1_DSTATE_b := c_Signal_RemoveContainerOnC;
+        FOR i := 0 TO 2498 DO 
+            (* Update for Delay: '<S2>/Delay' *)
+            Delay_DSTATE[i] := Delay_DSTATE[i + 1];
+            (* Update for Delay: '<S2>/Delay1' *)
+            Delay1_DSTATE[i] := Delay1_DSTATE[i + 1];
+            (* Update for Delay: '<S2>/Delay10' *)
+            Delay10_DSTATE[i] := Delay10_DSTATE[i + 1];
+            (* Update for Delay: '<S2>/Delay7' *)
+            Delay7_DSTATE[i] := Delay7_DSTATE[i + 1];
+        END_FOR;
+        (* Update for Delay: '<S2>/Delay' *)
+        Delay_DSTATE[2499] := rtb_AND1;
+        (* Update for Delay: '<S2>/Delay1' *)
+        Delay1_DSTATE[2499] := rtb_AND2_g;
+        (* Update for Delay: '<S2>/Delay10' *)
+        Delay10_DSTATE[2499] := rtb_NOT6;
+        (* Update for Delay: '<S2>/Delay7' *)
+        Delay7_DSTATE[2499] := rtb_AND3;
+        (* Update for UnitDelay: '<S6>/Delay Input1'
+         *
+         * Block description for '<S6>/Delay Input1':
+         *  
+         *  Store in Global RAM *)
+        DelayInput1_DSTATE_e := rtb_Compare_o;
+        (* Update for UnitDelay: '<S7>/Delay Input1'
+         *
+         * Block description for '<S7>/Delay Input1':
+         *  
+         *  Store in Global RAM *)
+        DelayInput1_DSTATE_m := rtb_Compare_l;
+        (* Update for UnitDelay: '<S8>/Delay Input1'
+         *
+         * Block description for '<S8>/Delay Input1':
+         *  
+         *  Store in Global RAM *)
+        DelayInput1_DSTATE_j := rtb_Compare_f;
+        (* Update for UnitDelay: '<S9>/Delay Input1'
+         *
+         * Block description for '<S9>/Delay Input1':
+         *  
+         *  Store in Global RAM *)
+        DelayInput1_DSTATE_ml := rtb_Compare_n;
         (* Update for UnitDelay: '<S22>/Unit Delay' *)
         UnitDelay_DSTATE := rtb_Switch;
         (* Update for UnitDelay: '<S23>/Unit Delay' *)
-        UnitDelay_DSTATE_f := rtb_Delay;
+        UnitDelay_DSTATE_b := rtb_AND;
         (* Update for UnitDelay: '<S24>/Unit Delay' *)
-        UnitDelay_DSTATE_b := rtb_Delay1;
+        UnitDelay_DSTATE_i := rtb_Delay1;
         (* Update for UnitDelay: '<S25>/Unit Delay' *)
-        UnitDelay_DSTATE_a := rtb_Delay7;
+        UnitDelay_DSTATE_k := rtb_Delay7;
         (* Update for UnitDelay: '<S26>/Unit Delay' *)
-        UnitDelay_DSTATE_o := rtb_Uk1;
-        (* End of Outputs for SubSystem: '<Root>/Vereinzelung' *)
+        UnitDelay_DSTATE_im := rtb_Uk1;
+        (* End of Outputs for SubSystem: '<Root>/Model_Seperator' *)
 END_CASE;
 END_FUNCTION_BLOCK
 VAR_GLOBAL CONSTANT

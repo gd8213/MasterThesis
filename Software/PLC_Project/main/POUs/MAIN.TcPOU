@@ -9,44 +9,63 @@ VAR
 	bCreateContainer	: 	BOOL := FALSE;
 	bRemoveContainer	:	BOOL := FALSE;
 	
-	bSensorOben		: BOOL;
-	bSensorMitte	: BOOL;
-	bSensorUnten	: BOOL;
+	
 	bSensorLagerUnten		: BOOL;
 	bSensorLagerMitte		: BOOL; 
 	
-	bHubmagnetOben	: BOOL := TRUE;
-	bHubmagnetUnten	: BOOL := TRUE;
 	
+	fbSeperator		: FB_Separator;
+	staSep			: State;
+	instVereinzelung : Model_Seperator;
 	
-	
-	instVereinzelung : Vereinzelung;
-	counter : int := 0;
+	temp	: BOOL := FALSE;
+	enzSens1 : BOOL;
+	enzSens2 : BOOL;
+	enzSens3 : BOOL;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[// Call models
+      <ST><![CDATA[// Call models	
 instVereinzelung(
-	ssMethodType:= iMethod, 
-	Signal_CreateContainer:= BOOL_TO_LREAL(bCreateContainer), 
-	c_Signal_RemoveContainerOnC:= bRemoveContainer, 
-	SamplingTime:= 0.01, 
-	Hw_HubmagnetOben:= bHubmagnetOben, 
-	Hw_HubmagnetUnten:= bHubmagnetUnten, 
-	Signal_Storage2=> bSensorLagerMitte, 
-	Signal_Storage1=> bSensorLagerUnten, 
-	Hw_SensorOben=> bSensorOben, 
-	Hw_SensorMitte=> bSensorMitte, 
-	Hw_SensorUnten=> bSensorUnten);
+	ssMethodType:= iMethod, Signal_CreateContainer:= BOOL_TO_LREAL(bCreateContainer), 	c_Signal_RemoveContainerOnC:= bRemoveContainer, 
+	SamplingTime:= 0.005, 
+	Hw_AktOben1:= IFC_HW.R1AKT1,	// einfahren
+ 	Hw_AktOben2:= IFC_HW.R2AKT1,	// ausfahren
+	Hw_AktUnten1:= IFC_HW.R1AKT2,	// einfahren
+ 	Hw_AktUnten2:= IFC_HW.R2AKT2, 	// ausfahren
+	Signal_Storage2=> bSensorLagerMitte,
+ 	Signal_Storage1=> bSensorLagerUnten, 
+	Hw_SensorOben=> enzSens1,
+ 	Hw_SensorMitte=> enzSens2,
+ 	Hw_SensorUnten=> enzSens3);
+IFC_HW.EinzelSens1 := enzSens1;
+IFC_HW.EinzelSens2 := enzSens2;
+IFC_HW.EinzelSens3 := enzSens3;
 
+	
+// Call Functionblocks
+fbSeperator(
+	bEnable:= TRUE, bExecute:= temp, bErrorReset:= , 
+	bSensor1:= IFC_HW.EinzelSens1,
+ 	bSensor2:= IFC_HW.EinzelSens2,
+ 	bSensor3:= IFC_HW.EinzelSens3, 
+	bR1AKT1=> IFC_HW.R1AKT1,	// einfahren
+ 	bR2AKT1=> IFC_HW.R2AKT1,	// ausfahren
+ 	bR1AKT2=> IFC_HW.R1AKT2,	// einfahren
+ 	bR2AKT2=> IFC_HW.R2AKT2, 	// ausfahren
+	bNoBottle=> IFC_HW.NoBottle, 
+	bWrongBottle=> IFC_HW.WrongBottle, 
+	eStatus=> staSep);	
 
-AdsVariables.Container1_ADS := BOOL_TO_REAL(bSensorUnten);
-AdsVariables.Container2_ADS := BOOL_TO_REAL(bSensorMitte);
-AdsVariables.Container3_ADS := BOOL_TO_REAL(bSensorOben);
+AdsVariables.Container1_ADS := BOOL_TO_REAL(IFC_HW.EinzelSens1);
+AdsVariables.Container2_ADS := BOOL_TO_REAL(IFC_HW.EinzelSens2);
+AdsVariables.Container3_ADS := BOOL_TO_REAL(IFC_HW.EinzelSens3);
 AdsVariables.Container4_ADS := BOOL_TO_REAL(bSensorLagerUnten);
 AdsVariables.Container5_ADS := BOOL_TO_REAL(bSensorLagerMitte);
-AdsVariables.HubmagnetOben_ADS := BOOL_TO_REAL(bHubmagnetOben);
-AdsVariables.HubmagnetUnten_ADS := BOOL_TO_REAL(bHubmagnetUnten);
+
+
+//AdsVariables.HubmagnetOben_ADS := BOOL_TO_REAL(bHubmagnetOben);
+//AdsVariables.HubmagnetUnten_ADS := BOOL_TO_REAL(bHubmagnetUnten);
 	
 
 
@@ -64,10 +83,30 @@ END_CASE
     </Implementation>
     <LineIds Name="MAIN">
       <LineId Id="148" Count="0" />
-      <LineId Id="135" Count="10" />
-      <LineId Id="134" Count="0" />
-      <LineId Id="33" Count="1" />
+      <LineId Id="215" Count="1" />
+      <LineId Id="219" Count="1" />
+      <LineId Id="241" Count="0" />
+      <LineId Id="230" Count="0" />
+      <LineId Id="242" Count="0" />
+      <LineId Id="224" Count="0" />
+      <LineId Id="243" Count="0" />
+      <LineId Id="226" Count="0" />
+      <LineId Id="244" Count="1" />
+      <LineId Id="247" Count="2" />
+      <LineId Id="196" Count="0" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="197" Count="0" />
+      <LineId Id="199" Count="1" />
+      <LineId Id="203" Count="0" />
+      <LineId Id="236" Count="1" />
+      <LineId Id="206" Count="0" />
+      <LineId Id="238" Count="2" />
+      <LineId Id="210" Count="1" />
+      <LineId Id="198" Count="0" />
+      <LineId Id="34" Count="0" />
       <LineId Id="126" Count="4" />
+      <LineId Id="229" Count="0" />
+      <LineId Id="228" Count="0" />
       <LineId Id="132" Count="0" />
       <LineId Id="131" Count="0" />
       <LineId Id="23" Count="0" />

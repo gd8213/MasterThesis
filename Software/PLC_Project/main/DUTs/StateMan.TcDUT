@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <DUT Name="StateMan" Id="{ab6d1dad-3abd-4273-9947-32cbf0363e49}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE StateMan :
+(
+	Off := 0,
+	Reset,
+	PowerUp,
+	Homing,
+	Halt,
+	MoveAway,
+	Ready,
+	Moving,
+	Done
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

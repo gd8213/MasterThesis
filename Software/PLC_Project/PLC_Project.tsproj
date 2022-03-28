@@ -1409,7 +1409,7 @@ External Setpoint Generation:
 	<Project ProjectGUID="{408988C3-0A8C-4CF1-B493-82E72712AFED}" Target64Bit="true" ShowHideConfigurations="#x106">
 		<System>
 			<Tasks>
-				<Task Id="3" Priority="20" CycleTime="100000" AmsPort="350" AdtTasks="true">
+				<Task Id="3" Priority="20" CycleTime="50000" AmsPort="350" AdtTasks="true">
 					<Name>PlcTask</Name>
 				</Task>
 			</Tasks>
@@ -1496,6 +1496,7 @@ External Setpoint Generation:
 					<Drive Name="Drive" DrvType="5">
 						<DrvPara>
 							<Analog TorqueSetpointScale="10" ScaleFactorActTorque="0.1"/>
+							<TimeComp TaskDelayCycles="1"/>
 						</DrvPara>
 						<Vars VarGrpType="1">
 							<Name>Inputs</Name>
@@ -1591,6 +1592,187 @@ External Setpoint Generation:
 				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="main\main.tmc">
 					<Name>main Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
+					<Vars VarGrpType="1">
+						<Name>PlcTask Inputs</Name>
+						<Var>
+							<Name>IFC_HW.EinzelSens1</Name>
+							<Comment><![CDATA[ Separation Sensor 1]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.EinzelSens2</Name>
+							<Comment><![CDATA[ Separation Sensor 2]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.EinzelSens3</Name>
+							<Comment><![CDATA[ Separation Sensor 3]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.BandSens1</Name>
+							<Comment><![CDATA[ Forderband Sensor 1]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.BandSens2</Name>
+							<Comment><![CDATA[ Forderband Sensor 2]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.BandSens3</Name>
+							<Comment><![CDATA[ Forderband Sensor 3]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.BandSens4</Name>
+							<Comment><![CDATA[ Forderband Sensor 4]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.FillSens1</Name>
+							<Comment><![CDATA[ Füllstandssensor 1]]></Comment>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.FillSens2</Name>
+							<Comment><![CDATA[ Füllstandssensor 2]]></Comment>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.FillSens3</Name>
+							<Comment><![CDATA[ Füllstandssensor 3]]></Comment>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.TempSens1</Name>
+							<Comment><![CDATA[ Temperatursensor 1]]></Comment>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.TempSens2</Name>
+							<Comment><![CDATA[ Temperatursensor 2]]></Comment>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.ManEndX</Name>
+							<Comment><![CDATA[ Manipulator min Endschalter Achse x]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.ManEndY</Name>
+							<Comment><![CDATA[ Manipulator min Endschalter Achse y]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.ManEndZ</Name>
+							<Comment><![CDATA[ Manipulator min Endschalter Achse z]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.ManEndGrip</Name>
+							<Comment><![CDATA[ Manipulator min Endschalter Achse Gripper]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.ManEndX2</Name>
+							<Comment><![CDATA[ Manipulator max Endschalter Achse x]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.ManEndY2</Name>
+							<Comment><![CDATA[ Manipulator max Endschalter Achse y]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.ManEndZ2</Name>
+							<Comment><![CDATA[ Manipulator max Endschalter Achse z]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.ManEndGrip2</Name>
+							<Comment><![CDATA[ Manipulator max Endschalter Achse Gripper]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+					</Vars>
+					<Vars VarGrpType="2" AreaNo="1">
+						<Name>PlcTask Outputs</Name>
+						<Var>
+							<Name>IFC_HW.AmpelRot</Name>
+							<Comment><![CDATA[ Signal-LED Rot]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.AmpelGelb</Name>
+							<Comment><![CDATA[ Signal-LED Gelb]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.AmpelGrun</Name>
+							<Comment><![CDATA[ Signal-LED Grun]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.R1AKT1</Name>
+							<Comment><![CDATA[ Relais 1 Aktor 1]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.R2AKT1</Name>
+							<Comment><![CDATA[ Relais 2 Aktor 1]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.R1AKT2</Name>
+							<Comment><![CDATA[ Relais 1 Aktor 2]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.R2AKT2</Name>
+							<Comment><![CDATA[ Relais 2 Aktor 2]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.BandHub1</Name>
+							<Comment><![CDATA[ Forderband Hubmagnet 1]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.BandHub2</Name>
+							<Comment><![CDATA[ Forderband Hubmagnet 1]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.BandHub3</Name>
+							<Comment><![CDATA[ Forderband Hubmagnet 1]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.Ventilator1</Name>
+							<Comment><![CDATA[ Ventilator 1]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.Ventilator2</Name>
+							<Comment><![CDATA[ Ventilator 2]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.Ventilator3</Name>
+							<Comment><![CDATA[ Ventilator 3]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.Heizpatrone</Name>
+							<Comment><![CDATA[ Heizpatronen]]></Comment>
+							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.Brake</Name>
+							<Comment><![CDATA[ Bremse Achse z]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+					</Vars>
 					<Contexts>
 						<Context>
 							<Id NeedCalleeCall="true">0</Id>
@@ -1599,7 +1781,7 @@ External Setpoint Generation:
 								<OTCID>#x02010030</OTCID>
 							</ManualConfig>
 							<Priority>20</Priority>
-							<CycleTime>10000000</CycleTime>
+							<CycleTime>5000000</CycleTime>
 						</Context>
 					</Contexts>
 					<TaskPouOids>
