@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <POU Name="FB_Waage" Id="{074c83d0-e1d0-4825-bd99-e89e26c0b2cd}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Waage
+	VAR_IN_OUT
+		bNullsetzen	: BOOL;
+	END_VAR
+	
+	VAR_OUTPUT
+		iMesswert : INT;
+	END_VAR
+	
+	VAR
+		busyRec : BOOL;
+		recError : ComError_t;
+		bGotString : BOOL;
+		
+		arbeitsString : STRING;
+		stringLange : INT;
+	END_VAR
+	
+	
+// ----- Ende der Definition. Hier folgt der Code ------]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[	// Nullsetzten der Waage
+	IF bNullsetzen THEN
+		bNullsetzen:= FALSE;
+		TxWaage(SendString:= '<t>', Busy=> , Error=> , TXbuffer:= TxBufferWaage);
+	END_IF
+	
+	
+	
+	
+	// Messwert erhalten
+	RecWaage(
+		Prefix:= 'N  ', 
+		Suffix:= ' g', 
+		StringReceived=> bGotString, 
+		Busy=> busyRec, 
+		Error=> recError, 
+		ReceivedString:= IFC_HW.waageNachricht, 
+		RXbuffer:= RxBufferWaage);
+	
+	// Messwert als INT extrahieren
+	arbeitsString := DELETE(STR:= IFC_HW.waageNachricht, POS:=1, LEN:=1);		// Beginn loschen
+	stringLange := LEN(STR:=arbeitsString);
+	arbeitsString := DELETE(STR:=arbeitsString, POS:= stringLange-1, LEN:=2);	// Ende loschen
+	iMesswert := STRING_TO_INT(arbeitsString);									// String to int
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_Waage">
+      <LineId Id="239" Count="5" />
+      <LineId Id="281" Count="1" />
+      <LineId Id="245" Count="16" />
+      <LineId Id="46" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <POU Name="FB_HeatingSystem" Id="{7c7b126e-8b79-4d92-8382-02f37357639c}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_HeatingSystem
+VAR_INPUT
+	bEnable : BOOL;
+	bExecute : BOOL;
+	
+	nMaxTemp : UINT;
+	nTemp : UINT;
+END_VAR
+VAR_OUTPUT
+	bVentilator1 : BOOL;
+	bVentilator2 : BOOL;
+	bVentilator3 : BOOL;
+	nHeizpatrone : UINT := 0;
+
+	eStatus : State := State.Off;
+END_VAR
+VAR
+	nHeat : REAL := 0;
+	timer : TON;
+	timer1 : TON;
+	eState : StateHeat := StateHeat.Off;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[nHeizpatrone := TO_UINT(F_map(nHeat, 0, 5, 0, 16383));
+
+IF NOT bEnable THEN
+	eState:= StateHeat.Off;
+END_IF
+
+CASE eState OF
+StateHeat.Off:
+	eStatus := State.Off;
+	
+	bVentilator1 := FALSE;
+	bVentilator2 := FALSE;
+	bVentilator3 := FALSE;
+	nHeat := 0;
+	
+	IF bEnable THEN
+		eState := StateHeat.Init;
+	END_IF
+	
+StateHeat.Init:
+	eStatus := State.Busy;
+	bVentilator1 := TRUE;
+	bVentilator2 := TRUE;
+	bVentilator3 := TRUE;
+	
+	IF nTemp <= nMaxTemp THEN
+		eState := StateHeat.Ready;
+	END_IF
+
+StateHeat.Ready:
+	eStatus := State.Ready;
+	
+	nHeat := 0;
+	
+	IF bExecute THEN
+		eState := StateHeat.Heat;
+	END_IF
+
+StateHeat.Heat:
+	eStatus := State.Busy;
+	
+	nHeat := 5;
+	
+	IF nTemp >= 3000 THEN
+		nHeat := 0;
+		eState := StateHeat.Hold;
+	END_IF
+	
+StateHeat.Hold:
+	eStatus := State.Busy;
+	
+	timer(IN := TRUE, PT := T#30S);
+	
+	IF nTemp >= 3700 THEN
+		nHeat := 0;
+	ELSIF nTemp <= 3500 THEN
+		timer1(IN := TRUE, PT:= T#500MS);
+		IF timer1.Q THEN
+			timer1(IN := FALSE);
+			nHeat := nHeat + 0.05;
+			IF nHeat >= 5 THEN
+				nHeat := 5;
+			END_IF
+		END_IF	
+
+	END_IF
+	
+	IF timer.Q THEN
+		timer(IN := FALSE);
+		nHeat := 0;
+		eState := StateHeat.Done;
+	END_IF	
+
+StateHeat.Done:
+	eStatus := State.Done;
+	
+	nHeat := 0;
+	
+	IF NOT bExecute THEN
+		eState := StateHeat.Init;
+	END_IF
+	
+END_CASE]]></ST>
+    </Implementation>
+    <LineIds Name="FB_HeatingSystem">
+      <LineId Id="211" Count="1" />
+      <LineId Id="16" Count="1" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="19" Count="2" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="25" Count="1" />
+      <LineId Id="138" Count="1" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="54" Count="1" />
+      <LineId Id="53" Count="0" />
+      <LineId Id="50" Count="0" />
+      <LineId Id="48" Count="0" />
+      <LineId Id="57" Count="0" />
+      <LineId Id="49" Count="0" />
+      <LineId Id="140" Count="1" />
+      <LineId Id="56" Count="0" />
+      <LineId Id="59" Count="2" />
+      <LineId Id="63" Count="0" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="64" Count="1" />
+      <LineId Id="115" Count="1" />
+      <LineId Id="67" Count="2" />
+      <LineId Id="71" Count="0" />
+      <LineId Id="70" Count="0" />
+      <LineId Id="72" Count="4" />
+      <LineId Id="145" Count="0" />
+      <LineId Id="77" Count="0" />
+      <LineId Id="80" Count="0" />
+      <LineId Id="94" Count="2" />
+      <LineId Id="99" Count="0" />
+      <LineId Id="101" Count="2" />
+      <LineId Id="146" Count="0" />
+      <LineId Id="148" Count="0" />
+      <LineId Id="201" Count="0" />
+      <LineId Id="203" Count="0" />
+      <LineId Id="206" Count="0" />
+      <LineId Id="204" Count="0" />
+      <LineId Id="238" Count="2" />
+      <LineId Id="205" Count="0" />
+      <LineId Id="151" Count="0" />
+      <LineId Id="147" Count="0" />
+      <LineId Id="90" Count="2" />
+      <LineId Id="200" Count="0" />
+      <LineId Id="93" Count="0" />
+      <LineId Id="87" Count="0" />
+      <LineId Id="105" Count="0" />
+      <LineId Id="104" Count="0" />
+      <LineId Id="106" Count="0" />
+      <LineId Id="111" Count="0" />
+      <LineId Id="107" Count="0" />
+      <LineId Id="109" Count="0" />
+      <LineId Id="112" Count="2" />
+      <LineId Id="62" Count="0" />
+      <LineId Id="24" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
