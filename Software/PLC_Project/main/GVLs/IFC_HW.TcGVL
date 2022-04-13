@@ -87,6 +87,17 @@ VAR_GLOBAL
 //		ManAchseY			: AXIS_REF;			// Manipulator NC-Achse y
 //		ManAchseZ			: AXIS_REF;			// Manipulator NC-Achse z
 //		ManAchseGrip		: AXIS_REF; 		// Manipulator NC-Achse Gripper
+
+// Visualization Inventor
+	Inv_Vereinz_Container1  :  	REAL := 0;
+    Inv_Vereinz_Container2  :  	REAL := 0;
+    Inv_Vereinz_Container3  :  	REAL := 0;
+    Inv_Vereinz_Container4  :  	REAL := 0;
+    Inv_Vereinz_Container5  :  	REAL := 0;
+	
+	Inv_Vereinz_HubmagnetOben	: 	REAL := 0;
+	Inv_Vereinz_HubmagnetUnten	:	REAL := 0;
+
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

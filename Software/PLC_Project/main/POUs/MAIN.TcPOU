@@ -27,17 +27,17 @@ END_VAR
     <Implementation>
       <ST><![CDATA[// Call models	
 instVereinzelung(
-	ssMethodType:= iMethod, Signal_CreateContainer:= BOOL_TO_LREAL(bCreateContainer), 	c_Signal_RemoveContainerOnC:= bRemoveContainer, 
+	ssMethodType:= iMethod, Signal_CreateContainer:= bCreateContainer, 	c_Signal_RemoveContainerOnC:= bRemoveContainer, 
 	SamplingTime:= 0.005, 
-	Hw_AktOben1:= IFC_HW.R1AKT1,	// einfahren
- 	Hw_AktOben2:= IFC_HW.R2AKT1,	// ausfahren
-	Hw_AktUnten1:= IFC_HW.R1AKT2,	// einfahren
- 	Hw_AktUnten2:= IFC_HW.R2AKT2, 	// ausfahren
+	Hw_AktObenEinfahren:= IFC_HW.R1AKT1,	// einfahren
+ 	Hw_AktObenAusfahren:= IFC_HW.R2AKT1,	// ausfahren
+	Hw_AktUntenEinfahren:= IFC_HW.R2AKT2,	// einfahren
+ 	Hw_AktUntenAusfahren:= IFC_HW.R1AKT2, 	// ausfahren
 	Signal_Storage2=> bSensorLagerMitte,
  	Signal_Storage1=> bSensorLagerUnten, 
-	Hw_SensorOben=> enzSens1,
+	Hw_SensorOben=> enzSens3,
  	Hw_SensorMitte=> enzSens2,
- 	Hw_SensorUnten=> enzSens3);
+ 	Hw_SensorUnten=> enzSens1);
 IFC_HW.EinzelSens1 := enzSens1;
 IFC_HW.EinzelSens2 := enzSens2;
 IFC_HW.EinzelSens3 := enzSens3;
@@ -51,17 +51,32 @@ fbSeperator(
  	bSensor3:= IFC_HW.EinzelSens3, 
 	bR1AKT1=> IFC_HW.R1AKT1,	// einfahren
  	bR2AKT1=> IFC_HW.R2AKT1,	// ausfahren
- 	bR1AKT2=> IFC_HW.R1AKT2,	// einfahren
- 	bR2AKT2=> IFC_HW.R2AKT2, 	// ausfahren
+ 	bR1AKT2=> IFC_HW.R1AKT2,	// ausfahren
+ 	bR2AKT2=> IFC_HW.R2AKT2, 	// einfahren
 	bNoBottle=> IFC_HW.NoBottle, 
 	bWrongBottle=> IFC_HW.WrongBottle, 
 	eStatus=> staSep);	
 
-AdsVariables.Container1_ADS := BOOL_TO_REAL(IFC_HW.EinzelSens1);
-AdsVariables.Container2_ADS := BOOL_TO_REAL(IFC_HW.EinzelSens2);
-AdsVariables.Container3_ADS := BOOL_TO_REAL(IFC_HW.EinzelSens3);
-AdsVariables.Container4_ADS := BOOL_TO_REAL(bSensorLagerUnten);
-AdsVariables.Container5_ADS := BOOL_TO_REAL(bSensorLagerMitte);
+	
+// Visualization Inventor
+IFC_HW.Inv_Vereinz_Container1 := BOOL_TO_REAL(IFC_HW.EinzelSens1);
+IFC_HW.Inv_Vereinz_Container2 := BOOL_TO_REAL(IFC_HW.EinzelSens2);
+IFC_HW.Inv_Vereinz_Container3 := BOOL_TO_REAL(IFC_HW.EinzelSens3);
+IFC_HW.Inv_Vereinz_Container4 := BOOL_TO_REAL(bSensorLagerUnten);
+IFC_HW.Inv_Vereinz_Container5 := BOOL_TO_REAL(bSensorLagerMitte);
+
+IF (IFC_HW.R1AKT1 = TRUE) THEN 
+	IFC_HW.Inv_Vereinz_HubmagnetOben := 1;
+ELSIF (IFC_HW.R2AKT1 = TRUE) THEN
+	IFC_HW.Inv_Vereinz_HubmagnetOben := 0;
+END_IF
+
+IF (IFC_HW.R2AKT2 = TRUE) THEN
+	IFC_HW.Inv_Vereinz_HubmagnetUnten := 1;
+ELSIF (IFC_HW.R1AKT2 = TRUE) THEN
+	IFC_HW.Inv_Vereinz_HubmagnetUnten := 0;
+END_IF
+
 
 
 //AdsVariables.HubmagnetOben_ADS := BOOL_TO_REAL(bHubmagnetOben);
@@ -103,9 +118,19 @@ END_CASE
       <LineId Id="238" Count="2" />
       <LineId Id="210" Count="1" />
       <LineId Id="198" Count="0" />
+      <LineId Id="272" Count="0" />
       <LineId Id="34" Count="0" />
+      <LineId Id="273" Count="0" />
       <LineId Id="126" Count="4" />
+      <LineId Id="274" Count="0" />
       <LineId Id="229" Count="0" />
+      <LineId Id="275" Count="0" />
+      <LineId Id="277" Count="1" />
+      <LineId Id="276" Count="0" />
+      <LineId Id="282" Count="4" />
+      <LineId Id="281" Count="0" />
+      <LineId Id="280" Count="0" />
+      <LineId Id="279" Count="0" />
       <LineId Id="228" Count="0" />
       <LineId Id="132" Count="0" />
       <LineId Id="131" Count="0" />

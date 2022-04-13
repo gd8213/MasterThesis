@@ -23,7 +23,7 @@ namespace Visualization
         public AdsVariable(string bezeichnung)
         {
             nameInventor = bezeichnung;
-            nameTwinCAT = "AdsVariables." + bezeichnung;          // Bezeichnung mit GVL erweitern
+            nameTwinCAT = "IFC_HW." + bezeichnung;          // Bezeichnung mit GVL erweitern
         }
     }
 }

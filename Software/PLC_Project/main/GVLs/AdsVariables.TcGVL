@@ -3,16 +3,6 @@
   <GVL Name="AdsVariables" Id="{186c5690-a863-4347-bace-605c9d8bf706}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
-	Container1_ADS  :  	REAL := 0;
-    Container2_ADS  :  	REAL := 0;
-    Container3_ADS  :  	REAL := 0;
-    Container4_ADS  :  	REAL := 0;
-    Container5_ADS  :  	REAL := 0;
-	
-	HubmagnetOben_ADS	: 	REAL := 0;
-	HubmagnetUnten_ADS	:	REAL := 0;
-	
-	
 	VonMatlab		: REAL := 1;
 	NachMatlab		: REAL := 1;
 END_VAR]]></Declaration>
