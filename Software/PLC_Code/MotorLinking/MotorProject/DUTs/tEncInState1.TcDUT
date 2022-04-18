@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="tEncInState1" Id="{edbc36c6-d270-4059-ad62-7d95c2adedbe}">
+    <Declaration><![CDATA[TYPE tEncInState1 :
+STRUCT
+	LatchExternValid		: BIT;
+	SetCounterDone			: BIT;
+	CounterUnderflow		: BIT;
+	CounterOverflow			: BIT;
+	ExtrpolationStall		: BIT;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

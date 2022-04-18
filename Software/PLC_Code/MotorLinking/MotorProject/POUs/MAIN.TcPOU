@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="MAIN" Id="{4ed321cc-9f16-4c7d-ae2f-a3663219f768}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	
+driveInState1 	AT%Q* 	: tDriveInNState1;
+driveInState2 	AT%Q* 	: tDriveInNState2;
+EncInState1		AT%Q*	: tEncInState1;
+EncInState2		AT%Q*	: tEncInState2;
+EncInData1		AT%Q*	: UINT;			// CounterValue
+EncInData2		AT%Q*	: UINT;			// LatchValue
+
+EncOutNCtrl1	AT%I*	: tEncOutNCtrl1;			// LatchValue
+EncOutNDataOut1	AT%I*	: UINT;			// SetCounterValue
+
+DriveOutNCtrl1	AT%I*	: tDriveOutNCtrl1;
+DriveOutNDataOut2	AT%I*	: INT;		// Velocity
+
+test	: MDP5001_511_733_FFF278FE;
+
+motor : Motor;
+
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+motor(velocity:= DriveOutNDataOut2, counter=> EncInData1);
+
+test.MDP5001_511_733_Input.MDP5001_733_Status_1.Ready
+]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="27" Count="2" />
+      <LineId Id="53" Count="0" />
+      <LineId Id="52" Count="0" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,16 @@
+# LaTeX temp Files
+*.aux
+*.bbl
+*.blg
+*.idx
+*.lof
+*.log
+*.lol
+*.lot
+*.maf
+*.mtc
+*.mtc0
+*.nlo
+*.out
+*.gz
+*.toc
