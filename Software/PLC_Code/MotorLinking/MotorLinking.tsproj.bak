@@ -1924,6 +1924,8 @@ External Setpoint Generation:
 				<Axis Id="1" CreateSymbols="true" AxisType="1">
 					<Name>Axis 1</Name>
 					<AxisPara>
+						<Dynamic Acceleration="75" Deceleration="75" Jerk="112.5"/>
+						<Velo Maximum="100"/>
 						<OtherSettings AllowMotionCmdToSlave="true"/>
 					</AxisPara>
 					<Encoder Name="Enc" EncType="4">

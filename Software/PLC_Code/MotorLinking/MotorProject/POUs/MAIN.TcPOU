@@ -29,12 +29,10 @@ END_VAR
 
 motor(velocity:= DriveOutNDataOut2, counter=> EncInData1);
 
-test.MDP5001_511_733_Input.MDP5001_733_Status_1.Ready
 ]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
       <LineId Id="27" Count="2" />
-      <LineId Id="53" Count="0" />
       <LineId Id="52" Count="0" />
       <LineId Id="2" Count="0" />
     </LineIds>
