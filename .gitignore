@@ -32,3 +32,19 @@
 *.app
 
 **/OldVersions/
+*.bkp
+*.dtmp
+*.aux
+*.bbl
+*.blg
+*.idx
+*.lof
+*.log
+*.lol
+*.lot
+*.maf
+*.mtc
+*.mtc0
+*.nlo
+*.gz
+*.toc
