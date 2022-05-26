@@ -3,6 +3,9 @@
   <GVL Name="IFC_HW" Id="{9ae663f7-5593-436c-8bb8-7fb5eec82175}">
     <Declaration><![CDATA[// In dieser GVL werden alle Variablen deklariert die auf die realen Klemmen zugreifen
 VAR_GLOBAL
+
+		isSimulation		: BOOL := TRUE;	
+
 	// Errors 
 		NoBottle			: BOOL := FALSE; // Keine Flasche vorhanden
 		WrongBottle			: BOOL := FALSE; // Flasche falsch gedreht oder falsche Flasche

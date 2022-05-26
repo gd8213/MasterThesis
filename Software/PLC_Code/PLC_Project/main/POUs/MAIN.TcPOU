@@ -25,7 +25,8 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[// Call models	
+      <ST><![CDATA[IF(IFC_HW.isSimulation = TRUE) THEN
+	// Call models	
 instVereinzelung(
 	ssMethodType:= iMethod, Signal_CreateContainer:= bCreateContainer, 	c_Signal_RemoveContainerOnC:= bRemoveContainer, 
 	SamplingTime:= 0.005, 
@@ -41,6 +42,10 @@ instVereinzelung(
 IFC_HW.EinzelSens1 := enzSens1;
 IFC_HW.EinzelSens2 := enzSens2;
 IFC_HW.EinzelSens3 := enzSens3;
+
+END_IF
+
+
 
 	
 // Call Functionblocks
@@ -97,17 +102,13 @@ END_CASE
 ]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
-      <LineId Id="148" Count="0" />
-      <LineId Id="215" Count="1" />
-      <LineId Id="219" Count="1" />
-      <LineId Id="241" Count="0" />
-      <LineId Id="230" Count="0" />
-      <LineId Id="242" Count="0" />
-      <LineId Id="224" Count="0" />
-      <LineId Id="243" Count="0" />
-      <LineId Id="226" Count="0" />
-      <LineId Id="244" Count="1" />
-      <LineId Id="247" Count="2" />
+      <LineId Id="309" Count="0" />
+      <LineId Id="315" Count="14" />
+      <LineId Id="311" Count="0" />
+      <LineId Id="313" Count="0" />
+      <LineId Id="312" Count="0" />
+      <LineId Id="310" Count="0" />
+      <LineId Id="249" Count="0" />
       <LineId Id="196" Count="0" />
       <LineId Id="33" Count="0" />
       <LineId Id="197" Count="0" />

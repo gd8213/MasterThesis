@@ -17,7 +17,7 @@ EncOutNDataOut1	AT%I*	: UINT;			// SetCounterValue
 DriveOutNCtrl1	AT%I*	: tDriveOutNCtrl1;
 DriveOutNDataOut2	AT%I*	: INT;		// Velocity
 
-test	: MDP5001_511_733_FFF278FE;
+test : MDP5001_511_733_FFF278FE;
 
 motor : Motor;
 
@@ -27,7 +27,7 @@ END_VAR
     <Implementation>
       <ST><![CDATA[
 
-motor(velocity:= DriveOutNDataOut2, counter=> EncInData1);
+// motor(velocity:= DriveOutNDataOut2, counter=> EncInData1);
 
 ]]></ST>
     </Implementation>

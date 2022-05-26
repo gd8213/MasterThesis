@@ -35,6 +35,10 @@
     <Compile Include="DUTs\tEncInState2.TcDUT">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GVLs\IO.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
     <Compile Include="PlcTask.TcTTO">
       <SubType>Code</SubType>
     </Compile>

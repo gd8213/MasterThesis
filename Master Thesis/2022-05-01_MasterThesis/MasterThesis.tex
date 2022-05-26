@@ -1,0 +1,131 @@
+% Version 1.3
+% 1.0 - Erster Entwurf
+% 1.1 - Autoref von Gleichung hinzugefügt, Generelle Änderungen
+% 1.2 - Symbolverzeichnis hinzugefügt
+% 1.3 - Zitierung in Textgröße
+
+% Bei Abkürzungsverzeichnis steht die falsche Kopfzeile
+
+
+\documentclass[11pt,a4paper,oneside]{scrreport}
+\usepackage[left=3cm,right=3cm,top=3cm,bottom=3.5cm,headsep=7ex,footskip=1.5cm]{geometry}
+
+\newcommand{\relpath}{./}
+
+% Titelblatt
+\def\title{Modular Virtual Commissioning - A learning factory approach focussing on modularity and integration of component models.}
+\def\study{Mechatronics \& Smart Technologies}
+\def\thesis{Master Thesis}
+\def\degree{"Master of Science in Engineering"}
+\def\student{Dominique Mathäus Geiger}
+\def\matnr{2010620012}
+\def\address{A-6712 Thüringen, Flugelin 30a}
+\def\reviewerone{Benjamin Massow, B.Sc. M.Sc.}
+\def\reviewertwo{Thomas Hausberger, B.Sc. M.Sc.}
+
+\usepackage{ifthen}
+\newboolean{skript}
+\setboolean{skript}{true}
+
+% Sprache Auswählen
+	\newboolean{english}
+	\setboolean{english}{true}		% auskommentieren für deutsche Version
+
+
+\input{sub/_definitions/definitions_mci.tex}
+\input{sub/_definitions/Symbolverzeichnis.tex}
+
+
+
+%% Tiefe von Inhaltsverzeichnis auf Subsection
+%\setcounter{tocdepth}{2}
+
+%% Für import von inkscape als pdf mit latex file
+%\graphicspath{{figures/}}
+
+
+
+\begin{document}
+\input{sub/_definitions/definitions_GED.tex}
+\pagenumbering{Roman}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{sub/_definitions/deckblatt_Bach.tex}
+\newpage
+\input{sub/eid.tex}
+\newpage
+\input{sub/kurzfassung.tex}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\blankpage
+\setcounter{page}{2}
+\tableofcontents
+%\vspace{2cm}
+%\clearpage
+	\newpage
+	\setcounter{romancount}{\value{page}}
+    \setcounter{page}{1}
+	\pagenumbering{arabic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+	\input{sections/Introduction}  				\newpage
+	\input{sections/StateOfTheArt}  			\newpage
+	\input{sections/MethodProposedLibrary}  	\newpage
+	\input{sections/UseCase}					\newpage
+	\input{sections/Results}						\newpage
+	\input{sections/SummaryOutlook}				\newpage
+%------------------------------------------------------------------------
+	%% Appendix and lists have continued roman page count
+	\newpage
+	\clearpage
+	\pagenumbering{Roman}
+    \setcounter{page}{\value{romancount}}
+    
+    % Literaturverzeichnis
+    \addcontentsline{toc}{chapter}{Bibliography}
+	\bibliographystyle{ieeetran}
+%	\bibliographystyle{IEEEtran}
+	\bibliography{literature}
+	\vspace{8cm}
+	\newpage
+
+	% Abbildungsverzeichnis
+	\listoffigures
+	\addcontentsline{toc}{chapter}{List of Figures}
+	\newpage
+
+	 %Tabellenverzeichnis
+	\listoftables
+	\addcontentsline{toc}{chapter}{List of Tables}
+	\newpage
+
+%	 Quellcodeverzeichnis
+	\lstlistoflistings  
+	\addcontentsline{toc}{chapter}{List of Code}
+	\newpage
+
+	% Abkürzungsverzeichnis
+	\listofacronyms
+%	\include{sub/acronyms}	%% Link zum Akronyme Bearbeiten
+	\addcontentsline{toc}{chapter}{List of Acronyms}
+
+	% Symbolverzeichnis
+%	\printnomenclature[1cm]
+%	\ifthenelse{\boolean{english}}{\addcontentsline{toc}{section}{List of Symbols}} {\addcontentsline{toc}{section}{Symbolverzeichnis}}
+
+%------------------------------------------------------------------------
+%	 Appendices
+	\appendix
+	
+	% Appendix Side Numbering
+	\pretocmd{\chapter}{%
+		\clearpage
+		\pagenumbering{arabic}%
+		\renewcommand*{\thepage}{\thechapter\arabic{page}}%
+	}{}{}
+
+	\input{appendix/XXX_Example}
+%	\input{appendix/ResultsBigger}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+\end{document}

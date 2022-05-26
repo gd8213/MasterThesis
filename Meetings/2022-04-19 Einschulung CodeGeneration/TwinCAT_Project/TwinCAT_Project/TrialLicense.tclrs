@@ -2,9 +2,9 @@
 <TcLicenseInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2011/11/TcLicenseInfo">
 	<LicenseInfo>
 		<SystemId>{CFCF3F0D-BC19-0DFB-586A-6566170EBDF7}</SystemId>
-		<IssueTime>2022-04-18T15:28:00</IssueTime>
-		<ExpireTime>2022-04-26T00:00:00</ExpireTime>
-		<LicenseKey>6d7ae333bc15cfab1268aa3a08a555be892978ea9f7e7397479f160d0d5f3bda57428dd75447d12796e39e9479e797cebbf0235e692ad7f85d44cbfbd5bfa08ca783ff7674446da1ac61dc8fa13bf62275990e8c8aa9a2c14c2af80fdcbdb845fcafa3b1f01a1ff01fedb5a40b8628bcd9a99dab3f40663d4a848ce898c25bb81591d110b0bd3e3f367f23cc9f522f9a18650f87d3e51fd32dfc8779f3c5abe945df556243600ba4b6be25ef3a6ef4b4c4e1e00b83ef080fa28c76b3752b7526ac13a45a826f257be5c56a45bba1f9a63bfecbd06852ba20f1baf3c14ec1ec578ec285afd9ca9967bb057108f6a1e23636451724d35ff3f117fd3f9892537dd0</LicenseKey>
+		<IssueTime>2022-04-19T14:59:00</IssueTime>
+		<ExpireTime>2022-04-27T00:00:00</ExpireTime>
+		<LicenseKey>bed0bf9f545a652f569a5f2c40794a1b44ee0eee8bcbdba9c16bd5e7b971b5c6ca87b45b29ad9c7e54242f895422d0bbda810269d3095caaf2f5a8f37a1bda1bd1597989b786519268b351489dd0faa951351747ba86db3894572253c128de3379158b6344c20a493ab9e52677819f0f6ea30640623bbdabaa72fb55a8b1fa88f33f5f404cdd8b38cccd75888b4c220721cd5397f3cb555860fdee518dee1cd20d99be6171dde6582ae349f6bb4e90f250ad41bc831f4bded269b497a32979831143fe1f5100abb67ea235a1f4aece72780b527e7b5a16ba02c0b093552e0d796e3703098d01e3ff43a1456cb760d4140e5c6b6eacfc29e98ae516c7b6b038ee</LicenseKey>
 		<License>
 			<LicenseId>{304D006A-8299-4560-AB79-438534B50288}</LicenseId>
 			<Name>TC3 C++</Name>
