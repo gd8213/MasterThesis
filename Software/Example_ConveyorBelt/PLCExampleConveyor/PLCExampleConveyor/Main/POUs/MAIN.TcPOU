@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="MAIN" Id="{89812e0b-772f-4aaa-8733-9c5b26190d90}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	velocity		AT%I*	: INT;		// nDataOut2[0] . nDataOut2 . Out . Ausgänge . Drive . ConveyorMotorAxis . ConveyorMotorAxis . Achsen . NC-Task 1 SAF
+	counterValue 	AT%Q*	: UINT := 0;		//nDataIn1[0] . nDataIn1 . In . Eingänge . Enc . ConveyorMotorAxis . ConveyorMotorAxis . Achsen . NC-Task 1 SAF
+	driveInState1	AT%Q*	: USINT;	// State of the hardware motor module
+	
+	
+	ModelToPLC		: DWORD := 0;		// empty (1), driveInState1 (1), counterValue (2)
+	PLCToModel		: DWORD := 0;		// empty (2), velocity (2)
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// Communication
+// ToPlc
+counterValue := DWORD_TO_UINT(ModelToPLC AND 16#00_00_FF_FF);
+driveInState1 := DWORD_TO_USINT(SHR((ModelToPLC AND 16#00_FF_00_00),16));
+
+
+// ToModel
+PLCToModel := 0;
+PLCToModel := SHL((PLCToModel OR velocity),0);]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="86" Count="0" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="90" Count="0" />
+      <LineId Id="93" Count="0" />
+      <LineId Id="52" Count="0" />
+      <LineId Id="87" Count="0" />
+      <LineId Id="70" Count="0" />
+      <LineId Id="88" Count="0" />
+      <LineId Id="71" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

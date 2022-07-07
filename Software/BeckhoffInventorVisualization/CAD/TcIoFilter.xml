@@ -1,0 +1,24 @@
+<TcInventorIo>
+  <CtrlOutput>
+    <SensorsCollision>
+      <Sensor>
+        <Name>Sensor1</Name>
+        <PartA>Zusammenbau/Hulse:1</PartA>
+        <PartB>Zusammenbau/Deckel:1</PartB>
+      </Sensor>
+    </SensorsCollision>
+    <Filter Invert="false">sensor_*</Filter>
+    <SensorsDisplacement />
+  </CtrlOutput>
+  <CtrlInput>
+    <Filter Invert="false">axis_*</Filter>
+    <Parameters>
+      <Parameter>Zusammenbau.Fahrweg</Parameter>
+    </Parameters>
+  </CtrlInput>
+  <TcInventorConfig>
+    <SampleTime>40</SampleTime>
+    <DynamicSampleTime>true</DynamicSampleTime>
+    <AutoInitRuntime>false</AutoInitRuntime>
+  </TcInventorConfig>
+</TcInventorIo>

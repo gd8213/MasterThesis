@@ -1,0 +1,136 @@
+
+%% paper.tex
+%% V1.0
+%% 2015/03/03
+%% by Andreas Mehrle
+%% see http://www.mci.edu/
+%% for current contact information.
+%%
+%% This is a skeleton file for the mechatronics master's proceedings
+%% (requires IEEEtran.cls version 1.8 or later).
+%%
+
+
+\documentclass[journal,9pt]{IEEEtran}
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[journal]{../sty/IEEEtran}
+
+% load additional packages
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[detect-weight]{siunitx}
+\usepackage{amsmath}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\pagenumbering{gobble}
+
+\usepackage[paperheight=240mm,paperwidth=170mm,left=15mm,right=15mm]{geometry}
+
+
+% Chevron Process https://tex.stackexchange.com/questions/525818/drawing-a-chevron-process-in-latex
+\usepackage{smartdiagram}
+\usepackage{adjustbox} 
+\tikzset{sequence item/.append style={
+		/utils/exec={\ifnum\xi=1% modifying the style of only one node - from https://tex.stackexchange.com/q/502947
+			\tikzset{signal from=nowhere}
+			\fi
+		}
+	}
+}
+
+% Autoref
+\usepackage[hidelinks]{hyperref}
+
+% Subfigures
+\usepackage{subcaption}
+
+% Structure Tree
+\usetikzlibrary{trees}
+
+% top mid bottom rule
+\usepackage{booktabs}
+
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+% Do not put math or special symbols in the title.
+\title{Modular Virtual Commissioning - A learning factory approach focussing on modularity and integration of component models}
+%
+%
+% author names
+% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+% a structure at a ~ so this keeps an author's name from being broken across
+% two lines.
+% use \thanks{} to gain access to the first footnote area
+% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+% was not built to handle multiple paragraphs
+%
+
+\author{Dominique Geiger, Benjamin Massow (supervisor), and Thomas Hausberger (supervisor)
+\thanks{D.~Geiger studies at MCI Innsbruck, e-mail: dm.geiger@mci4me.at.}
+%\thanks{A.~Mehrle is with the Department of Mechatronics, MCI, Innsbruck, Austria.}
+}
+
+
+
+% make the title area
+\maketitle
+
+\input{sections/Abstract}
+
+
+
+
+% main part
+\section{Introduction}
+	\IEEEPARstart{V}{irtual} commissioning is gaining relevance in many industries due to its advantages. However, the creation and especially the integration of models of the different components is a hurdle. A unified data structure consisting of the geometry, behavior and exemplary automation code can reduce this hurdle. \\
+	Aim of this thesis is to extend an existing learning factory and create a concept where component libraries including simulation models, kinematized visualizations and according automation programm can be integrated easily. The overall plant model should be implemented in a standard CAD software or in \textit{Unity} as an alternative.
+
+
+
+\input{sections/ProductDevelopment}
+
+\input{sections/StateOfTheArt}
+
+\input{sections/DataStructure}
+
+\input{sections/Example}
+
+\input{sections/Results}
+
+
+
+
+
+
+
+% use section* for acknowledgement
+\section*{Acknowledgment}
+
+
+The authors would like to thank...
+
+% references section
+
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEexample}
+% argument is your BibTeX string definitions and bibliography database(s)
+%\bibliography{IEEEabrv,IEEEexample}
+
+
+% biography section
+%
+% picture and CV only of main author
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{DominiqueGeiger.JPG}}]{Dominique Geiger}
+is Master student in the Department of Mechatronics at MCI Innsbruck/Austria.
+\end{IEEEbiography}
+
+% that's all folks
+\end{document}
+

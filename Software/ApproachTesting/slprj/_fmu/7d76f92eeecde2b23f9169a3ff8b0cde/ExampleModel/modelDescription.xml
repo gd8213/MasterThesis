@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fmiModelDescription
+  fmiVersion="2.0"
+  modelName="ExampleModel"
+  guid="{915c5f68-a3a0-0eb6-8c09-24f358423cb2}"
+  description=""
+  generationTool="Simulink (R2020b)"
+  version="1.11"
+  variableNamingConvention="structured"
+  generationDateAndTime="2022-06-16T16:37:09Z"
+  numberOfEventIndicators="0">
+
+<CoSimulation
+  modelIdentifier="ExampleModel"
+  canBeInstantiatedOnlyOncePerProcess="true"
+  canNotUseMemoryManagementFunctions="true"
+  />
+<DefaultExperiment startTime="0" stopTime="10" stepSize="0.01"/>
+<VendorAnnotations>
+  <Tool name="Simulink">
+    <Simulink>
+      <ImportCompatibility requireRelease="all" requireMATLABOnPath="no" />
+    </Simulink>
+  </Tool>
+</VendorAnnotations>
+<ModelVariables>
+  <ScalarVariable name="VelocityGain" valueReference="0" description="VelocityGain" causality="input" variability="continuous" >
+    <Real start="0"  />
+  </ScalarVariable> <!-- index="1" -->
+  <ScalarVariable name="PositionPiston" valueReference="1" description="PositionPiston" causality="output" variability="continuous" initial="calculated">
+    <Real  />
+  </ScalarVariable> <!-- index="2" -->
+  <ScalarVariable name="time" valueReference="2" description="time" causality="independent" variability="continuous" >
+    <Real  />
+  </ScalarVariable> <!-- index="3" -->
+</ModelVariables>
+<ModelStructure>
+  <Outputs>
+    <Unknown index="2" />
+  </Outputs>
+  <InitialUnknowns>
+    <Unknown index="2" />
+  </InitialUnknowns>
+</ModelStructure>
+</fmiModelDescription>
+

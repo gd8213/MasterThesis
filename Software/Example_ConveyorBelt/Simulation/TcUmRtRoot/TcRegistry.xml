@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<TcRegistry>
+	<Key Name="HKLM">
+		<Key Name="Software">
+			<Key Name="Beckhoff">
+				<Key Name="TwinCAT3">
+					<Value Name="CurrentVersion" Type="SZ">3.1</Value>
+					<Key Name="System">
+						<Value Name="RunAsDevice" Type="DW">1</Value>
+						<Value Name="RTimeMode" Type="DW">3</Value>
+						<Value Name="AmsNetId" Type="BIN">C0A8089B0103</Value>
+					</Key>
+					<Key Name="3.1">
+						<Value Name="BootDir" Type="SZ">C:\Users\kaebi\OneDrive - mci4me.at\03_MCI Master\4.Semester_SS2022\Masterarbeit\Software\Example_ConveyorBelt\Simulation\TcUmRtRoot\Boot\</Value>
+						<Value Name="ConfigDir" Type="SZ">C:\Users\kaebi\OneDrive - mci4me.at\03_MCI Master\4.Semester_SS2022\Masterarbeit\Software\Example_ConveyorBelt\Simulation\TcUmRtRoot\Config\</Value>
+						<Value Name="InstallDir" Type="SZ">C:\Users\kaebi\OneDrive - mci4me.at\03_MCI Master\4.Semester_SS2022\Masterarbeit\Software\Example_ConveyorBelt\Simulation\TcUmRtRoot\</Value>
+						<Value Name="TargetDir" Type="SZ">C:\Users\kaebi\OneDrive - mci4me.at\03_MCI Master\4.Semester_SS2022\Masterarbeit\Software\Example_ConveyorBelt\Simulation\TcUmRtRoot\Target\</Value>
+						<Value Name="DriverAutoLoadDir" Type="SZ">C:\Users\kaebi\OneDrive - mci4me.at\03_MCI Master\4.Semester_SS2022\Masterarbeit\Software\Example_ConveyorBelt\Simulation\TcUmRtRoot\Driver\AutoLoad\</Value>
+					</Key>
+					<Key Name="EventLogger">
+						<Value Name="LastUniqueId" Type="DW">0</Value>
+					</Key>
+				</Key>
+			</Key>
+		</Key>
+		<Key Name="Ident">
+			<Value Name="DeviceType" Type="SZ">PC-WIN-U</Value>
+		</Key>
+	</Key>
+</TcRegistry>

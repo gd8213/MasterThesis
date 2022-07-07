@@ -1,0 +1,118 @@
+
+%% abstract.tex
+%% V1.0
+%% 2015/03/03
+%% by Andreas Mehrle
+%% see http://www.mci.edu/
+%% for current contact information.
+%%
+%% This is a skeleton file for the mechatronics master's proceedings
+%% (requires IEEEtran.cls version 1.8 or later).
+%%
+
+
+\documentclass[journal,9pt]{IEEEtran}
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[journal]{../sty/IEEEtran}
+
+
+% load packages
+\usepackage{ngerman}		% German language support
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[detect-weight]{siunitx}
+\usepackage{amsmath}
+
+
+% change standard names
+\renewcommand{\abstractname}{Kurzfassung}
+\def\IEEEkeywordsname{Schlagw"orter}
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\pagenumbering{gobble}
+
+\usepackage[paperheight=240mm,paperwidth=170mm,left=15mm,right=15mm]{geometry}
+
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+% Do not put math or special symbols in the title.
+\title{Vorlage Kurzfassung f"ur Mechatronik Masterkonferenz}
+%
+%
+% author names
+% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+% a structure at a ~ so this keeps an author's name from being broken across
+% two lines.
+% use \thanks{} to gain access to the first footnote area
+% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+% was not built to handle multiple paragraphs
+%
+
+\author{Andreas Mehrle, John Doe (Betreuer) und Jane Doe (Betreuerin)
+\thanks{A.~Mehrle arbeitet am Studiengang Mechatronik, MCI, Innsbruck, "Osterreich, e-mail: andreas.mehrle@mci.edu.}
+\thanks{J.~Doe and J.~Doe studieren an der Anonymous Universit"at.}
+\thanks{Manuskript eingereicht am 22.~M"arz 2015; revidiert am 27.~M"arz 2015.}}
+
+
+
+% make the title area
+\maketitle
+
+% As a general rule, do not put math, special symbols or citations
+% in the abstract or keywords.
+\begin{abstract}
+Hier kommt die Kurzfassung hin. Die ist etwas l"anger
+\end{abstract}
+
+\begin{IEEEkeywords}
+IEEEtran, Journal, \LaTeX, Kurzfassung, Vorlage.
+\end{IEEEkeywords}
+
+% main part
+\section{Einleitung}
+
+\IEEEPARstart{D}{ie} erste Zeile beginnt so. Alle anderen Abs"atze beginnen normal \cite{kat06}
+
+\section{Methoden}
+
+\section{Ergebnisse}
+
+Die Antwort ist \SI[per-mode=fraction]{42}{\meter\squared\per\second} und die Frage war
+\begin{equation}
+    u=-K\vec{x}
+\end{equation}
+
+\section{Conclusio}
+
+
+% use section* for acknowledgement
+\section*{Danksagung}
+
+The Autoren m"ochten folgenden Personen...
+
+% references section
+
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEexample}
+% argument is your BibTeX string definitions and bibliography database(s)
+%\bibliography{IEEEabrv,IEEEexample}
+
+
+% biography section
+%
+% picture and CV only of main author
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{grafics/andreas_mehrle}}]{Andreas Mehrle}
+is Leiter des Departments f"ur Mechatronik am MCI Innsbruck/"Osterreich. Neben anderem ist er verantwortlich f"ur die Fachbereiche Regelungstechnik und Str"omungsmechanik in welchen er regelm"a"sig publiziert.
+\end{IEEEbiography}
+
+% that's all folks
+\end{document}
+
