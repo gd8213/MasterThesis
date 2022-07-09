@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <DUT Name="StateDisp" Id="{4892e603-d061-4189-b2b5-07c6efc45795}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE StateDisp :
+(
+	Off := 0,
+	Reset,
+	PowerUp,
+	Idle,
+	Dispensing,
+	Done
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

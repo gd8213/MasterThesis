@@ -1,0 +1,21 @@
+2022-04-29 13:01:57: Log messages will be written to <a href="matlab:TwinCAT.ModuleGenerator.Utilities.OpenFileLink('C:\Users\kaebi\OneDrive - mci4me.at\03_MCI Master\4.Semester_SS2022\Masterarbeit\Software\Simulink_Models\FMU_Seperator_tcgrt\FMU_Seperator_ModuleGenerationLog.txt')">FMU_Seperator_ModuleGenerationLog.txt</a>
+2022-04-29 13:01:57: [Info]
+2022-04-29 13:01:57: [Info#ModuleGenerator]
+2022-04-29 13:01:57: ProductId: TE140x
+2022-04-29 13:01:57: ProductName: TE140x-TargetForMatlabSimulink
+2022-04-29 13:01:57: Version: 2.2.1.4
+2022-04-29 13:01:57: InstallDir: C:\TwinCAT\Functions\TE14xx-ToolsForMatlabAndSimulink\TE140x
+2022-04-29 13:01:57: SDK: C:\TwinCAT\Functions\TE14xx-ToolsForMatlabAndSimulink\TE140x\SDK
+2022-04-29 13:01:57: [Info#ModuleGeneratorHost]
+2022-04-29 13:01:57: Description: MATLAB 9.9.0.1718557 (R2020b) Update 6 (win64)
+2022-04-29 13:01:57: InstallDir: C:\Program Files\MATLAB\R2020b
+2022-04-29 13:01:57: [Info#TE140x]
+2022-04-29 13:01:57: SDK: C:\TwinCAT\Functions\TE14xx-ToolsForMatlabAndSimulink\TE140x\SDK
+2022-04-29 13:01:57: [Create Project]
+2022-04-29 13:01:57: [Export Classes]
+2022-04-29 13:01:57: [Export Classes#License]
+2022-04-29 13:01:57: [License#FMU_Seperator]
+2022-04-29 13:01:57: TE1400 - TC3 Target For Simulink trial license is limited to 5 port elements. Abort Generation of "FMU_Seperator".
+
+2022-04-29 13:01:57: Error occured during license check
+2022-04-29 13:01:57: Closing log file

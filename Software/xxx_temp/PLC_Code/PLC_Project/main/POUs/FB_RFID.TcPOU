@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <POU Name="FB_RFID" Id="{f4006e95-5a7a-45f8-8847-eccf6ae8b2e4}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_RFID
+	VAR_INPUT
+		bSensorTrager : BOOL := FALSE;		// Sensor fur Erkennung von Datentrager
+	END_VAR
+	
+	VAR_OUTPUT
+		bFertig			: BOOL;			
+		sSeriennummer 	: STRING;
+		iFehlerAnzahl 	: INT;
+	END_VAR
+	
+	VAR
+		busyRec : BOOL;
+		recError : ComError_t;
+		bGotString : BOOL;
+	END_VAR
+	
+// ----- Ende der Definition. Hier folgt der Code ------
+
+
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF bSensorTrager THEN			// nur wenn Datentrager gefunden
+	// Datenpakete empfangen
+	RecRFID(
+		Prefix:='AAA', 
+		Suffix:='ZZZ', 
+		Timeout:= , 
+		Reset:= , 
+		StringReceived=> bGotString, 
+		Busy=> busyRec, 
+		Error=> recError, 
+		RxTimeout=> , 
+		ReceivedString:= IFC_HW.IdNachricht, 
+		RXbuffer:= RxBufferRFID);
+		
+	// Extrahieren der Seriennummer
+	sSeriennummer := MID(STR:=IFC_HW.IdNachricht, LEN:=10, POS:=4);
+	iFehlerAnzahl := STRING_TO_INT(MID(STR:=IFC_HW.IdNachricht, LEN:=1, POS:=15));
+	bFertig := TRUE;
+ELSE
+	bFertig := FALSE;
+	sSeriennummer := '';
+	iFehlerAnzahl := -1;
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="FB_RFID">
+      <LineId Id="361" Count="17" />
+      <LineId Id="380" Count="3" />
+      <LineId Id="306" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

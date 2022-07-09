@@ -13,7 +13,7 @@
   <CtrlInput>
     <Filter Invert="false">axis_*</Filter>
     <Parameters>
-      <Parameter>Zusammenbau.Fahrweg</Parameter>
+      <Parameter>Zusammenbau.Winkel</Parameter>
     </Parameters>
   </CtrlInput>
   <TcInventorConfig>

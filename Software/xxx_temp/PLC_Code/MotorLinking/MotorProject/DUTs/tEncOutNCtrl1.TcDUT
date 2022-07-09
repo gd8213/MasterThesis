@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="tEncOutNCtrl1" Id="{c31d0275-a13d-4b47-9358-f2566cfe8e9e}">
+    <Declaration><![CDATA[TYPE tEncOutNCtrl1 :
+STRUCT
+	EnableLatchExternPositiveEdge		: BIT;
+	SetCounter							: BIT;
+	EnableLatchExternNegativeEdge		: BIT;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

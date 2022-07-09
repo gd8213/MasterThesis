@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="Motor" Id="{710e4976-0d7b-4351-b5ec-7ccf087d8b32}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK Motor
+VAR_INPUT
+	velocity : INT;
+END_VAR
+VAR_OUTPUT
+	counter : UINT;
+END_VAR
+VAR PERSISTENT
+	internalCounter : UINT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[internalCounter := internalCounter + velocity*10;
+counter := internalCounter;]]></ST>
+    </Implementation>
+    <LineIds Name="Motor">
+      <LineId Id="14" Count="0" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

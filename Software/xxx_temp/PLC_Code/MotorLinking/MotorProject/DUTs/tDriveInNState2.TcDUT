@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <DUT Name="tDriveInNState2" Id="{f7afe60e-3041-426b-9546-5e830d6b0118}">
+    <Declaration><![CDATA[TYPE tDriveInNState2 :
+STRUCT
+	DigitalInput1	: BIT;
+	DigitalInput2	: BIT;
+	SyncError		: BIT;
+	TcPdoToggle		: BIT;
+END_STRUCT
+END_TYPE]]></Declaration>
+  </DUT>
+</TcPlcObject>
