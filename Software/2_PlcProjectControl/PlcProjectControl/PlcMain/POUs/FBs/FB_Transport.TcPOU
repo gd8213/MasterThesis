@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <POU Name="FB_Transport" Id="{b2fc788d-87c5-4196-be11-0b80eab99189}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Transport
+VAR_INPUT
+	bEnable 	: BOOL;
+	bExecute 	:  BOOL;
+	bSensor1	: BOOL := FALSE;		// Input Sensor 1
+	bSensor2	: BOOL := FALSE;		// Input Sensor 2
+	bSensor3	: BOOL := FALSE;		// Input Sensor 3
+	bSensor4	: BOOL := FALSE;		// Input Sensor 3
+END_VAR
+VAR_IN_OUT
+		ax 	: AXIS_REF;		// NC-Axis reference
+END_VAR
+VAR_OUTPUT
+	eStatus : State := State.Off;
+	
+	bStopper1	: BOOL := FALSE;		// Output Stopper 1
+	bStopper2	: BOOL := FALSE;		// Output Stopper 2
+	bStopper3	: BOOL := FALSE;		// Output Stopper 2
+END_VAR
+VAR
+	fbConveyor : FB_Conveyor;
+	eState : StateTr := StateTr.Off;
+	nCurrentPosition : INT := 0;
+	timer : TON;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// Instanzaufrufe
+fbConveyor(ax:=ax);
+
+IF NOT bEnable THEN
+	eState := StateTr.Off;
+END_IF
+
+CASE eState OF
+StateTr.Off: // off
+	eStatus := State.Off;
+	nCurrentPosition := 0;
+	bStopper1 := FALSE;
+	bStopper2 := FALSE;
+	bStopper3 := FALSE;
+	fbConveyor.bEnable := FALSE;
+	fbConveyor.bExecute := FALSE;
+	
+	IF bEnable THEN
+		eState := StateTr.PowerUp;
+	END_IF
+StateTr.PowerUp: // turn on
+	eStatus := State.Busy;
+	bStopper1 := FALSE;
+	bStopper2 := FALSE;
+	bStopper3 := FALSE;
+	fbConveyor.bEnable := TRUE;
+	fbConveyor.bExecute := FALSE;
+	
+	IF fbConveyor.eStatus = State.Ready THEN
+		eState := StateTr.Idle;
+	END_IF
+StateTr.Idle: // Ready
+	eStatus := State.Ready;
+	bStopper1 := FALSE;
+	bStopper2 := FALSE;
+	bStopper3 := FALSE;
+	fbConveyor.bEnable := TRUE;
+	fbConveyor.bExecute := FALSE;
+	
+	IF bExecute THEN
+		eState := StateTr.Move2Target;
+	END_IF
+StateTr.Move2Target: // Move to next target
+	eStatus := State.Busy;
+	
+	CASE nCurrentPosition OF
+		1: bStopper1 := TRUE;
+		2: bStopper2 := TRUE;
+		3: bStopper3 := TRUE;
+	END_CASE
+	
+	fbConveyor.eDirection := MC_Direction.MC_Positive_Direction;
+	fbConveyor.nVel := 40;
+	fbConveyor.bExecute := TRUE;
+	
+	IF nCurrentPosition = 0 AND bSensor1 THEN
+		eState := StateTr.Wait;
+	ELSIF nCurrentPosition = 1 AND bSensor2 THEN
+		eState := StateTr.Wait;
+	ELSIF nCurrentPosition = 2 AND bSensor3 THEN
+		eState := StateTr.Wait;
+	ELSIF nCurrentPosition = 3 AND bSensor4 THEN
+		eState := StateTr.Wait;
+	END_IF
+StateTr.Wait: // Move a little bit further
+	eStatus := State.Busy;
+	timer(IN:=TRUE, PT:=T#1S);
+	
+	IF timer.Q THEN
+		timer(IN:=FALSE); // Reset timer
+		eState := StateTr.Done;
+	END_IF
+StateTr.Done: // stop
+	eStatus := State.Done;
+	fbConveyor.bExecute := FALSE;
+	IF NOT bExecute THEN
+		nCurrentPosition := nCurrentPosition + 1;
+		eState := StateTr.Idle;
+	END_IF
+END_CASE]]></ST>
+    </Implementation>
+    <LineIds Name="FB_Transport">
+      <LineId Id="431" Count="78" />
+      <LineId Id="381" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

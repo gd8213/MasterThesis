@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <GVL Name="GVL_SAFETY" Id="{4a7e782b-7612-4643-a872-47e576339f68}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	safebLightBarrierOK AT%I* 	: BOOL; // Light barrier OK
+	safebEmergencyStopOK AT%I* 	: BOOL; // Emergency stop OK
+	safebDoorLockedOK AT%I* 	: BOOL; // Safety door locked OK
+		
+	bAcknowledge_Button AT%I* 	: BOOL;	// Input acknowledge button
+	bBetrieb_Button AT%I* 		: BOOL; // Input start factory button
+	bBetrieb_Out AT%Q* 			: BOOL;
+	
+	safeLockDoor AT%Q*			: BOOL; // Safety lock door
+	safebAcknowledge AT%Q* 		: BOOL; // Safety acknowledge
+	safebErrAck AT%Q* 			: BOOL;	// Safety error acknowledge
+	safeOverruled AT%Q*			: BOOL; // Safety overruled
+	safebSafeRun AT%Q* 			: BOOL := TRUE; // Safety run
+
+END_VAR
+]]></Declaration>
+  </GVL>
+</TcPlcObject>

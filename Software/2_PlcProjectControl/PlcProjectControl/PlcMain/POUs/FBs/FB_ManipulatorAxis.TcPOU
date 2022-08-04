@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <POU Name="FB_ManipulatorAxis" Id="{e010b4d0-16a4-42c7-b4be-1acb68c0d19a}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_ManipulatorAxis
+	VAR_INPUT
+		bEnable			: BOOL;
+		bExecute		: BOOL;
+		bEndschalterMin	: BOOL;
+		bEndSchalterMax : BOOL;
+		fPosition		: LREAL;			// gewunschte Postition der Achse
+		fVelocity 		: LREAL;
+		Direction  	: MC_Direction;
+	END_VAR
+	
+	VAR_OUTPUT
+		eOutState				: State:=State.Off; 
+		fActPos					: LREAL;		
+	END_VAR
+	
+	VAR_IN_OUT
+		aAchse 			: AXIS_REF;		// NC-Achse
+	END_VAR
+	
+	VAR
+		// Fur NC-Achse notig
+		Reset_Achse			: MC_Reset;
+		Power_Achse			: MC_Power;
+		Move_Achse			: MC_MoveAbsolute;
+		Move_Vel			: MC_MoveVelocity;
+		Home_Achse 			: MC_Home;
+		Halt_Achse			: MC_Halt;
+		Position_Achse		: MC_ReadActualPosition;
+		bAchsePower			: BOOL;
+		bAchseMove			: BOOL;
+
+		eState			: StateMan;
+	END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// Einstellungen der Achse
+aAchse.ReadStatus();
+Reset_Achse(Axis:=aAchse);
+Power_Achse(Axis:=aAchse, Override := 100, Enable := bAchsePower, Enable_Negative := bAchsePower, Enable_Positive := bAchsePower);
+Move_Achse(Axis:=aAchse);
+Home_Achse(Axis:= aAchse, bCalibrationCam := NOT bEndschalterMin, Position := 0);
+Move_Vel(Axis:=aAchse);
+Halt_Achse(Axis:=aAchse);
+
+CASE eState OF
+StateMan.Off:
+	eOutState := State.Off;
+	bAchseMove := FALSE;
+	bAchsePower := FALSE;
+	
+	IF bEnable THEN
+		eState := StateMan.Reset;
+	END_IF
+StateMan.Reset:
+	eOutState := State.Busy;
+	Reset_Achse.Execute := TRUE;
+	
+	IF Reset_Achse.Done THEN
+		Reset_Achse.Execute := FALSE;
+		eState := StateMan.PowerUp;
+	END_IF
+StateMan.PowerUp:
+	eOutState := State.Busy;
+	bAchsePower := TRUE;
+	
+	IF Power_Achse.Status THEN
+		eState := StateMan.Homing;
+	END_IF
+StateMan.Homing:
+	eOutState := State.Busy;
+	Home_Achse.Execute := TRUE;
+	
+	IF Home_Achse.Done THEN
+		Home_Achse.Execute := FALSE;
+		eState := StateMan.Ready;
+	END_IF
+StateMan.Ready:
+		eOutState := State.Ready;
+		Move_Achse.Execute := FALSE;
+	IF bExecute THEN
+		eState := StateMan.Moving;
+	END_IF
+StateMan.Moving:
+	eOutState := State.Busy;
+	Move_Achse.Velocity := fVelocity;
+
+	Move_Achse.Position := fPosition;
+	Move_Achse.Execute := TRUE;
+
+	IF Move_Achse.Done OR ( NOT bEndschalterMin  AND (Move_Achse.Position < Position_Achse.Position)) OR (NOT bEndschalterMax AND (Move_Achse.Position > Position_Achse.Position)) THEN
+		
+		IF NOT(bEndschalterMax) OR NOT(bEndschalterMin) THEN
+				Halt_Achse.Execute := TRUE;
+		END_IF
+		
+		eState := StateMan.Done;
+	END_IF
+StateMan.Done:
+	eOutState := State.Done;
+	Move_Achse.Execute := FALSE;
+	
+	IF NOT bExecute THEN
+		eState := StateMan.Ready;
+	END_IF
+END_CASE]]></ST>
+    </Implementation>
+    <LineIds Name="FB_ManipulatorAxis">
+      <LineId Id="892" Count="5" />
+      <LineId Id="1202" Count="1" />
+      <LineId Id="1041" Count="0" />
+      <LineId Id="900" Count="0" />
+      <LineId Id="1043" Count="0" />
+      <LineId Id="1057" Count="1" />
+      <LineId Id="1045" Count="0" />
+      <LineId Id="1049" Count="3" />
+      <LineId Id="1055" Count="0" />
+      <LineId Id="1059" Count="1" />
+      <LineId Id="1216" Count="0" />
+      <LineId Id="1061" Count="6" />
+      <LineId Id="1215" Count="0" />
+      <LineId Id="1068" Count="1" />
+      <LineId Id="1056" Count="0" />
+      <LineId Id="1317" Count="6" />
+      <LineId Id="1240" Count="0" />
+      <LineId Id="1079" Count="0" />
+      <LineId Id="1241" Count="0" />
+      <LineId Id="1280" Count="0" />
+      <LineId Id="1082" Count="0" />
+      <LineId Id="1084" Count="4" />
+      <LineId Id="1223" Count="0" />
+      <LineId Id="1089" Count="3" />
+      <LineId Id="1152" Count="0" />
+      <LineId Id="1147" Count="2" />
+      <LineId Id="1151" Count="0" />
+      <LineId Id="1150" Count="0" />
+      <LineId Id="1094" Count="1" />
+      <LineId Id="1101" Count="0" />
+      <LineId Id="1096" Count="4" />
+      <LineId Id="1044" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

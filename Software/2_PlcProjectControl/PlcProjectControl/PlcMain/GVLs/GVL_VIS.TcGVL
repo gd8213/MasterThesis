@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <GVL Name="GVL_VIS" Id="{89d5a3c3-6f17-4afc-b823-8e55ec4a2acb}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	bSetup 		: BOOL; // Start setup mode
+	bProduction : BOOL; // Start production mode
+	
+	bStartFactoryHMI : BOOL; // Start factory button HMI
+	bAcknowledgeHMI  : BOOL; // Acknowledge button HMI
+	bStorageHMI		 : BOOL; // Overrule button HMI
+	
+	bActuator1	: BOOL; // Start actuator 1
+	bActuator2	: BOOL; // Start actuator 2
+	bRFID		: BOOL; // Start RFID
+	bConveyor 	: BOOL; // Start Conveyor
+	bDispenser1 : BOOL;	// Start dispenser 1
+	bDispenser2 : BOOL; // Start dispenser 2
+	bDispenser3 : BOOL;	// Start dispenser 3
+	sFilling1 : STRING; // Input value dispenser 1
+	sFilling2 : STRING;	// Input value dispenser 2
+	sFilling3 : STRING;	// Input value dispenser 3
+	
+	bHeating : BOOL; 		// Start Heating button
+	rHeating : REAL := 0; 	// Value of heating (0-5V)
+	
+	bAxisX : BOOL;		// Start x axis button
+	bAxisY : BOOL;		// Start y axis button
+	bAxisZ : BOOL;		// Start z axis button
+	bAxisG : BOOL;		// Start gripper axis button 
+	sAxisX : STRING;	// Input value x axis
+	sAxisY : STRING;	// Input value y axis
+	sAxisZ : STRING;	// Input value z axis
+	sAxisG : STRING;	// Input value gripper axis
+	
+	TSens1	: REAL; // Heating block temperature 1
+	TSens2	: REAL; // Heating block temperature 2
+	TSens	: REAL; // Heating block tamperature
+	                
+	GEmpty 	: BOOL; // Error granulate empty
+	FullSt	: BOOL; // Error full storage
+	WrongB	: BOOL; // Error wrong bottle
+	NoB		: BOOL; // Error no bottle
+	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

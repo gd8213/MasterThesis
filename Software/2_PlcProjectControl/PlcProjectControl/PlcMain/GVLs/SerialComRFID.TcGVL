@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <GVL Name="SerialComRFID" Id="{46efd360-80e7-4ae9-b9bd-2c9c9efcbb85}">
+    <Declaration><![CDATA[VAR_GLOBAL
+	ELDataIn_RFID AT %I* : EL6inData22B;
+	ELDataOut_RFID AT %Q* : EL6outData22B;
+
+	RecRFID : ReceiveString;
+	
+	RxBufferRFID : ComBuffer;
+	TxBufferRFID : ComBuffer;
+	
+	ErrorFastRFID : BOOL;
+	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

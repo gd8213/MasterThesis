@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <GVL Name="ModelSetup" Id="{85749375-f0be-4490-868a-393a2db0e73f}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	samplingtime 			AT%Q* : LREAL := 0.01;
+	
+	signalCreateContainer 	AT%Q* : BOOL;
+	signalRevomeContainer 	AT%Q* : BOOL;
+	signalMinPosAct 		AT%Q* : LREAL := 0;
+	signalMaxPosAct 		AT%Q* : LREAL := 10;
+	
+	// Conveyor
+	signalCreateContainerConveyor 	AT%Q* : BOOL;
+	signalRevomeContainerConveyor 	AT%Q* : BOOL;
+	
+	velo AT%Q* : INT;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

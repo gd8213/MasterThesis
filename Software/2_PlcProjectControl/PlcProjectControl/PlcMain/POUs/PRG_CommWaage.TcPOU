@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <POU Name="PRG_CommWaage" Id="{7cd68caf-d9da-4019-afd2-c32c2d58570e}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_CommWaage
+	VAR
+		ControllerWaage : SerialLineControl;
+		nCount : DINT := 0;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[ControllerWaage(
+	Mode:= SERIALLINEMODE_EL6_22B, 
+	pComIn:= ADR(ELDataIn_Waage), 
+	pComOut:= ADR(ELDataOut_Waage), 
+	SizeComIn:= TO_UINT( SIZEOF(ELDataIn_Waage)), 
+	Error=> ErrorFastWaage, 
+	ErrorID=> , 
+	TxBuffer:= TxBufferWaage, 
+	RxBuffer:= RxBufferWaage);
+	
+	nCount := nCount + 1;
+	]]></ST>
+    </Implementation>
+    <LineIds Name="PRG_CommWaage">
+      <LineId Id="7" Count="8" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="21" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

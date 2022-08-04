@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <POU Name="FB_Dispenser" Id="{45b31251-7302-454e-ad8b-8a17ba762004}" SpecialFunc="None">
+    <Declaration><![CDATA[// Das ist die Musterlosung zur Steuerung einer Dosiereinheit.
+// Library TC2_MC2 ist notig.
+
+FUNCTION_BLOCK FB_Dispenser
+	VAR_INPUT
+		bEnable					: BOOL;
+		bExecute				: BOOL;
+		nDispenseGrams			: INT := 1;		// Gewunschte Menge in Gramm
+	END_VAR
+
+	VAR_OUTPUT
+		eStatus	: State := State.Off;
+	END_VAR
+	
+	VAR_IN_OUT
+		ax		: AXIS_REF; 			// Referenz auf die NC-Achse
+	END_VAR
+
+	VAR
+		// Fur NC-Achse notig
+		fbReset			: MC_Reset;
+		fbPower			: MC_Power;
+		fbMove			: MC_MoveRelative;
+		
+		// Parameter
+		nVelocity			: INT := 720;		// Grad pro Sekunde
+		fGramPerRev			: REAL := 0.245;		// Skalierung auf Gramm pro ganzer Umdrehung (360 Grad)
+		
+		// Working variables
+		eState				: StateDisp;		// Status der Zustandsmaschine
+		bAxPower			: BOOL;
+		bAxMove				: BOOL;
+END_VAR
+	
+// ----- Ende der Definition. Hier folgt der Code ------
+
+
+
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+// update axis
+ax.ReadStatus();
+
+// call NC FBs
+fbReset(
+	Axis:= ax);
+fbPower(
+	Axis:= ax, 
+	Enable:= bAxPower, 
+	Enable_Positive:= bAxPower, 
+	Enable_Negative:= bAxPower, 
+	Override:= 100);
+fbMove(
+	Axis:=ax,
+	Execute:=bAxMove,
+	Velocity:=nVelocity,
+	Distance:= nDispenseGrams *360 / fGramPerRev);
+	
+	
+
+IF NOT bEnable THEN
+	eState := StateDisp.Off;
+END_IF
+
+CASE eState OF
+StateDisp.Off:
+	eStatus := State.Off;
+	bAxMove := FALSE;
+	bAxPower := FALSE;
+	
+	IF bEnable THEN
+		eState := StateDisp.Reset;
+	END_IF
+StateDisp.Reset:
+	eStatus := State.Busy;
+	fbReset.Execute := TRUE;
+	IF fbReset.Done THEN
+		fbReset.Execute := FALSE;
+		eState := StateDisp.PowerUp;
+	END_IF
+StateDisp.PowerUp:
+	eStatus := State.Busy;
+	bAxPower := TRUE;
+	IF fbPower.Status THEN
+		eState := StateDisp.Idle;
+	END_IF
+StateDisp.Idle:
+	eStatus := State.Ready;
+	bAxMove := FALSE;
+
+	IF bExecute THEN
+		eState := StateDisp.Dispensing;
+	END_IF
+StateDisp.Dispensing:
+	eStatus := State.Busy;
+	bAxMove := TRUE;
+	
+	IF fbMove.Done THEN
+		eState := StateDisp.Done;
+	END_IF
+StateDisp.Done:
+	eStatus := State.Done;
+	bAxMove := FALSE;
+	
+	IF NOT bExecute THEN
+		eState := StateDisp.Idle;
+	END_IF
+END_CASE]]></ST>
+    </Implementation>
+    <LineIds Name="FB_Dispenser">
+      <LineId Id="2292" Count="17" />
+      <LineId Id="2396" Count="1" />
+      <LineId Id="2310" Count="47" />
+      <LineId Id="1651" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <POU Name="MAIN" Id="{1ab0324e-006d-449b-8558-51a8c0206f39}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+GVL_SAFETY.safebAcknowledge := GVL_SAFETY.bAcknowledge_Button OR GVL_VIS.bAcknowledgeHMI;
+GVL_SAFETY.bBetrieb_Out := GVL_SAFETY.bBetrieb_Button OR GVL_VIS.bStartFactoryHMI;
+
+GVL_VIS.TSens1 := IFC_HW.TempSens1/100;
+GVL_VIS.TSens2 := IFC_HW.TempSens2/100;
+GVL_VIS.TSens := (GVL_VIS.TSens1+GVL_VIS.TSens2)/2;
+	
+GVL_VIS.GEmpty := NOT IFC_HW.GranulateEmpty;
+GVL_VIS.FullSt := NOT IFC_HW.StorageFull;
+GVL_VIS.WrongB := NOT IFC_HW.WrongBottle;
+GVL_VIS.NoB := NOT IFC_HW.NoBottle;
+
+
+IF GVL_SAFETY.safebEmergencyStopOK AND GVL_SAFETY.safebLightBarrierOK AND GVL_SAFETY.safebDoorLockedOK THEN
+	IF GVL_VIS.bSetup THEN
+		PRG_Setup();
+	ELSIF GVL_VIS.bProduction THEN
+		PRG_Lab();
+	END_IF	
+END_IF
+]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="24" Count="1" />
+      <LineId Id="27" Count="1" />
+      <LineId Id="44" Count="0" />
+      <LineId Id="46" Count="6" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="43" Count="0" />
+      <LineId Id="29" Count="1" />
+      <LineId Id="34" Count="3" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="38" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
