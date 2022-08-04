@@ -1545,14 +1545,15 @@ External Setpoint Generation:
 						<Name>Prozessabbild</Name>
 					</Image>
 				</SafTask>
-				<SvbTask Priority="8" CycleTime="100000" AmsPort="511">
+				<SvbTask Priority="8" CycleTime="20000" AmsPort="511">
 					<Name>NC-Task 1 SVB</Name>
 				</SvbTask>
 				<Axis Id="1" CreateSymbols="true" AxisType="1">
 					<Name>Conveyor</Name>
 					<AxisPara>
+						<General IoDivider="3"/>
 						<Dynamic AccelerationMaximum="700" DecelerationMaximum="700" Acceleration="400" Deceleration="400" Jerk="6000"/>
-						<Velo Maximum="50"/>
+						<Velo SlowManual="10" FastManual="50" Maximum="50"/>
 						<OtherSettings AllowMotionCmdToSlave="true"/>
 					</AxisPara>
 					<Encoder Name="Enc" EncType="4">
@@ -1615,7 +1616,7 @@ External Setpoint Generation:
 					</Encoder>
 					<Drive Name="Drive" DrvType="23">
 						<DrvPara>
-							<Analog VeloReferenz="50" TorqueSetpointScale="10" ScaleFactorActTorque="0.1"/>
+							<Analog VeloReferenz="100" TorqueSetpointScale="10" ScaleFactorActTorque="0.1"/>
 							<TimeComp TaskDelayCycles="1"/>
 						</DrvPara>
 						<Vars VarGrpType="1">
@@ -1687,6 +1688,7 @@ External Setpoint Generation:
 					</Drive>
 					<Controller Name="Ctrl" CtrType="1">
 						<CtrPara PriorControlFactor="1">
+							<PosDiffControl Range="10"/>
 							<Observer BandWidth="20"/>
 						</CtrPara>
 					</Controller>
@@ -1708,6 +1710,7 @@ External Setpoint Generation:
 				<Axis Id="2" CreateSymbols="true" AxisType="1">
 					<Name>ManX</Name>
 					<AxisPara>
+						<General IoDivider="3"/>
 						<Dynamic AccelerationMaximum="1000" DecelerationMaximum="1000" Acceleration="1000" Deceleration="1000" Jerk="20160"/>
 						<Velo SlowManual="10" FastManual="100" Maximum="280"/>
 						<OtherSettings AllowMotionCmdToSlave="true"/>
@@ -1865,6 +1868,7 @@ External Setpoint Generation:
 				<Axis Id="3" CreateSymbols="true" AxisType="1">
 					<Name>ManY</Name>
 					<AxisPara>
+						<General IoDivider="3"/>
 						<Dynamic AccelerationMaximum="1000" DecelerationMaximum="1000" Acceleration="1000" Deceleration="1000" Jerk="20160"/>
 						<Velo SlowManual="10" FastManual="100" Maximum="280"/>
 						<OtherSettings AllowMotionCmdToSlave="true"/>
@@ -2022,6 +2026,7 @@ External Setpoint Generation:
 				<Axis Id="4" CreateSymbols="true" AxisType="1">
 					<Name>ManZ</Name>
 					<AxisPara>
+						<General IoDivider="3"/>
 						<Dynamic AccelerationMaximum="500" DecelerationMaximum="500" Acceleration="176.4" Deceleration="176.4" Jerk="1103.44"/>
 						<Velo RefSearch="15" RefSync="15" SlowManual="15" FastManual="15" Maximum="60"/>
 						<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="10" PulseDistanceNeg="10"/>
@@ -2158,6 +2163,7 @@ External Setpoint Generation:
 					</Drive>
 					<Controller Name="Ctrl" CtrType="1">
 						<CtrPara PriorControlFactor="1">
+							<PosDiffControl Enable="false" Range="100"/>
 							<Observer BandWidth="20"/>
 						</CtrPara>
 					</Controller>
@@ -2179,8 +2185,9 @@ External Setpoint Generation:
 				<Axis Id="5" CreateSymbols="true" AxisType="1">
 					<Name>Disp1</Name>
 					<AxisPara>
-						<Dynamic AccelerationMaximum="3000" DecelerationMaximum="3000" Acceleration="2300" Deceleration="2300" Jerk="5290"/>
-						<Velo Maximum="3600"/>
+						<General UnitName="°"/>
+						<Dynamic AccelerationMaximum="30000" DecelerationMaximum="30000" Acceleration="21240" Deceleration="21240" Jerk="696200"/>
+						<Velo SlowManual="360" FastManual="720" Maximum="3600"/>
 						<OtherSettings AllowMotionCmdToSlave="true"/>
 					</AxisPara>
 					<Encoder Name="Enc" EncType="4">
@@ -2315,6 +2322,7 @@ External Setpoint Generation:
 					</Drive>
 					<Controller Name="Ctrl" CtrType="1">
 						<CtrPara PriorControlFactor="1">
+							<PosDiffControl Enable="false" Range="45"/>
 							<Observer BandWidth="20"/>
 						</CtrPara>
 					</Controller>
@@ -2336,6 +2344,7 @@ External Setpoint Generation:
 				<Axis Id="6" CreateSymbols="true" AxisType="1">
 					<Name>Disp2</Name>
 					<AxisPara>
+						<General UnitName="°"/>
 						<Dynamic AccelerationMaximum="3000" DecelerationMaximum="3000" Acceleration="2300" Deceleration="2300" Jerk="5290"/>
 						<Velo Maximum="3600"/>
 						<OtherSettings AllowMotionCmdToSlave="true"/>
@@ -2493,6 +2502,7 @@ External Setpoint Generation:
 				<Axis Id="7" CreateSymbols="true" AxisType="1">
 					<Name>Disp3</Name>
 					<AxisPara>
+						<General UnitName="°"/>
 						<Dynamic AccelerationMaximum="3000" DecelerationMaximum="3000" Acceleration="2300" Deceleration="2300" Jerk="5290"/>
 						<Velo Maximum="3600"/>
 						<OtherSettings AllowMotionCmdToSlave="true"/>
@@ -2808,7 +2818,7 @@ External Setpoint Generation:
 		</Motion>
 		<Plc>
 			<Project GUID="{AF65DB88-1A14-41C2-BABF-23D8DFED744E}" Name="PlcMain" PrjFilePath="PlcMain\PlcMain.plcproj" TmcFilePath="PlcMain\PlcMain.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PlcMain\PlcMain.tmc" TmcHash="{9A81221F-6A94-0CED-9731-70A2359EEFE6}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PlcMain\PlcMain.tmc" TmcHash="{9AD1E672-A4A5-B131-9C4B-D9BAD1547832}">
 					<Name>PlcMain Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
@@ -2840,17 +2850,17 @@ External Setpoint Generation:
 						</Var>
 						<Var>
 							<Name>IFC_HW.EinzelSens1</Name>
-							<Comment><![CDATA[ Separation Sensor 1]]></Comment>
+							<Comment><![CDATA[ Separation Sensor 1 - Zwischen Schieber]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>IFC_HW.EinzelSens2</Name>
-							<Comment><![CDATA[ Separation Sensor 2]]></Comment>
+							<Comment><![CDATA[ Separation Sensor 2 - uber Schieber]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>IFC_HW.EinzelSens3</Name>
-							<Comment><![CDATA[ Separation Sensor 3]]></Comment>
+							<Comment><![CDATA[ Separation Sensor 3 - Lager]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -3027,22 +3037,22 @@ External Setpoint Generation:
 						</Var>
 						<Var>
 							<Name>IFC_HW.R1AKT1</Name>
-							<Comment><![CDATA[ Relais 1 Aktor 1]]></Comment>
+							<Comment><![CDATA[ Relais 1 Aktor 1 - Geschlossen wenn true]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>IFC_HW.R2AKT1</Name>
-							<Comment><![CDATA[ Relais 2 Aktor 1]]></Comment>
+							<Comment><![CDATA[ Relais 2 Aktor 1 - offen wenn true]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>IFC_HW.R1AKT2</Name>
-							<Comment><![CDATA[ Relais 1 Aktor 2]]></Comment>
+							<Comment><![CDATA[ Relais 1 Aktor 2 - offen wenn true]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>IFC_HW.R2AKT2</Name>
-							<Comment><![CDATA[ Relais 2 Aktor 2]]></Comment>
+							<Comment><![CDATA[ Relais 2 Aktor 2 - Geschlossen wenn true]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -3467,8 +3477,10 @@ External Setpoint Generation:
 	</Project>
 	<Mappings>
 		<MappingInfo Identifier="{00000000-0010-0304-2000-040310000403}" Id="#x02030010"/>
+		<MappingInfo Identifier="{00000000-0010-0304-3100-040310000403}" Id="#x02030040"/>
 		<MappingInfo Identifier="{08502001-0010-0304-0020-500810000403}" Id="#x02030030" Watchdog="00000000000000000000000000000000"/>
 		<MappingInfo Identifier="{05000010-2001-0850-2000-040300205008}" Id="#x02030020" Watchdog="14000000040000000400000004000000"/>
+		<MappingInfo Identifier="{05000010-2001-0850-3100-040300205008}" Id="#x02030050" Watchdog="14000000040000000400000004000000"/>
 		<OwnerA Name="TINC^NC-Task 1 SAF^Axes^Conveyor">
 			<OwnerB Name="TIID^Device 1 (EtherCAT Automation Protocol)^Box From Model (Subscriber)">
 				<Link VarA="Drive^Inputs^In^nState1" VarB="DriveState^Inputs^VarData[0]"/>
@@ -3555,9 +3567,9 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Outputs^IFC_HW.BandHub1" VarB="BandHub^Outputs^VarData[0]"/>
 				<Link VarA="PlcTask Outputs^IFC_HW.BandHub2" VarB="BandHub^Outputs^VarData[1]"/>
 				<Link VarA="PlcTask Outputs^IFC_HW.BandHub3" VarB="BandHub^Outputs^VarData[2]"/>
-				<Link VarA="PlcTask Outputs^IFC_HW.R1AKT1" VarB="VereinzHub^Outputs^VarData[0,0]"/>
+				<Link VarA="PlcTask Outputs^IFC_HW.R1AKT1" VarB="VereinzHub^Outputs^VarData[0,1]"/>
 				<Link VarA="PlcTask Outputs^IFC_HW.R1AKT2" VarB="VereinzHub^Outputs^VarData[1,0]"/>
-				<Link VarA="PlcTask Outputs^IFC_HW.R2AKT1" VarB="VereinzHub^Outputs^VarData[0,1]"/>
+				<Link VarA="PlcTask Outputs^IFC_HW.R2AKT1" VarB="VereinzHub^Outputs^VarData[0,0]"/>
 				<Link VarA="PlcTask Outputs^IFC_HW.R2AKT2" VarB="VereinzHub^Outputs^VarData[1,1]"/>
 			</OwnerB>
 			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Conveyor">

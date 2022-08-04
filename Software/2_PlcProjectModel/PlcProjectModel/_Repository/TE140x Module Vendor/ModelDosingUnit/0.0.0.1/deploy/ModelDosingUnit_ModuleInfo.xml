@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TctGeneratedModules>
+   <ModuleInfo CLSID="{FDF84D6F-32D9-2A1E-62C4-F36B1FE23A2C}" GUID="{FDF84D6F-32D9-2A1E-62C4-F36B1FE23A2C}" LibraryId="TE140x Module Vendor|ModelDosingUnit|0.0.0.1">
+      <BlockDiagram>
+         <Name>ModelDosingUnit</Name>
+         <Identifier>&lt;Root&gt;</Identifier>
+         <Type>root</Type>
+         <Position h="0" w="0" x="0" y="0"/>
+         <BlockDesign/>
+         <Block>
+            <Name>SamplingTime</Name>
+            <Identifier>&lt;Root&gt;/SamplingTime</Identifier>
+            <Type>Inport</Type>
+            <Position h="14" w="30" x="120" y="138"/>
+            <BlockDesign>
+               <Border>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="Port" Value="1"/>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="155" y="145"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="155" y="145"/>
+                  <Point x="170" y="145"/>
+               </Line>
+               <Signal Category="Input" Name="SamplingTime" ReadOnly="true">
+                  <GlobalName>ModelDosingUnit_U.SamplingTime</GlobalName>
+                  <AdsIdxOffs>#x80000000</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <Block>
+            <Name>VelocityFromPLC</Name>
+            <Identifier>&lt;Root&gt;/VelocityFromPLC</Identifier>
+            <Type>Inport</Type>
+            <Position h="14" w="30" x="120" y="258"/>
+            <BlockDesign>
+               <Border>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="Port" Value="2"/>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="155" y="265"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="155" y="265"/>
+                  <Point x="230" y="265"/>
+               </Line>
+               <Signal Category="Input" Name="VelocityFromPLC" ReadOnly="true">
+                  <GlobalName>ModelDosingUnit_U.VelocityFromPLC</GlobalName>
+                  <AdsIdxOffs>#x80000008</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <Block>
+            <Name>Cast5</Name>
+            <Identifier>&lt;Root&gt;/Cast5</Identifier>
+            <Type>DataTypeConversion</Type>
+            <Position h="20" w="35" x="235" y="255"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="220" y="265"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/VelocityFromPLC</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="275" y="265"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="275" y="265"/>
+                  <Point x="295" y="265"/>
+               </Line>
+               <Signal Category="Output" Name="Cast5" ReadOnly="true">
+                  <AdsIdxOffs>#x82000000</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <Block>
+            <Name>Constant</Name>
+            <Identifier>&lt;Root&gt;/Constant</Identifier>
+            <Type>Constant</Type>
+            <Position h="20" w="35" x="235" y="230"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="Value" Value="3600"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="275" y="240"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="275" y="240"/>
+                  <Point x="295" y="240"/>
+               </Line>
+            </Port>
+         </Block>
+         <Block>
+            <Name>Display1</Name>
+            <Identifier>&lt;Root&gt;/Display1</Identifier>
+            <Type>Display</Type>
+            <Position h="22" w="60" x="655" y="284"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="640" y="295"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/Model</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>3</PortNo>
+               </Source>
+            </Port>
+         </Block>
+         <Block>
+            <Name>From1</Name>
+            <Identifier>&lt;Root&gt;/From1</Identifier>
+            <Type>From</Type>
+            <Position h="16" w="45" x="230" y="207"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="FromTag" Value="ts"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="280" y="215"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="280" y="215"/>
+                  <Point x="295" y="215"/>
+               </Line>
+            </Port>
+         </Block>
+         <Block>
+            <Name>Goto</Name>
+            <Identifier>&lt;Root&gt;/Goto</Identifier>
+            <Type>Goto</Type>
+            <Position h="16" w="45" x="175" y="137"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="GotoTag" Value="ts"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="160" y="145"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/SamplingTime</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+         </Block>
+         <Block>
+            <Name>Model</Name>
+            <Identifier>&lt;Root&gt;/Model</Identifier>
+            <Type>ModelReference</Type>
+            <Position h="82" w="235" x="300" y="199"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="285" y="215"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/From1</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+            <Port>
+               <Type No="2">Inport</Type>
+               <Position x="285" y="240"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/Constant</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+            <Port>
+               <Type No="3">Inport</Type>
+               <Position x="285" y="265"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/Cast5</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="540" y="215"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="540" y="215"/>
+                  <Point x="650" y="215"/>
+               </Line>
+               <Signal Category="Output" Name="CounterValueMotor" ReadOnly="true">
+                  <GlobalName>ModelDosingUnit_Y.CounterValueMotor</GlobalName>
+                  <AdsIdxOffs>#x81000000</AdsIdxOffs>
+               </Signal>
+            </Port>
+            <Port>
+               <Type No="2">Outport</Type>
+               <Position x="540" y="240"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="540" y="240"/>
+                  <Point x="650" y="240"/>
+               </Line>
+               <Signal Category="Output" Name="DriveStateMotor" ReadOnly="true">
+                  <GlobalName>ModelDosingUnit_Y.DriveStateMotor</GlobalName>
+                  <AdsIdxOffs>#x81000002</AdsIdxOffs>
+               </Signal>
+            </Port>
+            <Port>
+               <Type No="3">Outport</Type>
+               <Position x="540" y="265"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="540" y="265"/>
+                  <Point x="599" y="265"/>
+                  <Line>
+                     <Point x="599" y="265"/>
+                     <Point x="650" y="265"/>
+                  </Line>
+                  <Line>
+                     <Point x="599" y="265"/>
+                     <Point x="599" y="295"/>
+                     <Point x="650" y="295"/>
+                  </Line>
+               </Line>
+            </Port>
+            <State Category="DWork" Name="Model_InstanceData" ReadOnly="true"/>
+         </Block>
+         <Block>
+            <Name>CounterValueMotor</Name>
+            <Identifier>&lt;Root&gt;/CounterValueMotor</Identifier>
+            <Type>Outport</Type>
+            <Position h="14" w="30" x="655" y="208"/>
+            <BlockDesign>
+               <Border>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="Port" Value="1"/>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="640" y="215"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/Model</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+               <Signal Category="Output" Name="CounterValueMotor" ReadOnly="true">
+                  <GlobalName>ModelDosingUnit_Y.CounterValueMotor</GlobalName>
+                  <AdsIdxOffs>#x81000000</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <Block>
+            <Name>DriveStateMotor</Name>
+            <Identifier>&lt;Root&gt;/DriveStateMotor</Identifier>
+            <Type>Outport</Type>
+            <Position h="14" w="30" x="655" y="233"/>
+            <BlockDesign>
+               <Border>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="Port" Value="2"/>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="640" y="240"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/Model</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>2</PortNo>
+               </Source>
+               <Signal Category="Output" Name="DriveStateMotor" ReadOnly="true">
+                  <GlobalName>ModelDosingUnit_Y.DriveStateMotor</GlobalName>
+                  <AdsIdxOffs>#x81000002</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <Block>
+            <Name>SignalCurrentStepperVelocity</Name>
+            <Identifier>&lt;Root&gt;/SignalCurrentStepperVelocity</Identifier>
+            <Type>Outport</Type>
+            <Position h="14" w="30" x="655" y="258"/>
+            <BlockDesign>
+               <Border>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="Port" Value="3"/>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="640" y="265"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/Model</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>3</PortNo>
+               </Source>
+               <Signal Category="Output" Name="SignalCurrentStepperVelocity" ReadOnly="true">
+                  <GlobalName>ModelDosingUnit_Y.SignalCurrentStepperVelocity</GlobalName>
+                  <AdsIdxOffs>#x81000008</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <SubsystemHierarchy>
+            <Subsystem>
+               <ID>&lt;Root&gt;</ID>
+            </Subsystem>
+         </SubsystemHierarchy>
+         <DebugInfo>
+            <SourceFile>
+               <Name>ModelDosingUnit.cpp</Name>
+               <Path>C:\Users\kaebi\OneDrive\Desktop\2_BehaviourModels\DosingUnit\ModelDosingUnit_tcgrt\ModelDosingUnit.cpp</Path>
+               <CodeSection CommentStartLine="34" EndLine="39" Method="ModelDosingUnit_step" StartLine="37">
+                  <Block>&lt;Root&gt;/Cast5</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="34" EndLine="39" Method="ModelDosingUnit_step" StartLine="37">
+                  <Block>&lt;Root&gt;/VelocityFromPLC</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="40" EndLine="55" Method="ModelDosingUnit_step" StartLine="47">
+                  <Block>&lt;Root&gt;/Model</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="40" EndLine="55" Method="ModelDosingUnit_step" StartLine="47">
+                  <Block>&lt;Root&gt;/Constant</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="40" EndLine="55" Method="ModelDosingUnit_step" StartLine="47">
+                  <Block>&lt;Root&gt;/SamplingTime</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="40" EndLine="55" Method="ModelDosingUnit_step" StartLine="47">
+                  <Block>&lt;Root&gt;/CounterValueMotor</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="40" EndLine="55" Method="ModelDosingUnit_step" StartLine="47">
+                  <Block>&lt;Root&gt;/DriveStateMotor</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="40" EndLine="55" Method="ModelDosingUnit_step" StartLine="47">
+                  <Block>&lt;Root&gt;/SignalCurrentStepperVelocity</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="62" EndLine="71" Method="ModelDosingUnit_initialize" StartLine="69">
+                  <Block>&lt;Root&gt;/Model</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="62" EndLine="71" Method="ModelDosingUnit_initialize" StartLine="69">
+                  <Block>&lt;Root&gt;/Constant</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="62" EndLine="71" Method="ModelDosingUnit_initialize" StartLine="69">
+                  <Block>&lt;Root&gt;/SamplingTime</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="62" EndLine="71" Method="ModelDosingUnit_initialize" StartLine="69">
+                  <Block>&lt;Root&gt;/CounterValueMotor</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="62" EndLine="71" Method="ModelDosingUnit_initialize" StartLine="69">
+                  <Block>&lt;Root&gt;/DriveStateMotor</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="62" EndLine="71" Method="ModelDosingUnit_initialize" StartLine="69">
+                  <Block>&lt;Root&gt;/SignalCurrentStepperVelocity</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="148" EndLine="156" Method="ModelDosingUnit" StartLine="149">
+                  <Block>&lt;Root&gt;/Model</Block>
+               </CodeSection>
+            </SourceFile>
+         </DebugInfo>
+      </BlockDiagram>
+      <DefaultValues>
+         <Value>
+            <Name>TaskOid</Name>
+         </Value>
+         <Value>
+            <Name>TaskPriority</Name>
+            <Value>0</Value>
+         </Value>
+         <Value>
+            <Name>TaskCycleTimeNs</Name>
+            <Value>0</Value>
+         </Value>
+         <Value>
+            <Name>TaskPort</Name>
+            <Value>0</Value>
+         </Value>
+         <Value>
+            <Name>TaskSortOrder</Name>
+            <Value>0</Value>
+         </Value>
+         <Value>
+            <Name>TraceLevelMax</Name>
+            <EnumText>tlInfo</EnumText>
+         </Value>
+         <Value>
+            <Name>ModuleCaller</Name>
+            <EnumText>CyclicTask</EnumText>
+         </Value>
+         <Value>
+            <Name>CallerVerification</Name>
+            <EnumText>Default</EnumText>
+         </Value>
+         <Value>
+            <Name>StepSizeAdaptation</Name>
+            <EnumText>RequireMatchingTaskCycleTime</EnumText>
+         </Value>
+         <Value>
+            <Name>ExecutionSequence</Name>
+            <EnumText>UpdateBeforeOutputMapping</EnumText>
+         </Value>
+         <Value>
+            <Name>Execute</Name>
+            <EnumText>TRUE</EnumText>
+         </Value>
+         <Value>
+            <Name>AccessLockState</Name>
+            <EnumText>TCOM_STATE_OP</EnumText>
+         </Value>
+         <Value>
+            <Name>InitExceptionHandling</Name>
+            <EnumText>CallerExceptions</EnumText>
+         </Value>
+         <Value>
+            <Name>UpdateExceptionHandling</Name>
+            <EnumText>CallerExceptions</EnumText>
+         </Value>
+      </DefaultValues>
+      <ModuleParameters>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="READONLY" StartupValueAccess="WRITE">
+            <Name>CallBy</Name>
+            <Category>Module parameters</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="READONLY" StartupValueAccess="WRITE">
+            <Name>ExecutionSequence</Name>
+            <Category>Module parameters</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="READONLY" StartupValueAccess="WRITE">
+            <Name>StepSizeAdaptation</Name>
+            <Category>Module parameters</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="READONLY" StartupValueAccess="">
+            <Name>Initialized</Name>
+            <Category>Monitoring</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="READONLY" StartupValueAccess="">
+            <Name>CycleUpdateExecuted</Name>
+            <Category>Monitoring</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="" StartupValueAccess="">
+            <Name>ModuleInfo</Name>
+            <Category>Module identification</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="" OnlineValueAccess="READONLY" StartupValueAccess="">
+            <Name>ModuleBuildInfo</Name>
+            <Category>Module identification</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="WRITE" StartupValueAccess="WRITE">
+            <Name>Execute</Name>
+            <Category>Module parameters</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="READONLY" StartupValueAccess="">
+            <Name>SimulinkTime</Name>
+            <Category>Monitoring</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="READONLY" StartupValueAccess="">
+            <Name>AccessLockState</Name>
+            <Category>Module parameters</Category>
+         </Parameter>
+      </ModuleParameters>
+      <BlockDesigns>
+         <BlockDesign>
+            <Type>Inport</Type>
+            <Border>
+               <svg height="30" id="svg3009" version="1.1" width="60">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <g id="layer1" transform="translate(0,-1022.3622)">
+                     <rect height="28.121166" id="rect2996" ry="14.060583" style="fill:none;stroke:#000000;stroke-width:1.87883461;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none" width="58.121166" x="0.9394173" y="1023.3016"/>
+                  </g>
+               </svg>
+            </Border>
+            <Image>
+               <svg height="30" id="svg3009" version="1.1" width="60">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <text id="text3010" style="font-size:8px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans" x="30" xml:space="preserve" y="15"><tspan id="tspan3012" x="30" y="15">Block::Port</tspan></text></svg>
+            </Image>
+         </BlockDesign>
+         <BlockDesign>
+            <Type>Constant</Type>
+            <Image>
+               <svg height="100" id="svg3009" version="1.1" width="100">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <g id="layer1">
+                     <text id="text3001" style="font-size:8px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans" x="50" xml:space="preserve" y="50"><tspan id="tspan3003" x="50" y="50">ADS::Value Block::Value</tspan></text></g>
+               </svg>
+            </Image>
+         </BlockDesign>
+         <BlockDesign>
+            <Type>From</Type>
+            <Border>
+               <svg height="100" id="svg3009" version="1.1" width="100">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <g id="layer1" transform="translate(0,-952.36218)">
+                     <path d="m 100,1002.3622 -25,-50.00002 -75,0 0,100.00002 75,0 25,-50" id="path3045" style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+                  </g>
+               </svg>
+            </Border>
+            <Image>
+               <svg height="100" id="svg3009" version="1.1" width="100">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <g id="layer1">
+                     <text id="text3001" style="font-size:8px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans" x="50" xml:space="preserve" y="50"><tspan id="tspan3003" x="50" y="50">ADS::Value Block::FromTag</tspan></text></g>
+               </svg>
+            </Image>
+         </BlockDesign>
+         <BlockDesign>
+            <Type>Goto</Type>
+            <Border>
+               <svg height="100" id="svg3009" version="1.1" width="100">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <g id="layer1" transform="translate(0,-952.36218)">
+                     <path d="m 0,1002.3622 25,-50.00002 75,0 0,100.00002 -75,0 -25,-50" id="path3045" style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+                  </g>
+               </svg>
+            </Border>
+            <Image>
+               <svg height="100" id="svg3009" version="1.1" width="100">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <g id="layer1">
+                     <text id="text3001" style="font-size:8px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans" x="50" xml:space="preserve" y="50"><tspan id="tspan3003" x="50" y="50">ADS::Value Block::GotoTag</tspan></text></g>
+               </svg>
+            </Image>
+         </BlockDesign>
+         <BlockDesign>
+            <Type>Outport</Type>
+            <Border>
+               <svg height="30" id="svg3009" version="1.1" width="60">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <g id="layer1" transform="translate(0,-1022.3622)">
+                     <rect height="28.121166" id="rect2996" ry="14.060583" style="fill:none;stroke:#000000;stroke-width:1.87883461;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none" width="58.121166" x="0.9394173" y="1023.3016"/>
+                  </g>
+               </svg>
+            </Border>
+            <Image>
+               <svg height="30" id="svg3009" version="1.1" width="60">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <text id="text3010" style="font-size:8px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans" x="30" xml:space="preserve" y="15"><tspan id="tspan3012" x="30" y="15">Block::Port</tspan></text></svg>
+            </Image>
+         </BlockDesign>
+      </BlockDesigns>
+   </ModuleInfo>
+</TctGeneratedModules>

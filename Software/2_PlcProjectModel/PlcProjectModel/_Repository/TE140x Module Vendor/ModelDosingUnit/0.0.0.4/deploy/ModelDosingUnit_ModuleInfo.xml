@@ -1,0 +1,3138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TctGeneratedModules>
+   <ModuleInfo CLSID="{FDF84D6F-32D9-2A1E-62C4-F36B1FE23A2C}" GUID="{FDF84D6F-32D9-2A1E-62C4-F36B1FE23A2C}" LibraryId="TE140x Module Vendor|ModelDosingUnit|0.0.0.4">
+      <BlockDiagram>
+         <Name>ModelDosingUnit</Name>
+         <Identifier>&lt;Root&gt;</Identifier>
+         <Type>root</Type>
+         <Position h="0" w="0" x="0" y="0"/>
+         <BlockDesign/>
+         <Block>
+            <Name>SamplingTime</Name>
+            <Identifier>&lt;Root&gt;/SamplingTime</Identifier>
+            <Type>Inport</Type>
+            <Position h="14" w="30" x="110" y="63"/>
+            <BlockDesign>
+               <Border>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="Port" Value="1"/>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="145" y="70"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="145" y="70"/>
+                  <Point x="160" y="70"/>
+               </Line>
+               <Signal Category="Input" Name="SamplingTime" ReadOnly="true">
+                  <GlobalName>ModelDosingUnit_U.SamplingTime</GlobalName>
+                  <AdsIdxOffs>#x80000000</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <Block>
+            <Name>VelocityFromPLC_1</Name>
+            <Identifier>&lt;Root&gt;/VelocityFromPLC_1</Identifier>
+            <Type>Inport</Type>
+            <Position h="14" w="30" x="120" y="253"/>
+            <BlockDesign>
+               <Border>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="Port" Value="2"/>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="155" y="260"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="155" y="260"/>
+                  <Point x="305" y="260"/>
+               </Line>
+               <Signal Category="Input" Name="VelocityFromPLC_1" ReadOnly="true">
+                  <GlobalName>ModelDosingUnit_U.VelocityFromPLC_1</GlobalName>
+                  <AdsIdxOffs>#x80000008</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <Block>
+            <Name>VelocityFromPLC_2</Name>
+            <Identifier>&lt;Root&gt;/VelocityFromPLC_2</Identifier>
+            <Type>Inport</Type>
+            <Position h="14" w="30" x="120" y="428"/>
+            <BlockDesign>
+               <Border>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="Port" Value="3"/>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="155" y="435"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="155" y="435"/>
+                  <Point x="305" y="435"/>
+               </Line>
+               <Signal Category="Input" Name="VelocityFromPLC_2" ReadOnly="true">
+                  <GlobalName>ModelDosingUnit_U.VelocityFromPLC_2</GlobalName>
+                  <AdsIdxOffs>#x8000000A</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <Block>
+            <Name>VelocityFromPLC_3</Name>
+            <Identifier>&lt;Root&gt;/VelocityFromPLC_3</Identifier>
+            <Type>Inport</Type>
+            <Position h="14" w="30" x="120" y="603"/>
+            <BlockDesign>
+               <Border>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="Port" Value="4"/>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="155" y="610"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="155" y="610"/>
+                  <Point x="305" y="610"/>
+               </Line>
+               <Signal Category="Input" Name="VelocityFromPLC_3" ReadOnly="true">
+                  <GlobalName>ModelDosingUnit_U.VelocityFromPLC_3</GlobalName>
+                  <AdsIdxOffs>#x8000000C</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <Block>
+            <Name>Constant</Name>
+            <Identifier>&lt;Root&gt;/Constant</Identifier>
+            <Type>Constant</Type>
+            <Position h="20" w="35" x="100" y="105"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="Value" Value="3600"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="140" y="115"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="140" y="115"/>
+                  <Point x="160" y="115"/>
+               </Line>
+            </Port>
+         </Block>
+         <Block>
+            <Name>From</Name>
+            <Identifier>&lt;Root&gt;/From</Identifier>
+            <Type>From</Type>
+            <Position h="16" w="45" x="240" y="207"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="FromTag" Value="maxVel"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="290" y="215"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="290" y="215"/>
+                  <Point x="305" y="215"/>
+               </Line>
+            </Port>
+         </Block>
+         <Block>
+            <Name>From1</Name>
+            <Identifier>&lt;Root&gt;/From1</Identifier>
+            <Type>From</Type>
+            <Position h="16" w="45" x="240" y="162"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="FromTag" Value="ts"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="290" y="170"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="290" y="170"/>
+                  <Point x="305" y="170"/>
+               </Line>
+            </Port>
+         </Block>
+         <Block>
+            <Name>From2</Name>
+            <Identifier>&lt;Root&gt;/From2</Identifier>
+            <Type>From</Type>
+            <Position h="16" w="45" x="235" y="337"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="FromTag" Value="ts"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="285" y="345"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="285" y="345"/>
+                  <Point x="305" y="345"/>
+               </Line>
+            </Port>
+         </Block>
+         <Block>
+            <Name>From3</Name>
+            <Identifier>&lt;Root&gt;/From3</Identifier>
+            <Type>From</Type>
+            <Position h="16" w="45" x="235" y="512"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="FromTag" Value="ts"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="285" y="520"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="285" y="520"/>
+                  <Point x="305" y="520"/>
+               </Line>
+            </Port>
+         </Block>
+         <Block>
+            <Name>From4</Name>
+            <Identifier>&lt;Root&gt;/From4</Identifier>
+            <Type>From</Type>
+            <Position h="16" w="45" x="235" y="382"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="FromTag" Value="maxVel"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="285" y="390"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="285" y="390"/>
+                  <Point x="305" y="390"/>
+               </Line>
+            </Port>
+         </Block>
+         <Block>
+            <Name>From5</Name>
+            <Identifier>&lt;Root&gt;/From5</Identifier>
+            <Type>From</Type>
+            <Position h="16" w="45" x="235" y="557"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="FromTag" Value="maxVel"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="285" y="565"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="285" y="565"/>
+                  <Point x="305" y="565"/>
+               </Line>
+            </Port>
+         </Block>
+         <Block>
+            <Name>Goto</Name>
+            <Identifier>&lt;Root&gt;/Goto</Identifier>
+            <Type>Goto</Type>
+            <Position h="16" w="45" x="165" y="62"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="GotoTag" Value="ts"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="150" y="70"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/SamplingTime</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+         </Block>
+         <Block>
+            <Name>Goto1</Name>
+            <Identifier>&lt;Root&gt;/Goto1</Identifier>
+            <Type>Goto</Type>
+            <Position h="16" w="45" x="165" y="107"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="GotoTag" Value="maxVel"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="150" y="115"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/Constant</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+         </Block>
+         <Block>
+            <Name>Subsystem Reference</Name>
+            <Identifier>&lt;S1&gt;</Identifier>
+            <Type>SubSystem</Type>
+            <Position h="142" w="200" x="310" y="144"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="295" y="170"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/From1</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+            <Port>
+               <Type No="2">Inport</Type>
+               <Position x="295" y="215"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/From</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+            <Port>
+               <Type No="3">Inport</Type>
+               <Position x="295" y="260"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/VelocityFromPLC_1</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="515" y="170"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="515" y="170"/>
+                  <Point x="570" y="170"/>
+               </Line>
+            </Port>
+            <Port>
+               <Type No="2">Outport</Type>
+               <Position x="515" y="215"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="515" y="215"/>
+                  <Point x="570" y="215"/>
+               </Line>
+            </Port>
+            <Port>
+               <Type No="3">Outport</Type>
+               <Position x="515" y="260"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="515" y="260"/>
+                  <Point x="570" y="260"/>
+               </Line>
+            </Port>
+            <Block>
+               <Name>Signal_SamplingTime</Name>
+               <Identifier>&lt;S1&gt;/Signal_SamplingTime</Identifier>
+               <Type>Inport</Type>
+               <Position h="14" w="30" x="315" y="538"/>
+               <BlockDesign>
+                  <Border>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Border>
+                  <Image>
+                     <Placeholder Name="Port" Value="1"/>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Image>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="350" y="545"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="350" y="545"/>
+                     <Point x="499" y="545"/>
+                     <Line>
+                        <Point x="499" y="545"/>
+                        <Point x="695" y="545"/>
+                     </Line>
+                     <Line>
+                        <Point x="499" y="545"/>
+                        <Point x="499" y="510"/>
+                        <Point x="515" y="510"/>
+                     </Line>
+                  </Line>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Signal_MaxVelocityPerSecond</Name>
+               <Identifier>&lt;S1&gt;/Signal_MaxVelocityPerSecond</Identifier>
+               <Type>Inport</Type>
+               <Position h="14" w="30" x="315" y="453"/>
+               <BlockDesign>
+                  <Border>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Border>
+                  <Image>
+                     <Placeholder Name="Port" Value="2"/>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Image>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="350" y="460"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="350" y="460"/>
+                     <Point x="715" y="460"/>
+                  </Line>
+               </Port>
+            </Block>
+            <Block>
+               <Name>HW_VelocityFromPLC</Name>
+               <Identifier>&lt;S1&gt;/HW_VelocityFromPLC</Identifier>
+               <Type>Inport</Type>
+               <Position h="14" w="30" x="315" y="403"/>
+               <BlockDesign>
+                  <Border>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Border>
+                  <Image>
+                     <Placeholder Name="Port" Value="3"/>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Image>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="350" y="410"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="350" y="410"/>
+                     <Point x="390" y="410"/>
+                  </Line>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Cast</Name>
+               <Identifier>&lt;S1&gt;/Cast</Identifier>
+               <Type>DataTypeConversion</Type>
+               <Position h="10" w="40" x="955" y="550"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="940" y="555"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S1&gt;/MATLAB Function</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="1000" y="555"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="1000" y="555"/>
+                     <Point x="1030" y="555"/>
+                  </Line>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Cast5</Name>
+               <Identifier>&lt;S1&gt;/Cast5</Identifier>
+               <Type>DataTypeConversion</Type>
+               <Position h="20" w="35" x="395" y="400"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="380" y="410"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S1&gt;/HW_VelocityFromPLC</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="435" y="410"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="435" y="410"/>
+                     <Point x="495" y="410"/>
+                  </Line>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Data Type Conversion</Name>
+               <Identifier>&lt;S1&gt;/Data Type Conversion</Identifier>
+               <Type>DataTypeConversion</Type>
+               <Position h="14" w="40" x="955" y="583"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="940" y="590"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S1&gt;/MATLAB Function</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>2</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="1000" y="590"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="1000" y="590"/>
+                     <Point x="1030" y="590"/>
+                  </Line>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Delay</Name>
+               <Identifier>&lt;S1&gt;/Delay</Identifier>
+               <Type>Delay</Type>
+               <Position h="20" w="35" x="770" y="620"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="820" y="630"/>
+                  <Rotation>3.1416</Rotation>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S1&gt;/MATLAB Function</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>2</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="765" y="630"/>
+                  <Rotation>3.1416</Rotation>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="765" y="630"/>
+                     <Point x="676" y="630"/>
+                     <Point x="676" y="595"/>
+                     <Point x="684" y="595"/>
+                     <Line>
+                        <Point x="684" y="595"/>
+                        <Point x="695" y="595"/>
+                     </Line>
+                     <Line>
+                        <Point x="684" y="595"/>
+                        <Point x="684" y="510"/>
+                        <Point x="825" y="510"/>
+                     </Line>
+                  </Line>
+                  <Signal Category="Output" Name="Delay" ReadOnly="true">
+                     <AdsIdxOffs>#x82000008</AdsIdxOffs>
+                  </Signal>
+               </Port>
+               <State Category="DWork" Name="Delay_DSTATE" ReadOnly="true">
+                  <AdsIdxOffs>#x84000000</AdsIdxOffs>
+               </State>
+            </Block>
+            <Block>
+               <Name>Divide</Name>
+               <Identifier>&lt;S1&gt;/Divide</Identifier>
+               <Type>Product</Type>
+               <Position h="31" w="30" x="500" y="402"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="485" y="410"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S1&gt;/Cast5</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="2">Inport</Type>
+                  <Position x="485" y="425"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S1&gt;/Max</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="535" y="420"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="535" y="420"/>
+                     <Point x="575" y="420"/>
+                  </Line>
+                  <Signal Category="Output" Name="Divide" ReadOnly="true">
+                     <AdsIdxOffs>#x82000030</AdsIdxOffs>
+                  </Signal>
+               </Port>
+            </Block>
+            <Block>
+               <Name>MATLAB Function</Name>
+               <Identifier>&lt;S1&gt;/MATLAB Function</Identifier>
+               <Type>SubSystem</Type>
+               <Position h="72" w="175" x="700" y="534"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="685" y="545"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S1&gt;/Signal_SamplingTime</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="2">Inport</Type>
+                  <Position x="685" y="570"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S1&gt;/Product</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="3">Inport</Type>
+                  <Position x="685" y="595"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S1&gt;/Delay</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="880" y="555"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="880" y="555"/>
+                     <Point x="950" y="555"/>
+                  </Line>
+                  <Signal Category="Output" Name="driveState" ReadOnly="true">
+                     <GlobalName>sf_MATLABFunction.driveState</GlobalName>
+                     <AdsIdxOffs>#x820000F8</AdsIdxOffs>
+                  </Signal>
+               </Port>
+               <Port>
+                  <Type No="2">Outport</Type>
+                  <Position x="880" y="590"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="880" y="590"/>
+                     <Point x="903" y="590"/>
+                     <Line>
+                        <Point x="903" y="590"/>
+                        <Point x="903" y="630"/>
+                        <Point x="810" y="630"/>
+                     </Line>
+                     <Line>
+                        <Point x="903" y="590"/>
+                        <Point x="950" y="590"/>
+                     </Line>
+                     <Line>
+                        <Point x="903" y="590"/>
+                        <Point x="903" y="510"/>
+                        <Point x="955" y="510"/>
+                     </Line>
+                  </Line>
+                  <Signal Category="Output" Name="counter" ReadOnly="true">
+                     <GlobalName>sf_MATLABFunction.counter</GlobalName>
+                     <AdsIdxOffs>#x820000F0</AdsIdxOffs>
+                  </Signal>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Max</Name>
+               <Identifier>&lt;S1&gt;/Max</Identifier>
+               <Type>Constant</Type>
+               <Position h="20" w="40" x="445" y="415"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+                  <Image>
+                     <Placeholder Name="Value" Value="32767"/>
+                  </Image>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="490" y="425"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="490" y="425"/>
+                     <Point x="495" y="425"/>
+                  </Line>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Product</Name>
+               <Identifier>&lt;S1&gt;/Product</Identifier>
+               <Type>Product</Type>
+               <Position h="31" w="30" x="720" y="437"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="705" y="445"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S1&gt;/Transfer Fcn</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="2">Inport</Type>
+                  <Position x="705" y="460"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S1&gt;/Signal_MaxVelocityPerSecond</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="755" y="455"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="755" y="455"/>
+                     <Point x="790" y="455"/>
+                     <Line>
+                        <Point x="790" y="455"/>
+                        <Point x="955" y="455"/>
+                     </Line>
+                     <Line>
+                        <Point x="790" y="455"/>
+                        <Point x="790" y="495"/>
+                        <Line>
+                           <Point x="790" y="495"/>
+                           <Point x="825" y="495"/>
+                        </Line>
+                        <Line>
+                           <Point x="790" y="495"/>
+                           <Point x="790" y="501"/>
+                           <Point x="661" y="501"/>
+                           <Point x="661" y="570"/>
+                           <Point x="695" y="570"/>
+                        </Line>
+                     </Line>
+                  </Line>
+                  <Signal Category="Output" Name="Product" ReadOnly="true">
+                     <AdsIdxOffs>#x82000000</AdsIdxOffs>
+                  </Signal>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Scope</Name>
+               <Identifier>&lt;S1&gt;/Scope</Identifier>
+               <Type>Scope</Type>
+               <Position h="33" w="30" x="830" y="486"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="815" y="495"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S1&gt;/Product</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="2">Inport</Type>
+                  <Position x="815" y="510"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S1&gt;/Delay</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Scope1</Name>
+               <Identifier>&lt;S1&gt;/Scope1</Identifier>
+               <Type>Scope</Type>
+               <Position h="32" w="30" x="520" y="494"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="505" y="510"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S1&gt;/Signal_SamplingTime</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Scope2</Name>
+               <Identifier>&lt;S1&gt;/Scope2</Identifier>
+               <Type>Scope</Type>
+               <Position h="32" w="30" x="960" y="494"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="945" y="510"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S1&gt;/MATLAB Function</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>2</PortNo>
+                  </Source>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Transfer Fcn</Name>
+               <Identifier>&lt;S1&gt;/Transfer Fcn</Identifier>
+               <Type>TransferFcn</Type>
+               <Position h="36" w="60" x="580" y="402"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="565" y="420"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S1&gt;/Divide</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="645" y="420"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="645" y="420"/>
+                     <Point x="680" y="420"/>
+                     <Point x="680" y="445"/>
+                     <Point x="715" y="445"/>
+                  </Line>
+               </Port>
+               <State Category="ContStates" Name="TransferFcn_CSTATE" ReadOnly="true">
+                  <AdsIdxOffs>#x83000000</AdsIdxOffs>
+               </State>
+            </Block>
+            <Block>
+               <Name>HW_CounterValue</Name>
+               <Identifier>&lt;S1&gt;/HW_CounterValue</Identifier>
+               <Type>Outport</Type>
+               <Position h="14" w="30" x="1035" y="583"/>
+               <BlockDesign>
+                  <Border>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Border>
+                  <Image>
+                     <Placeholder Name="Port" Value="1"/>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Image>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="1020" y="590"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S1&gt;/Data Type Conversion</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+            </Block>
+            <Block>
+               <Name>HW_DriveState</Name>
+               <Identifier>&lt;S1&gt;/HW_DriveState</Identifier>
+               <Type>Outport</Type>
+               <Position h="14" w="30" x="1035" y="548"/>
+               <BlockDesign>
+                  <Border>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Border>
+                  <Image>
+                     <Placeholder Name="Port" Value="2"/>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Image>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="1020" y="555"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S1&gt;/Cast</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Signal_CurrentVelocity</Name>
+               <Identifier>&lt;S1&gt;/Signal_CurrentVelocity</Identifier>
+               <Type>Outport</Type>
+               <Position h="14" w="30" x="960" y="448"/>
+               <BlockDesign>
+                  <Border>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Border>
+                  <Image>
+                     <Placeholder Name="Port" Value="3"/>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Image>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="945" y="455"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S1&gt;/Product</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+            </Block>
+            <Annotation>
+               <Text>signal is int16 -&gt; max 32767</Text>
+               <Position x="164" y="415"/>
+               <Alignment H="left" V="top"/>
+               <FontName>auto</FontName>
+               <FontSize>-1</FontSize>
+               <FontWeight>auto</FontWeight>
+            </Annotation>
+            <Annotation>
+               <Text>Terminal
+</Text>
+               <Position x="366" y="366"/>
+               <Alignment H="left" V="top"/>
+               <FontName>auto</FontName>
+               <FontSize>12</FontSize>
+               <FontWeight>auto</FontWeight>
+            </Annotation>
+         </Block>
+         <Block>
+            <Name>Subsystem Reference1</Name>
+            <Identifier>&lt;S2&gt;</Identifier>
+            <Type>SubSystem</Type>
+            <Position h="142" w="200" x="310" y="319"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="295" y="345"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/From2</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+            <Port>
+               <Type No="2">Inport</Type>
+               <Position x="295" y="390"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/From4</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+            <Port>
+               <Type No="3">Inport</Type>
+               <Position x="295" y="435"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/VelocityFromPLC_2</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="515" y="345"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="515" y="345"/>
+                  <Point x="575" y="345"/>
+               </Line>
+            </Port>
+            <Port>
+               <Type No="2">Outport</Type>
+               <Position x="515" y="390"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="515" y="390"/>
+                  <Point x="575" y="390"/>
+               </Line>
+            </Port>
+            <Port>
+               <Type No="3">Outport</Type>
+               <Position x="515" y="435"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="515" y="435"/>
+                  <Point x="575" y="435"/>
+               </Line>
+            </Port>
+            <Block>
+               <Name>Signal_SamplingTime</Name>
+               <Identifier>&lt;S2&gt;/Signal_SamplingTime</Identifier>
+               <Type>Inport</Type>
+               <Position h="14" w="30" x="315" y="538"/>
+               <BlockDesign>
+                  <Border>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Border>
+                  <Image>
+                     <Placeholder Name="Port" Value="1"/>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Image>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="350" y="545"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="350" y="545"/>
+                     <Point x="499" y="545"/>
+                     <Line>
+                        <Point x="499" y="545"/>
+                        <Point x="695" y="545"/>
+                     </Line>
+                     <Line>
+                        <Point x="499" y="545"/>
+                        <Point x="499" y="510"/>
+                        <Point x="515" y="510"/>
+                     </Line>
+                  </Line>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Signal_MaxVelocityPerSecond</Name>
+               <Identifier>&lt;S2&gt;/Signal_MaxVelocityPerSecond</Identifier>
+               <Type>Inport</Type>
+               <Position h="14" w="30" x="315" y="453"/>
+               <BlockDesign>
+                  <Border>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Border>
+                  <Image>
+                     <Placeholder Name="Port" Value="2"/>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Image>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="350" y="460"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="350" y="460"/>
+                     <Point x="715" y="460"/>
+                  </Line>
+               </Port>
+            </Block>
+            <Block>
+               <Name>HW_VelocityFromPLC</Name>
+               <Identifier>&lt;S2&gt;/HW_VelocityFromPLC</Identifier>
+               <Type>Inport</Type>
+               <Position h="14" w="30" x="315" y="403"/>
+               <BlockDesign>
+                  <Border>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Border>
+                  <Image>
+                     <Placeholder Name="Port" Value="3"/>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Image>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="350" y="410"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="350" y="410"/>
+                     <Point x="390" y="410"/>
+                  </Line>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Cast</Name>
+               <Identifier>&lt;S2&gt;/Cast</Identifier>
+               <Type>DataTypeConversion</Type>
+               <Position h="10" w="40" x="955" y="550"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="940" y="555"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S2&gt;/MATLAB Function</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="1000" y="555"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="1000" y="555"/>
+                     <Point x="1030" y="555"/>
+                  </Line>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Cast5</Name>
+               <Identifier>&lt;S2&gt;/Cast5</Identifier>
+               <Type>DataTypeConversion</Type>
+               <Position h="20" w="35" x="395" y="400"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="380" y="410"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S2&gt;/HW_VelocityFromPLC</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="435" y="410"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="435" y="410"/>
+                     <Point x="495" y="410"/>
+                  </Line>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Data Type Conversion</Name>
+               <Identifier>&lt;S2&gt;/Data Type Conversion</Identifier>
+               <Type>DataTypeConversion</Type>
+               <Position h="14" w="40" x="955" y="583"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="940" y="590"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S2&gt;/MATLAB Function</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>2</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="1000" y="590"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="1000" y="590"/>
+                     <Point x="1030" y="590"/>
+                  </Line>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Delay</Name>
+               <Identifier>&lt;S2&gt;/Delay</Identifier>
+               <Type>Delay</Type>
+               <Position h="20" w="35" x="770" y="620"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="820" y="630"/>
+                  <Rotation>3.1416</Rotation>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S2&gt;/MATLAB Function</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>2</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="765" y="630"/>
+                  <Rotation>3.1416</Rotation>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="765" y="630"/>
+                     <Point x="676" y="630"/>
+                     <Point x="676" y="595"/>
+                     <Point x="684" y="595"/>
+                     <Line>
+                        <Point x="684" y="595"/>
+                        <Point x="695" y="595"/>
+                     </Line>
+                     <Line>
+                        <Point x="684" y="595"/>
+                        <Point x="684" y="510"/>
+                        <Point x="825" y="510"/>
+                     </Line>
+                  </Line>
+                  <Signal Category="Output" Name="Delay_h" ReadOnly="true">
+                     <AdsIdxOffs>#x82000018</AdsIdxOffs>
+                  </Signal>
+               </Port>
+               <State Category="DWork" Name="Delay_DSTATE_b" ReadOnly="true">
+                  <AdsIdxOffs>#x84000008</AdsIdxOffs>
+               </State>
+            </Block>
+            <Block>
+               <Name>Divide</Name>
+               <Identifier>&lt;S2&gt;/Divide</Identifier>
+               <Type>Product</Type>
+               <Position h="31" w="30" x="500" y="402"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="485" y="410"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S2&gt;/Cast5</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="2">Inport</Type>
+                  <Position x="485" y="425"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S2&gt;/Max</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="535" y="420"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="535" y="420"/>
+                     <Point x="575" y="420"/>
+                  </Line>
+                  <Signal Category="Output" Name="Divide_h" ReadOnly="true">
+                     <AdsIdxOffs>#x82000038</AdsIdxOffs>
+                  </Signal>
+               </Port>
+            </Block>
+            <Block>
+               <Name>MATLAB Function</Name>
+               <Identifier>&lt;S2&gt;/MATLAB Function</Identifier>
+               <Type>SubSystem</Type>
+               <Position h="72" w="175" x="700" y="534"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="685" y="545"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S2&gt;/Signal_SamplingTime</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="2">Inport</Type>
+                  <Position x="685" y="570"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S2&gt;/Product</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="3">Inport</Type>
+                  <Position x="685" y="595"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S2&gt;/Delay</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="880" y="555"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="880" y="555"/>
+                     <Point x="950" y="555"/>
+                  </Line>
+                  <Signal Category="Output" Name="driveState" ReadOnly="true">
+                     <GlobalName>sf_MATLABFunction_c.driveState</GlobalName>
+                     <AdsIdxOffs>#x820000D8</AdsIdxOffs>
+                  </Signal>
+               </Port>
+               <Port>
+                  <Type No="2">Outport</Type>
+                  <Position x="880" y="590"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="880" y="590"/>
+                     <Point x="903" y="590"/>
+                     <Line>
+                        <Point x="903" y="590"/>
+                        <Point x="903" y="630"/>
+                        <Point x="810" y="630"/>
+                     </Line>
+                     <Line>
+                        <Point x="903" y="590"/>
+                        <Point x="950" y="590"/>
+                     </Line>
+                     <Line>
+                        <Point x="903" y="590"/>
+                        <Point x="903" y="510"/>
+                        <Point x="955" y="510"/>
+                     </Line>
+                  </Line>
+                  <Signal Category="Output" Name="counter" ReadOnly="true">
+                     <GlobalName>sf_MATLABFunction_c.counter</GlobalName>
+                     <AdsIdxOffs>#x820000D0</AdsIdxOffs>
+                  </Signal>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Max</Name>
+               <Identifier>&lt;S2&gt;/Max</Identifier>
+               <Type>Constant</Type>
+               <Position h="20" w="40" x="445" y="415"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+                  <Image>
+                     <Placeholder Name="Value" Value="32767"/>
+                  </Image>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="490" y="425"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="490" y="425"/>
+                     <Point x="495" y="425"/>
+                  </Line>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Product</Name>
+               <Identifier>&lt;S2&gt;/Product</Identifier>
+               <Type>Product</Type>
+               <Position h="31" w="30" x="720" y="437"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="705" y="445"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S2&gt;/Transfer Fcn</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="2">Inport</Type>
+                  <Position x="705" y="460"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S2&gt;/Signal_MaxVelocityPerSecond</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="755" y="455"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="755" y="455"/>
+                     <Point x="790" y="455"/>
+                     <Line>
+                        <Point x="790" y="455"/>
+                        <Point x="955" y="455"/>
+                     </Line>
+                     <Line>
+                        <Point x="790" y="455"/>
+                        <Point x="790" y="495"/>
+                        <Line>
+                           <Point x="790" y="495"/>
+                           <Point x="825" y="495"/>
+                        </Line>
+                        <Line>
+                           <Point x="790" y="495"/>
+                           <Point x="790" y="501"/>
+                           <Point x="661" y="501"/>
+                           <Point x="661" y="570"/>
+                           <Point x="695" y="570"/>
+                        </Line>
+                     </Line>
+                  </Line>
+                  <Signal Category="Output" Name="Product_e" ReadOnly="true">
+                     <AdsIdxOffs>#x82000010</AdsIdxOffs>
+                  </Signal>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Scope</Name>
+               <Identifier>&lt;S2&gt;/Scope</Identifier>
+               <Type>Scope</Type>
+               <Position h="33" w="30" x="830" y="486"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="815" y="495"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S2&gt;/Product</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="2">Inport</Type>
+                  <Position x="815" y="510"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S2&gt;/Delay</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Scope1</Name>
+               <Identifier>&lt;S2&gt;/Scope1</Identifier>
+               <Type>Scope</Type>
+               <Position h="32" w="30" x="520" y="494"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="505" y="510"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S2&gt;/Signal_SamplingTime</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Scope2</Name>
+               <Identifier>&lt;S2&gt;/Scope2</Identifier>
+               <Type>Scope</Type>
+               <Position h="32" w="30" x="960" y="494"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="945" y="510"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S2&gt;/MATLAB Function</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>2</PortNo>
+                  </Source>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Transfer Fcn</Name>
+               <Identifier>&lt;S2&gt;/Transfer Fcn</Identifier>
+               <Type>TransferFcn</Type>
+               <Position h="36" w="60" x="580" y="402"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="565" y="420"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S2&gt;/Divide</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="645" y="420"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="645" y="420"/>
+                     <Point x="680" y="420"/>
+                     <Point x="680" y="445"/>
+                     <Point x="715" y="445"/>
+                  </Line>
+               </Port>
+               <State Category="ContStates" Name="TransferFcn_CSTATE_p" ReadOnly="true">
+                  <AdsIdxOffs>#x83000008</AdsIdxOffs>
+               </State>
+            </Block>
+            <Block>
+               <Name>HW_CounterValue</Name>
+               <Identifier>&lt;S2&gt;/HW_CounterValue</Identifier>
+               <Type>Outport</Type>
+               <Position h="14" w="30" x="1035" y="583"/>
+               <BlockDesign>
+                  <Border>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Border>
+                  <Image>
+                     <Placeholder Name="Port" Value="1"/>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Image>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="1020" y="590"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S2&gt;/Data Type Conversion</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+            </Block>
+            <Block>
+               <Name>HW_DriveState</Name>
+               <Identifier>&lt;S2&gt;/HW_DriveState</Identifier>
+               <Type>Outport</Type>
+               <Position h="14" w="30" x="1035" y="548"/>
+               <BlockDesign>
+                  <Border>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Border>
+                  <Image>
+                     <Placeholder Name="Port" Value="2"/>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Image>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="1020" y="555"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S2&gt;/Cast</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Signal_CurrentVelocity</Name>
+               <Identifier>&lt;S2&gt;/Signal_CurrentVelocity</Identifier>
+               <Type>Outport</Type>
+               <Position h="14" w="30" x="960" y="448"/>
+               <BlockDesign>
+                  <Border>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Border>
+                  <Image>
+                     <Placeholder Name="Port" Value="3"/>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Image>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="945" y="455"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S2&gt;/Product</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+            </Block>
+            <Annotation>
+               <Text>signal is int16 -&gt; max 32767</Text>
+               <Position x="164" y="415"/>
+               <Alignment H="left" V="top"/>
+               <FontName>auto</FontName>
+               <FontSize>-1</FontSize>
+               <FontWeight>auto</FontWeight>
+            </Annotation>
+            <Annotation>
+               <Text>Terminal
+</Text>
+               <Position x="366" y="366"/>
+               <Alignment H="left" V="top"/>
+               <FontName>auto</FontName>
+               <FontSize>12</FontSize>
+               <FontWeight>auto</FontWeight>
+            </Annotation>
+         </Block>
+         <Block>
+            <Name>Subsystem Reference2</Name>
+            <Identifier>&lt;S3&gt;</Identifier>
+            <Type>SubSystem</Type>
+            <Position h="142" w="200" x="310" y="494"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="295" y="520"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/From3</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+            <Port>
+               <Type No="2">Inport</Type>
+               <Position x="295" y="565"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/From5</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+            <Port>
+               <Type No="3">Inport</Type>
+               <Position x="295" y="610"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/VelocityFromPLC_3</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="515" y="520"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="515" y="520"/>
+                  <Point x="575" y="520"/>
+               </Line>
+               <Signal Category="Output" Name="DataTypeConversion" ReadOnly="true">
+                  <AdsIdxOffs>#x82000050</AdsIdxOffs>
+               </Signal>
+            </Port>
+            <Port>
+               <Type No="2">Outport</Type>
+               <Position x="515" y="565"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="515" y="565"/>
+                  <Point x="575" y="565"/>
+               </Line>
+            </Port>
+            <Port>
+               <Type No="3">Outport</Type>
+               <Position x="515" y="610"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="515" y="610"/>
+                  <Point x="575" y="610"/>
+               </Line>
+            </Port>
+            <Block>
+               <Name>Signal_SamplingTime</Name>
+               <Identifier>&lt;S3&gt;/Signal_SamplingTime</Identifier>
+               <Type>Inport</Type>
+               <Position h="14" w="30" x="315" y="538"/>
+               <BlockDesign>
+                  <Border>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Border>
+                  <Image>
+                     <Placeholder Name="Port" Value="1"/>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Image>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="350" y="545"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="350" y="545"/>
+                     <Point x="499" y="545"/>
+                     <Line>
+                        <Point x="499" y="545"/>
+                        <Point x="695" y="545"/>
+                     </Line>
+                     <Line>
+                        <Point x="499" y="545"/>
+                        <Point x="499" y="510"/>
+                        <Point x="515" y="510"/>
+                     </Line>
+                  </Line>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Signal_MaxVelocityPerSecond</Name>
+               <Identifier>&lt;S3&gt;/Signal_MaxVelocityPerSecond</Identifier>
+               <Type>Inport</Type>
+               <Position h="14" w="30" x="315" y="453"/>
+               <BlockDesign>
+                  <Border>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Border>
+                  <Image>
+                     <Placeholder Name="Port" Value="2"/>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Image>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="350" y="460"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="350" y="460"/>
+                     <Point x="715" y="460"/>
+                  </Line>
+               </Port>
+            </Block>
+            <Block>
+               <Name>HW_VelocityFromPLC</Name>
+               <Identifier>&lt;S3&gt;/HW_VelocityFromPLC</Identifier>
+               <Type>Inport</Type>
+               <Position h="14" w="30" x="315" y="403"/>
+               <BlockDesign>
+                  <Border>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Border>
+                  <Image>
+                     <Placeholder Name="Port" Value="3"/>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Image>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="350" y="410"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="350" y="410"/>
+                     <Point x="390" y="410"/>
+                  </Line>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Cast</Name>
+               <Identifier>&lt;S3&gt;/Cast</Identifier>
+               <Type>DataTypeConversion</Type>
+               <Position h="10" w="40" x="955" y="550"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="940" y="555"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S3&gt;/MATLAB Function</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="1000" y="555"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="1000" y="555"/>
+                     <Point x="1030" y="555"/>
+                  </Line>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Cast5</Name>
+               <Identifier>&lt;S3&gt;/Cast5</Identifier>
+               <Type>DataTypeConversion</Type>
+               <Position h="20" w="35" x="395" y="400"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="380" y="410"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S3&gt;/HW_VelocityFromPLC</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="435" y="410"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="435" y="410"/>
+                     <Point x="495" y="410"/>
+                  </Line>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Data Type Conversion</Name>
+               <Identifier>&lt;S3&gt;/Data Type Conversion</Identifier>
+               <Type>DataTypeConversion</Type>
+               <Position h="14" w="40" x="955" y="583"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="940" y="590"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S3&gt;/MATLAB Function</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>2</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="1000" y="590"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="1000" y="590"/>
+                     <Point x="1030" y="590"/>
+                  </Line>
+                  <Signal Category="Output" Name="DataTypeConversion" ReadOnly="true">
+                     <AdsIdxOffs>#x82000050</AdsIdxOffs>
+                  </Signal>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Delay</Name>
+               <Identifier>&lt;S3&gt;/Delay</Identifier>
+               <Type>Delay</Type>
+               <Position h="20" w="35" x="770" y="620"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="820" y="630"/>
+                  <Rotation>3.1416</Rotation>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S3&gt;/MATLAB Function</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>2</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="765" y="630"/>
+                  <Rotation>3.1416</Rotation>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="765" y="630"/>
+                     <Point x="676" y="630"/>
+                     <Point x="676" y="595"/>
+                     <Point x="684" y="595"/>
+                     <Line>
+                        <Point x="684" y="595"/>
+                        <Point x="695" y="595"/>
+                     </Line>
+                     <Line>
+                        <Point x="684" y="595"/>
+                        <Point x="684" y="510"/>
+                        <Point x="825" y="510"/>
+                     </Line>
+                  </Line>
+                  <Signal Category="Output" Name="Delay_n" ReadOnly="true">
+                     <AdsIdxOffs>#x82000028</AdsIdxOffs>
+                  </Signal>
+               </Port>
+               <State Category="DWork" Name="Delay_DSTATE_k" ReadOnly="true">
+                  <AdsIdxOffs>#x84000010</AdsIdxOffs>
+               </State>
+            </Block>
+            <Block>
+               <Name>Divide</Name>
+               <Identifier>&lt;S3&gt;/Divide</Identifier>
+               <Type>Product</Type>
+               <Position h="31" w="30" x="500" y="402"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="485" y="410"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S3&gt;/Cast5</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="2">Inport</Type>
+                  <Position x="485" y="425"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S3&gt;/Max</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="535" y="420"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="535" y="420"/>
+                     <Point x="575" y="420"/>
+                  </Line>
+                  <Signal Category="Output" Name="Divide_b" ReadOnly="true">
+                     <AdsIdxOffs>#x82000040</AdsIdxOffs>
+                  </Signal>
+               </Port>
+            </Block>
+            <Block>
+               <Name>MATLAB Function</Name>
+               <Identifier>&lt;S3&gt;/MATLAB Function</Identifier>
+               <Type>SubSystem</Type>
+               <Position h="72" w="175" x="700" y="534"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="685" y="545"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S3&gt;/Signal_SamplingTime</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="2">Inport</Type>
+                  <Position x="685" y="570"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S3&gt;/Product</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="3">Inport</Type>
+                  <Position x="685" y="595"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S3&gt;/Delay</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="880" y="555"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="880" y="555"/>
+                     <Point x="950" y="555"/>
+                  </Line>
+                  <Signal Category="Output" Name="driveState" ReadOnly="true">
+                     <GlobalName>sf_MATLABFunction_l.driveState</GlobalName>
+                     <AdsIdxOffs>#x820000B8</AdsIdxOffs>
+                  </Signal>
+               </Port>
+               <Port>
+                  <Type No="2">Outport</Type>
+                  <Position x="880" y="590"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="880" y="590"/>
+                     <Point x="903" y="590"/>
+                     <Line>
+                        <Point x="903" y="590"/>
+                        <Point x="903" y="630"/>
+                        <Point x="810" y="630"/>
+                     </Line>
+                     <Line>
+                        <Point x="903" y="590"/>
+                        <Point x="950" y="590"/>
+                     </Line>
+                     <Line>
+                        <Point x="903" y="590"/>
+                        <Point x="903" y="510"/>
+                        <Point x="955" y="510"/>
+                     </Line>
+                  </Line>
+                  <Signal Category="Output" Name="counter" ReadOnly="true">
+                     <GlobalName>sf_MATLABFunction_l.counter</GlobalName>
+                     <AdsIdxOffs>#x820000B0</AdsIdxOffs>
+                  </Signal>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Max</Name>
+               <Identifier>&lt;S3&gt;/Max</Identifier>
+               <Type>Constant</Type>
+               <Position h="20" w="40" x="445" y="415"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+                  <Image>
+                     <Placeholder Name="Value" Value="32767"/>
+                  </Image>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="490" y="425"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="490" y="425"/>
+                     <Point x="495" y="425"/>
+                  </Line>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Product</Name>
+               <Identifier>&lt;S3&gt;/Product</Identifier>
+               <Type>Product</Type>
+               <Position h="31" w="30" x="720" y="437"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="705" y="445"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S3&gt;/Transfer Fcn</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="2">Inport</Type>
+                  <Position x="705" y="460"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S3&gt;/Signal_MaxVelocityPerSecond</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="755" y="455"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="755" y="455"/>
+                     <Point x="790" y="455"/>
+                     <Line>
+                        <Point x="790" y="455"/>
+                        <Point x="955" y="455"/>
+                     </Line>
+                     <Line>
+                        <Point x="790" y="455"/>
+                        <Point x="790" y="495"/>
+                        <Line>
+                           <Point x="790" y="495"/>
+                           <Point x="825" y="495"/>
+                        </Line>
+                        <Line>
+                           <Point x="790" y="495"/>
+                           <Point x="790" y="501"/>
+                           <Point x="661" y="501"/>
+                           <Point x="661" y="570"/>
+                           <Point x="695" y="570"/>
+                        </Line>
+                     </Line>
+                  </Line>
+                  <Signal Category="Output" Name="Product_k" ReadOnly="true">
+                     <AdsIdxOffs>#x82000020</AdsIdxOffs>
+                  </Signal>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Scope</Name>
+               <Identifier>&lt;S3&gt;/Scope</Identifier>
+               <Type>Scope</Type>
+               <Position h="33" w="30" x="830" y="486"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="815" y="495"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S3&gt;/Product</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="2">Inport</Type>
+                  <Position x="815" y="510"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S3&gt;/Delay</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Scope1</Name>
+               <Identifier>&lt;S3&gt;/Scope1</Identifier>
+               <Type>Scope</Type>
+               <Position h="32" w="30" x="520" y="494"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="505" y="510"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S3&gt;/Signal_SamplingTime</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Scope2</Name>
+               <Identifier>&lt;S3&gt;/Scope2</Identifier>
+               <Type>Scope</Type>
+               <Position h="32" w="30" x="960" y="494"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="945" y="510"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S3&gt;/MATLAB Function</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>2</PortNo>
+                  </Source>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Transfer Fcn</Name>
+               <Identifier>&lt;S3&gt;/Transfer Fcn</Identifier>
+               <Type>TransferFcn</Type>
+               <Position h="36" w="60" x="580" y="402"/>
+               <BlockDesign>
+                  <Border>
+                     <svg height="1" width="1"/>
+                  </Border>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="565" y="420"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S3&gt;/Divide</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+               <Port>
+                  <Type No="1">Outport</Type>
+                  <Position x="645" y="420"/>
+                  <IsConnected>1</IsConnected>
+                  <Line>
+                     <Point x="645" y="420"/>
+                     <Point x="680" y="420"/>
+                     <Point x="680" y="445"/>
+                     <Point x="715" y="445"/>
+                  </Line>
+                  <Signal Category="Output" Name="TransferFcn" ReadOnly="true">
+                     <AdsIdxOffs>#x82000048</AdsIdxOffs>
+                  </Signal>
+               </Port>
+               <State Category="ContStates" Name="TransferFcn_CSTATE_j" ReadOnly="true">
+                  <AdsIdxOffs>#x83000010</AdsIdxOffs>
+               </State>
+            </Block>
+            <Block>
+               <Name>HW_CounterValue</Name>
+               <Identifier>&lt;S3&gt;/HW_CounterValue</Identifier>
+               <Type>Outport</Type>
+               <Position h="14" w="30" x="1035" y="583"/>
+               <BlockDesign>
+                  <Border>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Border>
+                  <Image>
+                     <Placeholder Name="Port" Value="1"/>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Image>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="1020" y="590"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S3&gt;/Data Type Conversion</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+            </Block>
+            <Block>
+               <Name>HW_DriveState</Name>
+               <Identifier>&lt;S3&gt;/HW_DriveState</Identifier>
+               <Type>Outport</Type>
+               <Position h="14" w="30" x="1035" y="548"/>
+               <BlockDesign>
+                  <Border>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Border>
+                  <Image>
+                     <Placeholder Name="Port" Value="2"/>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Image>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="1020" y="555"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S3&gt;/Cast</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+            </Block>
+            <Block>
+               <Name>Signal_CurrentVelocity</Name>
+               <Identifier>&lt;S3&gt;/Signal_CurrentVelocity</Identifier>
+               <Type>Outport</Type>
+               <Position h="14" w="30" x="960" y="448"/>
+               <BlockDesign>
+                  <Border>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Border>
+                  <Image>
+                     <Placeholder Name="Port" Value="3"/>
+                     <svg fill="yellow" height="1" width="1"/>
+                  </Image>
+               </BlockDesign>
+               <Port>
+                  <Type No="1">Inport</Type>
+                  <Position x="945" y="455"/>
+                  <IsConnected>1</IsConnected>
+                  <Source>
+                     <BlockIdentifier>&lt;S3&gt;/Product</BlockIdentifier>
+                     <PortType>Outport</PortType>
+                     <PortNo>1</PortNo>
+                  </Source>
+               </Port>
+            </Block>
+            <Annotation>
+               <Text>signal is int16 -&gt; max 32767</Text>
+               <Position x="164" y="415"/>
+               <Alignment H="left" V="top"/>
+               <FontName>auto</FontName>
+               <FontSize>-1</FontSize>
+               <FontWeight>auto</FontWeight>
+            </Annotation>
+            <Annotation>
+               <Text>Terminal
+</Text>
+               <Position x="366" y="366"/>
+               <Alignment H="left" V="top"/>
+               <FontName>auto</FontName>
+               <FontSize>12</FontSize>
+               <FontWeight>auto</FontWeight>
+            </Annotation>
+         </Block>
+         <Block>
+            <Name>CounterValueMotor_1</Name>
+            <Identifier>&lt;Root&gt;/CounterValueMotor_1</Identifier>
+            <Type>Outport</Type>
+            <Position h="14" w="30" x="575" y="163"/>
+            <BlockDesign>
+               <Border>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="Port" Value="1"/>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="560" y="170"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;S1&gt;</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+               <Signal Category="Output" Name="CounterValueMotor_1" ReadOnly="true">
+                  <GlobalName>ModelDosingUnit_Y.CounterValueMotor_1</GlobalName>
+                  <AdsIdxOffs>#x81000000</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <Block>
+            <Name>CounterValueMotor_2</Name>
+            <Identifier>&lt;Root&gt;/CounterValueMotor_2</Identifier>
+            <Type>Outport</Type>
+            <Position h="14" w="30" x="580" y="338"/>
+            <BlockDesign>
+               <Border>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="Port" Value="2"/>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="565" y="345"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;S2&gt;</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+               <Signal Category="Output" Name="CounterValueMotor_2" ReadOnly="true">
+                  <GlobalName>ModelDosingUnit_Y.CounterValueMotor_2</GlobalName>
+                  <AdsIdxOffs>#x81000002</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <Block>
+            <Name>CounterValueMotor_3</Name>
+            <Identifier>&lt;Root&gt;/CounterValueMotor_3</Identifier>
+            <Type>Outport</Type>
+            <Position h="14" w="30" x="580" y="513"/>
+            <BlockDesign>
+               <Border>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="Port" Value="3"/>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="565" y="520"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;S3&gt;</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+               <Signal Category="Output" Name="CounterValueMotor_3" ReadOnly="true">
+                  <GlobalName>ModelDosingUnit_Y.CounterValueMotor_3</GlobalName>
+                  <AdsIdxOffs>#x81000004</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <Block>
+            <Name>DriveStateMotor_1</Name>
+            <Identifier>&lt;Root&gt;/DriveStateMotor_1</Identifier>
+            <Type>Outport</Type>
+            <Position h="14" w="30" x="575" y="208"/>
+            <BlockDesign>
+               <Border>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="Port" Value="4"/>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="560" y="215"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;S1&gt;</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>2</PortNo>
+               </Source>
+               <Signal Category="Output" Name="DriveStateMotor_1" ReadOnly="true">
+                  <GlobalName>ModelDosingUnit_Y.DriveStateMotor_1</GlobalName>
+                  <AdsIdxOffs>#x81000006</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <Block>
+            <Name>DriveStateMotor_2</Name>
+            <Identifier>&lt;Root&gt;/DriveStateMotor_2</Identifier>
+            <Type>Outport</Type>
+            <Position h="14" w="30" x="580" y="383"/>
+            <BlockDesign>
+               <Border>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="Port" Value="5"/>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="565" y="390"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;S2&gt;</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>2</PortNo>
+               </Source>
+               <Signal Category="Output" Name="DriveStateMotor_2" ReadOnly="true">
+                  <GlobalName>ModelDosingUnit_Y.DriveStateMotor_2</GlobalName>
+                  <AdsIdxOffs>#x81000007</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <Block>
+            <Name>DriveStateMotor_3</Name>
+            <Identifier>&lt;Root&gt;/DriveStateMotor_3</Identifier>
+            <Type>Outport</Type>
+            <Position h="14" w="30" x="580" y="558"/>
+            <BlockDesign>
+               <Border>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="Port" Value="6"/>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="565" y="565"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;S3&gt;</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>2</PortNo>
+               </Source>
+               <Signal Category="Output" Name="DriveStateMotor_3" ReadOnly="true">
+                  <GlobalName>ModelDosingUnit_Y.DriveStateMotor_3</GlobalName>
+                  <AdsIdxOffs>#x81000008</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <Block>
+            <Name>SignalCurrentStepperVelocity_1</Name>
+            <Identifier>&lt;Root&gt;/SignalCurrentStepperVelocity_1</Identifier>
+            <Type>Outport</Type>
+            <Position h="14" w="30" x="575" y="253"/>
+            <BlockDesign>
+               <Border>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="Port" Value="7"/>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="560" y="260"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;S1&gt;</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>3</PortNo>
+               </Source>
+               <Signal Category="Output" Name="SignalCurrentStepperVelocity_1" ReadOnly="true">
+                  <GlobalName>ModelDosingUnit_Y.SignalCurrentStepperVelocity_1</GlobalName>
+                  <AdsIdxOffs>#x81000010</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <Block>
+            <Name>SignalCurrentStepperVelocity_2</Name>
+            <Identifier>&lt;Root&gt;/SignalCurrentStepperVelocity_2</Identifier>
+            <Type>Outport</Type>
+            <Position h="14" w="30" x="580" y="428"/>
+            <BlockDesign>
+               <Border>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="Port" Value="8"/>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="565" y="435"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;S2&gt;</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>3</PortNo>
+               </Source>
+               <Signal Category="Output" Name="SignalCurrentStepperVelocity_2" ReadOnly="true">
+                  <GlobalName>ModelDosingUnit_Y.SignalCurrentStepperVelocity_2</GlobalName>
+                  <AdsIdxOffs>#x81000018</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <Block>
+            <Name>SignalCurrentStepperVelocity_3</Name>
+            <Identifier>&lt;Root&gt;/SignalCurrentStepperVelocity_3</Identifier>
+            <Type>Outport</Type>
+            <Position h="14" w="30" x="580" y="603"/>
+            <BlockDesign>
+               <Border>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="Port" Value="9"/>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="565" y="610"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;S3&gt;</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>3</PortNo>
+               </Source>
+               <Signal Category="Output" Name="SignalCurrentStepperVelocity_3" ReadOnly="true">
+                  <GlobalName>ModelDosingUnit_Y.SignalCurrentStepperVelocity_3</GlobalName>
+                  <AdsIdxOffs>#x81000020</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <SubsystemHierarchy>
+            <Subsystem>
+               <ID>&lt;Root&gt;</ID>
+            </Subsystem>
+            <Subsystem>
+               <ID>&lt;S1&gt;</ID>
+               <Parent>&lt;Root&gt;</Parent>
+            </Subsystem>
+            <Subsystem>
+               <ID>&lt;S2&gt;</ID>
+               <Parent>&lt;Root&gt;</Parent>
+            </Subsystem>
+            <Subsystem>
+               <ID>&lt;S3&gt;</ID>
+               <Parent>&lt;Root&gt;</Parent>
+            </Subsystem>
+         </SubsystemHierarchy>
+         <DebugInfo>
+            <SourceFile>
+               <Name>ModelDosingUnit.cpp</Name>
+               <Path>C:\Users\kaebi\OneDrive\Desktop\2_BehaviourModels\DosingUnit\ModelDosingUnit_tcgrt\ModelDosingUnit.cpp</Path>
+               <CodeSection CommentStartLine="171" EndLine="176" Method="ModelDosingUnit_step" StartLine="174">
+                  <Block>&lt;S3&gt;/Transfer Fcn</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="171" EndLine="176" Method="ModelDosingUnit_step" StartLine="174">
+                  <Block>&lt;S1&gt;/Transfer Fcn</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="177" EndLine="181" Method="ModelDosingUnit_step" StartLine="180">
+                  <Block>&lt;S1&gt;/Product</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="177" EndLine="181" Method="ModelDosingUnit_step" StartLine="180">
+                  <Block>&lt;Root&gt;/Constant</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="182" EndLine="185" Method="ModelDosingUnit_step" StartLine="183">
+                  <Block>&lt;S1&gt;/Delay</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="186" EndLine="189" Method="ModelDosingUnit_step" StartLine="187">
+                  <Block>&lt;S1&gt;/MATLAB Function</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="190" EndLine="192" Method="ModelDosingUnit_step" StartLine="191">
+                  <Block>&lt;S1&gt;/Data Type Conversion</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="193" EndLine="196" Method="ModelDosingUnit_step" StartLine="194">
+                  <Block>&lt;S3&gt;/Data Type Conversion</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="197" EndLine="200" Method="ModelDosingUnit_step" StartLine="198">
+                  <Block>&lt;S3&gt;/Data Type Conversion</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="201" EndLine="204" Method="ModelDosingUnit_step" StartLine="202">
+                  <Block>&lt;S3&gt;/Data Type Conversion</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="205" EndLine="206" Method="ModelDosingUnit_step" StartLine="206">
+                  <Block>&lt;S1&gt;/Data Type Conversion</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="207" EndLine="209" Method="ModelDosingUnit_step" StartLine="208">
+                  <Block>&lt;Root&gt;/CounterValueMotor_1</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="210" EndLine="216" Method="ModelDosingUnit_step" StartLine="213">
+                  <Block>&lt;S3&gt;/Transfer Fcn</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="210" EndLine="216" Method="ModelDosingUnit_step" StartLine="213">
+                  <Block>&lt;S2&gt;/Transfer Fcn</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="217" EndLine="221" Method="ModelDosingUnit_step" StartLine="220">
+                  <Block>&lt;S2&gt;/Product</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="217" EndLine="221" Method="ModelDosingUnit_step" StartLine="220">
+                  <Block>&lt;Root&gt;/Constant</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="222" EndLine="225" Method="ModelDosingUnit_step" StartLine="223">
+                  <Block>&lt;S2&gt;/Delay</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="226" EndLine="229" Method="ModelDosingUnit_step" StartLine="227">
+                  <Block>&lt;S2&gt;/MATLAB Function</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="230" EndLine="232" Method="ModelDosingUnit_step" StartLine="231">
+                  <Block>&lt;S2&gt;/Data Type Conversion</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="233" EndLine="236" Method="ModelDosingUnit_step" StartLine="234">
+                  <Block>&lt;S3&gt;/Data Type Conversion</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="237" EndLine="240" Method="ModelDosingUnit_step" StartLine="238">
+                  <Block>&lt;S3&gt;/Data Type Conversion</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="241" EndLine="244" Method="ModelDosingUnit_step" StartLine="242">
+                  <Block>&lt;S3&gt;/Data Type Conversion</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="245" EndLine="246" Method="ModelDosingUnit_step" StartLine="246">
+                  <Block>&lt;S2&gt;/Data Type Conversion</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="247" EndLine="249" Method="ModelDosingUnit_step" StartLine="248">
+                  <Block>&lt;Root&gt;/CounterValueMotor_2</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="250" EndLine="254" Method="ModelDosingUnit_step" StartLine="251">
+                  <Block>&lt;S3&gt;/Transfer Fcn</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="255" EndLine="259" Method="ModelDosingUnit_step" StartLine="258">
+                  <Block>&lt;S3&gt;/Product</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="255" EndLine="259" Method="ModelDosingUnit_step" StartLine="258">
+                  <Block>&lt;Root&gt;/Constant</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="260" EndLine="263" Method="ModelDosingUnit_step" StartLine="261">
+                  <Block>&lt;S3&gt;/Delay</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="264" EndLine="267" Method="ModelDosingUnit_step" StartLine="265">
+                  <Block>&lt;S3&gt;/MATLAB Function</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="268" EndLine="270" Method="ModelDosingUnit_step" StartLine="269">
+                  <Block>&lt;S3&gt;/Data Type Conversion</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="271" EndLine="274" Method="ModelDosingUnit_step" StartLine="272">
+                  <Block>&lt;S3&gt;/Data Type Conversion</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="275" EndLine="278" Method="ModelDosingUnit_step" StartLine="276">
+                  <Block>&lt;S3&gt;/Data Type Conversion</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="279" EndLine="282" Method="ModelDosingUnit_step" StartLine="280">
+                  <Block>&lt;S3&gt;/Data Type Conversion</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="283" EndLine="284" Method="ModelDosingUnit_step" StartLine="284">
+                  <Block>&lt;S3&gt;/Data Type Conversion</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="285" EndLine="287" Method="ModelDosingUnit_step" StartLine="286">
+                  <Block>&lt;Root&gt;/CounterValueMotor_3</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="288" EndLine="291" Method="ModelDosingUnit_step" StartLine="289">
+                  <Block>&lt;Root&gt;/DriveStateMotor_1</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="292" EndLine="295" Method="ModelDosingUnit_step" StartLine="293">
+                  <Block>&lt;Root&gt;/DriveStateMotor_2</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="296" EndLine="299" Method="ModelDosingUnit_step" StartLine="297">
+                  <Block>&lt;Root&gt;/DriveStateMotor_3</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="300" EndLine="302" Method="ModelDosingUnit_step" StartLine="301">
+                  <Block>&lt;Root&gt;/SignalCurrentStepperVelocity_1</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="303" EndLine="306" Method="ModelDosingUnit_step" StartLine="304">
+                  <Block>&lt;Root&gt;/SignalCurrentStepperVelocity_2</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="307" EndLine="310" Method="ModelDosingUnit_step" StartLine="308">
+                  <Block>&lt;Root&gt;/SignalCurrentStepperVelocity_3</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="311" EndLine="317" Method="ModelDosingUnit_step" StartLine="315">
+                  <Block>&lt;S1&gt;/Divide</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="311" EndLine="317" Method="ModelDosingUnit_step" StartLine="315">
+                  <Block>&lt;S1&gt;/Max</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="311" EndLine="317" Method="ModelDosingUnit_step" StartLine="315">
+                  <Block>&lt;Root&gt;/VelocityFromPLC_1</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="318" EndLine="324" Method="ModelDosingUnit_step" StartLine="322">
+                  <Block>&lt;S2&gt;/Divide</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="318" EndLine="324" Method="ModelDosingUnit_step" StartLine="322">
+                  <Block>&lt;S2&gt;/Max</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="318" EndLine="324" Method="ModelDosingUnit_step" StartLine="322">
+                  <Block>&lt;Root&gt;/VelocityFromPLC_2</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="325" EndLine="332" Method="ModelDosingUnit_step" StartLine="329">
+                  <Block>&lt;S3&gt;/Divide</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="325" EndLine="332" Method="ModelDosingUnit_step" StartLine="329">
+                  <Block>&lt;S3&gt;/Max</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="325" EndLine="332" Method="ModelDosingUnit_step" StartLine="329">
+                  <Block>&lt;Root&gt;/VelocityFromPLC_3</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="333" EndLine="336" Method="ModelDosingUnit_step" StartLine="334">
+                  <Block>&lt;S1&gt;/Delay</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="337" EndLine="340" Method="ModelDosingUnit_step" StartLine="338">
+                  <Block>&lt;S2&gt;/Delay</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="341" EndLine="344" Method="ModelDosingUnit_step" StartLine="342">
+                  <Block>&lt;S3&gt;/Delay</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="394" EndLine="398" Method="ModelDosingUnit_derivatives" StartLine="395">
+                  <Block>&lt;S1&gt;/Transfer Fcn</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="399" EndLine="404" Method="ModelDosingUnit_derivatives" StartLine="400">
+                  <Block>&lt;S2&gt;/Transfer Fcn</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="405" EndLine="411" Method="ModelDosingUnit_derivatives" StartLine="406">
+                  <Block>&lt;S3&gt;/Transfer Fcn</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="419" EndLine="421" Method="ModelDosingUnit_initialize" StartLine="420">
+                  <Block>&lt;S1&gt;/Transfer Fcn</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="422" EndLine="424" Method="ModelDosingUnit_initialize" StartLine="423">
+                  <Block>&lt;S1&gt;/Delay</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="425" EndLine="427" Method="ModelDosingUnit_initialize" StartLine="426">
+                  <Block>&lt;S2&gt;/Transfer Fcn</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="428" EndLine="430" Method="ModelDosingUnit_initialize" StartLine="429">
+                  <Block>&lt;S2&gt;/Delay</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="431" EndLine="433" Method="ModelDosingUnit_initialize" StartLine="432">
+                  <Block>&lt;S3&gt;/Transfer Fcn</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="434" EndLine="437" Method="ModelDosingUnit_initialize" StartLine="435">
+                  <Block>&lt;S3&gt;/Delay</Block>
+               </CodeSection>
+            </SourceFile>
+         </DebugInfo>
+      </BlockDiagram>
+      <DefaultValues>
+         <Value>
+            <Name>TaskOid</Name>
+         </Value>
+         <Value>
+            <Name>TaskPriority</Name>
+            <Value>0</Value>
+         </Value>
+         <Value>
+            <Name>TaskCycleTimeNs</Name>
+            <Value>0</Value>
+         </Value>
+         <Value>
+            <Name>TaskPort</Name>
+            <Value>0</Value>
+         </Value>
+         <Value>
+            <Name>TaskSortOrder</Name>
+            <Value>0</Value>
+         </Value>
+         <Value>
+            <Name>TraceLevelMax</Name>
+            <EnumText>tlInfo</EnumText>
+         </Value>
+         <Value>
+            <Name>ModuleCaller</Name>
+            <EnumText>CyclicTask</EnumText>
+         </Value>
+         <Value>
+            <Name>CallerVerification</Name>
+            <EnumText>Default</EnumText>
+         </Value>
+         <Value>
+            <Name>StepSizeAdaptation</Name>
+            <EnumText>RequireMatchingTaskCycleTime</EnumText>
+         </Value>
+         <Value>
+            <Name>ExecutionSequence</Name>
+            <EnumText>UpdateBeforeOutputMapping</EnumText>
+         </Value>
+         <Value>
+            <Name>Execute</Name>
+            <EnumText>TRUE</EnumText>
+         </Value>
+         <Value>
+            <Name>AccessLockState</Name>
+            <EnumText>TCOM_STATE_OP</EnumText>
+         </Value>
+         <Value>
+            <Name>InitExceptionHandling</Name>
+            <EnumText>CallerExceptions</EnumText>
+         </Value>
+         <Value>
+            <Name>UpdateExceptionHandling</Name>
+            <EnumText>CallerExceptions</EnumText>
+         </Value>
+      </DefaultValues>
+      <ModuleParameters>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="READONLY" StartupValueAccess="WRITE">
+            <Name>CallBy</Name>
+            <Category>Module parameters</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="READONLY" StartupValueAccess="WRITE">
+            <Name>ExecutionSequence</Name>
+            <Category>Module parameters</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="READONLY" StartupValueAccess="WRITE">
+            <Name>StepSizeAdaptation</Name>
+            <Category>Module parameters</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="READONLY" StartupValueAccess="">
+            <Name>Initialized</Name>
+            <Category>Monitoring</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="READONLY" StartupValueAccess="">
+            <Name>CycleUpdateExecuted</Name>
+            <Category>Monitoring</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="" StartupValueAccess="">
+            <Name>ModuleInfo</Name>
+            <Category>Module identification</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="" OnlineValueAccess="READONLY" StartupValueAccess="">
+            <Name>ModuleBuildInfo</Name>
+            <Category>Module identification</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="WRITE" StartupValueAccess="WRITE">
+            <Name>Execute</Name>
+            <Category>Module parameters</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="READONLY" StartupValueAccess="">
+            <Name>SimulinkTime</Name>
+            <Category>Monitoring</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="READONLY" StartupValueAccess="">
+            <Name>AccessLockState</Name>
+            <Category>Module parameters</Category>
+         </Parameter>
+      </ModuleParameters>
+      <BlockDesigns>
+         <BlockDesign>
+            <Type>Inport</Type>
+            <Border>
+               <svg height="30" id="svg3009" version="1.1" width="60">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <g id="layer1" transform="translate(0,-1022.3622)">
+                     <rect height="28.121166" id="rect2996" ry="14.060583" style="fill:none;stroke:#000000;stroke-width:1.87883461;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none" width="58.121166" x="0.9394173" y="1023.3016"/>
+                  </g>
+               </svg>
+            </Border>
+            <Image>
+               <svg height="30" id="svg3009" version="1.1" width="60">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <text id="text3010" style="font-size:8px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans" x="30" xml:space="preserve" y="15"><tspan id="tspan3012" x="30" y="15">Block::Port</tspan></text></svg>
+            </Image>
+         </BlockDesign>
+         <BlockDesign>
+            <Type>Constant</Type>
+            <Image>
+               <svg height="100" id="svg3009" version="1.1" width="100">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <g id="layer1">
+                     <text id="text3001" style="font-size:8px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans" x="50" xml:space="preserve" y="50"><tspan id="tspan3003" x="50" y="50">ADS::Value Block::Value</tspan></text></g>
+               </svg>
+            </Image>
+         </BlockDesign>
+         <BlockDesign>
+            <Type>From</Type>
+            <Border>
+               <svg height="100" id="svg3009" version="1.1" width="100">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <g id="layer1" transform="translate(0,-952.36218)">
+                     <path d="m 100,1002.3622 -25,-50.00002 -75,0 0,100.00002 75,0 25,-50" id="path3045" style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+                  </g>
+               </svg>
+            </Border>
+            <Image>
+               <svg height="100" id="svg3009" version="1.1" width="100">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <g id="layer1">
+                     <text id="text3001" style="font-size:8px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans" x="50" xml:space="preserve" y="50"><tspan id="tspan3003" x="50" y="50">ADS::Value Block::FromTag</tspan></text></g>
+               </svg>
+            </Image>
+         </BlockDesign>
+         <BlockDesign>
+            <Type>Goto</Type>
+            <Border>
+               <svg height="100" id="svg3009" version="1.1" width="100">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <g id="layer1" transform="translate(0,-952.36218)">
+                     <path d="m 0,1002.3622 25,-50.00002 75,0 0,100.00002 -75,0 -25,-50" id="path3045" style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+                  </g>
+               </svg>
+            </Border>
+            <Image>
+               <svg height="100" id="svg3009" version="1.1" width="100">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <g id="layer1">
+                     <text id="text3001" style="font-size:8px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans" x="50" xml:space="preserve" y="50"><tspan id="tspan3003" x="50" y="50">ADS::Value Block::GotoTag</tspan></text></g>
+               </svg>
+            </Image>
+         </BlockDesign>
+         <BlockDesign>
+            <Type SubType="Compare To Constant">SubSystem</Type>
+            <Image>
+               <svg height="100" id="svg3009" version="1.1" width="100">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <g id="layer1">
+                     <text id="text3001" style="font-size:8px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans" x="50" xml:space="preserve" y="50"><tspan id="tspan3003" x="50" y="50">Block::Operator</tspan></text></g>
+               </svg>
+            </Image>
+         </BlockDesign>
+         <BlockDesign>
+            <Type>Product</Type>
+            <Image>
+               <svg height="100" id="svg3009" version="1.1" width="100">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <g id="layer1" transform="translate(0,-952.36218)">
+                     <path d="M 35.89,34.11 66.61,64.82" id="path4361" style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" transform="translate(0,952.36218)"/>
+                     <path d="M 66.61,34.11 35.36,64.82" id="path4363" style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" transform="translate(0,952.36218)"/>
+                  </g>
+               </svg>
+            </Image>
+         </BlockDesign>
+         <BlockDesign>
+            <Type>MCodeDisplayBlock</Type>
+            <Image>
+               <svg height="100" id="svg3009" version="1.1" width="100">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <g id="layer1">
+                     <text id="text3001" style="font-size:6px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#0000FF;fill-opacity:1;stroke:none;font-family:Sans" x="50" xml:space="preserve" y="50"><tspan id="tspan3003" x="50" y="50">ADS::Name</tspan></text></g>
+               </svg>
+            </Image>
+         </BlockDesign>
+         <BlockDesign>
+            <Type>Scope</Type>
+            <Image>
+               <svg height="100" id="svg3009" version="1.1" width="100">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <g id="layer1" transform="translate(0,-952.36218)">
+                     <rect height="42.426407" id="rect3832" style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none" width="74.246216" x="12.687822" y="962.45862"/>
+                  </g>
+               </svg>
+            </Image>
+         </BlockDesign>
+         <BlockDesign>
+            <Type>Outport</Type>
+            <Border>
+               <svg height="30" id="svg3009" version="1.1" width="60">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <g id="layer1" transform="translate(0,-1022.3622)">
+                     <rect height="28.121166" id="rect2996" ry="14.060583" style="fill:none;stroke:#000000;stroke-width:1.87883461;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none" width="58.121166" x="0.9394173" y="1023.3016"/>
+                  </g>
+               </svg>
+            </Border>
+            <Image>
+               <svg height="30" id="svg3009" version="1.1" width="60">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <text id="text3010" style="font-size:8px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans" x="30" xml:space="preserve" y="15"><tspan id="tspan3012" x="30" y="15">Block::Port</tspan></text></svg>
+            </Image>
+         </BlockDesign>
+      </BlockDesigns>
+   </ModuleInfo>
+</TctGeneratedModules>

@@ -4,6 +4,7 @@
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
 	samplingtime 			AT%Q* : LREAL := 0.01;
+	samplingtimeNC 			AT%Q* : LREAL := 0.002;
 	
 	signalCreateContainer 	AT%Q* : BOOL;
 	signalRevomeContainer 	AT%Q* : BOOL;

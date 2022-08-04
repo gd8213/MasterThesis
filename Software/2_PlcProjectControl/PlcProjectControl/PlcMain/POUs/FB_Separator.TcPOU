@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
   <POU Name="FB_Separator" Id="{91946f14-5ef9-4883-993a-962cda20c177}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_Separator
 VAR_INPUT
@@ -7,15 +7,15 @@ VAR_INPUT
 	bExecute: BOOL; 	// Ejects 1 flask if true
 	bErrorReset: BOOL;	//Reset Error 
 	
-	bSensor1 : BOOL; //Hardware Sensor 1
-	bSensor2 : BOOL; //Hardware Sensor 2
-	bSensor3 : BOOL; //Hardware Sensor 3
+	bSensor1 : BOOL; //Hardware Sensor 1	-> Zwischen Schieber
+	bSensor2 : BOOL; //Hardware Sensor 2	-> Uber Schieber 
+	bSensor3 : BOOL; //Hardware Sensor 3	-> Lager
 END_VAR
 VAR_OUTPUT
-	bR1AKT1 : BOOL; //Relais 1 Aktor 1 (Schieber oben)
-	bR2AKT1 : BOOL; //Relais 2 Aktor 1
-	bR1AKT2 : BOOL; //Relais 1 Aktor 2 (Schieber unten)
-	bR2AKT2 : BOOL; //Relais 2 Aktor 2
+	bR1AKT1 : BOOL; //Relais 1 Aktor 1 (Schieber oben) 	-> Schliessen
+	bR2AKT1 : BOOL; //Relais 2 Aktor 1					-> Offen
+	bR1AKT2 : BOOL; //Relais 1 Aktor 2 (Schieber unten)	-> Offen
+	bR2AKT2 : BOOL; //Relais 2 Aktor 2					-> Schließen
 	
 	bNoBottle		: BOOL;		//Keine Flasche vorhanden
 	bWrongBottle	: BOOL; //Falsche oder gedrehte Flasche vorhanden

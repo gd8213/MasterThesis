@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
   <GVL Name="IFC_HW" Id="{9ae663f7-5593-436c-8bb8-7fb5eec82175}">
     <Declaration><![CDATA[// In dieser GVL werden alle Variablen deklariert die auf die realen Klemmen zugreifen
 VAR_GLOBAL
@@ -15,13 +15,13 @@ VAR_GLOBAL
 		AmpelGrun 	AT%Q* 	: BOOL;		// Signal-LED Grun
 			
 	// Station Vereinzelung
-		EinzelSens1 AT%I*	: BOOL;			// Separation Sensor 1
-		EinzelSens2 AT%I*	: BOOL;			// Separation Sensor 2
-		EinzelSens3 AT%I*	: BOOL;			// Separation Sensor 3
-		R1AKT1 	AT%Q* 		: BOOL;			// Relais 1 Aktor 1
-		R2AKT1 	AT%Q* 		: BOOL;			// Relais 2 Aktor 1
-		R1AKT2 	AT%Q* 		: BOOL;			// Relais 1 Aktor 2
-		R2AKT2 	AT%Q* 		: BOOL;			// Relais 2 Aktor 2
+		EinzelSens1 AT%I*	: BOOL;			// Separation Sensor 1 - Zwischen Schieber
+		EinzelSens2 AT%I*	: BOOL;			// Separation Sensor 2 - uber Schieber
+		EinzelSens3 AT%I*	: BOOL;			// Separation Sensor 3 - Lager
+		R1AKT1 	AT%Q* 		: BOOL;			// Relais 1 Aktor 1 - Geschlossen wenn true
+		R2AKT1 	AT%Q* 		: BOOL;			// Relais 2 Aktor 1 - offen wenn true
+		R1AKT2 	AT%Q* 		: BOOL;			// Relais 1 Aktor 2 - offen wenn true
+		R2AKT2 	AT%Q* 		: BOOL;			// Relais 2 Aktor 2 - Geschlossen wenn true
 	
 	// Station Forderband
 		BandSens1 AT %I*	: BOOL;		// Forderband Sensor 1
