@@ -1712,11 +1712,13 @@ External Setpoint Generation:
 					<AxisPara>
 						<General IoDivider="3"/>
 						<Dynamic AccelerationMaximum="1000" DecelerationMaximum="1000" Acceleration="1000" Deceleration="1000" Jerk="20160"/>
-						<Velo SlowManual="10" FastManual="100" Maximum="280"/>
+						<Velo RefSearch="5" RefSync="5" SlowManual="10" FastManual="100" Maximum="280"/>
 						<OtherSettings AllowMotionCmdToSlave="true"/>
 					</AxisPara>
 					<Encoder Name="Enc" EncType="4">
-						<EncPara MaxCount="#x0000ffff"/>
+						<EncPara MaxCount="#x0000ffff">
+							<Inc RefSearchInverse="true" RefSyncInverse="false" RefMode="1"/>
+						</EncPara>
 						<Vars VarGrpType="1">
 							<Name>Eingänge</Name>
 							<Var>
@@ -1847,6 +1849,7 @@ External Setpoint Generation:
 					</Drive>
 					<Controller Name="Ctrl" CtrType="1">
 						<CtrPara PriorControlFactor="1">
+							<PosDiffControl Range="15"/>
 							<Observer BandWidth="20"/>
 						</CtrPara>
 					</Controller>
@@ -1870,11 +1873,13 @@ External Setpoint Generation:
 					<AxisPara>
 						<General IoDivider="3"/>
 						<Dynamic AccelerationMaximum="1000" DecelerationMaximum="1000" Acceleration="1000" Deceleration="1000" Jerk="20160"/>
-						<Velo SlowManual="10" FastManual="100" Maximum="280"/>
+						<Velo RefSearch="5" RefSync="5" SlowManual="10" FastManual="100" Maximum="280"/>
 						<OtherSettings AllowMotionCmdToSlave="true"/>
 					</AxisPara>
 					<Encoder Name="Enc" EncType="4">
-						<EncPara MaxCount="#x0000ffff"/>
+						<EncPara MaxCount="#x0000ffff">
+							<Inc RefSearchInverse="true" RefSyncInverse="false" RefMode="1"/>
+						</EncPara>
 						<Vars VarGrpType="1">
 							<Name>Eingänge</Name>
 							<Var>
@@ -2005,6 +2010,7 @@ External Setpoint Generation:
 					</Drive>
 					<Controller Name="Ctrl" CtrType="1">
 						<CtrPara PriorControlFactor="1">
+							<PosDiffControl Range="15"/>
 							<Observer BandWidth="20"/>
 						</CtrPara>
 					</Controller>
@@ -2028,11 +2034,13 @@ External Setpoint Generation:
 					<AxisPara>
 						<General IoDivider="3"/>
 						<Dynamic AccelerationMaximum="500" DecelerationMaximum="500" Acceleration="176.4" Deceleration="176.4" Jerk="1103.44"/>
-						<Velo RefSearch="15" RefSync="15" SlowManual="15" FastManual="15" Maximum="60"/>
+						<Velo RefSearch="5" RefSync="5" SlowManual="15" FastManual="15" Maximum="60"/>
 						<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="10" PulseDistanceNeg="10"/>
 					</AxisPara>
 					<Encoder Name="Enc" EncType="4">
-						<EncPara MaxCount="#x0000ffff"/>
+						<EncPara MaxCount="#x0000ffff">
+							<Inc RefSearchInverse="true" RefSyncInverse="false" RefMode="1"/>
+						</EncPara>
 						<Vars VarGrpType="1">
 							<Name>Eingänge</Name>
 							<Var>
@@ -2322,7 +2330,7 @@ External Setpoint Generation:
 					</Drive>
 					<Controller Name="Ctrl" CtrType="1">
 						<CtrPara PriorControlFactor="1">
-							<PosDiffControl Enable="false" Range="45"/>
+							<PosDiffControl Range="45"/>
 							<Observer BandWidth="20"/>
 						</CtrPara>
 					</Controller>
@@ -3352,6 +3360,48 @@ External Setpoint Generation:
 								</Var>
 							</Vars>
 						</EapVar>
+						<EapVar Id="5" NvId="5" NvLength="3">
+							<Name>GripperEndSwitch</Name>
+							<ImageId>98</ImageId>
+							<Vars VarGrpType="1">
+								<Name>Eingänge</Name>
+								<Var BoxStateVariable="true">
+									<Name>VarState</Name>
+									<Comment><![CDATA[0x0001 = Invalid hash value received
+0x0002 = Invalid variable length received
+]]></Comment>
+									<Type>UINT</Type>
+									<BitOffs>456</BitOffs>
+								</Var>
+								<Var>
+									<Name>Quality</Name>
+									<Comment><![CDATA[Duration the variable is not refreshed (in 100µs)]]></Comment>
+									<Type>UINT</Type>
+									<BitOffs>472</BitOffs>
+								</Var>
+								<Var>
+									<Name>CycleIndex</Name>
+									<Comment><![CDATA[Incremented each publisher cycle]]></Comment>
+									<Type>UINT</Type>
+									<BitOffs>488</BitOffs>
+								</Var>
+								<Var>
+									<Name>VarData</Name>
+									<Type GUID="{18071995-0000-0000-0000-002100000003}">ARRAY [0..2] OF BOOL</Type>
+									<BitOffs>504</BitOffs>
+								</Var>
+							</Vars>
+							<Vars VarGrpType="2">
+								<Name>Ausgänge</Name>
+								<Var BoxStateVariable="true">
+									<Name>VarCtrl</Name>
+									<Comment><![CDATA[0x0001 = Ignore hash value
+]]></Comment>
+									<Type>UINT</Type>
+									<BitOffs>80</BitOffs>
+								</Var>
+							</Vars>
+						</EapVar>
 					</Eap>
 				</Box>
 				<Box Id="2" BoxType="9051">
@@ -3366,7 +3416,7 @@ External Setpoint Generation:
 0x0004 = Subscriber missing (Unicast only)
 ]]></Comment>
 							<Type>UINT</Type>
-							<BitOffs>456</BitOffs>
+							<BitOffs>528</BitOffs>
 						</Var>
 					</Vars>
 					<Vars VarGrpType="2">
@@ -3377,7 +3427,7 @@ External Setpoint Generation:
 0x0002 = Remove destination MAC from ARP cache
 ]]></Comment>
 							<Type>UINT</Type>
-							<BitOffs>80</BitOffs>
+							<BitOffs>96</BitOffs>
 						</Var>
 					</Vars>
 					<Eap InOut="1" Mac="010105040000" ArpRetryInterval="1000">
@@ -3391,7 +3441,7 @@ External Setpoint Generation:
 									<Comment><![CDATA[0x0001 = Not sent (variable skipped)
 ]]></Comment>
 									<Type>UINT</Type>
-									<BitOffs>472</BitOffs>
+									<BitOffs>544</BitOffs>
 								</Var>
 							</Vars>
 							<Vars VarGrpType="2">
@@ -3401,12 +3451,12 @@ External Setpoint Generation:
 									<Comment><![CDATA[0x0001 = Disable publishing
 ]]></Comment>
 									<Type>UINT</Type>
-									<BitOffs>96</BitOffs>
+									<BitOffs>112</BitOffs>
 								</Var>
 								<Var>
 									<Name>VarData</Name>
 									<Type GUID="{5B3DE2A2-BA36-1CEE-45C5-7263E5B3FF29}">ARRAY [0..2] OF BOOL</Type>
-									<BitOffs>112</BitOffs>
+									<BitOffs>128</BitOffs>
 								</Var>
 							</Vars>
 						</EapVar>
@@ -3420,7 +3470,7 @@ External Setpoint Generation:
 									<Comment><![CDATA[0x0001 = Not sent (variable skipped)
 ]]></Comment>
 									<Type>UINT</Type>
-									<BitOffs>488</BitOffs>
+									<BitOffs>560</BitOffs>
 								</Var>
 							</Vars>
 							<Vars VarGrpType="2">
@@ -3430,12 +3480,12 @@ External Setpoint Generation:
 									<Comment><![CDATA[0x0001 = Disable publishing
 ]]></Comment>
 									<Type>UINT</Type>
-									<BitOffs>136</BitOffs>
+									<BitOffs>152</BitOffs>
 								</Var>
 								<Var>
 									<Name>VarData</Name>
 									<Type GUID="{4D3F0DCE-745A-3355-6BEF-CAF63F4B724D}">ARRAY [0..1,0..1] OF BOOL</Type>
-									<BitOffs>152</BitOffs>
+									<BitOffs>168</BitOffs>
 								</Var>
 							</Vars>
 						</EapVar>
@@ -3449,7 +3499,7 @@ External Setpoint Generation:
 									<Comment><![CDATA[0x0001 = Not sent (variable skipped)
 ]]></Comment>
 									<Type>UINT</Type>
-									<BitOffs>504</BitOffs>
+									<BitOffs>576</BitOffs>
 								</Var>
 							</Vars>
 							<Vars VarGrpType="2">
@@ -3459,12 +3509,12 @@ External Setpoint Generation:
 									<Comment><![CDATA[0x0001 = Disable publishing
 ]]></Comment>
 									<Type>UINT</Type>
-									<BitOffs>184</BitOffs>
+									<BitOffs>200</BitOffs>
 								</Var>
 								<Var>
 									<Name>VarData</Name>
 									<Type GUID="{CD0250DA-CB97-6196-0D9D-92E80569BDD8}">ARRAY [0..7] OF INT</Type>
-									<BitOffs>200</BitOffs>
+									<BitOffs>216</BitOffs>
 								</Var>
 							</Vars>
 						</EapVar>
@@ -3562,6 +3612,9 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Inputs^IFC_HW.EinzelSens1" VarB="VereinzSens^Inputs^VarData[0]"/>
 				<Link VarA="PlcTask Inputs^IFC_HW.EinzelSens2" VarB="VereinzSens^Inputs^VarData[1]"/>
 				<Link VarA="PlcTask Inputs^IFC_HW.EinzelSens3" VarB="VereinzSens^Inputs^VarData[2]"/>
+				<Link VarA="PlcTask Inputs^IFC_HW.ManEndX" VarB="GripperEndSwitch^Inputs^VarData[0]"/>
+				<Link VarA="PlcTask Inputs^IFC_HW.ManEndY" VarB="GripperEndSwitch^Inputs^VarData[1]"/>
+				<Link VarA="PlcTask Inputs^IFC_HW.ManEndZ" VarB="GripperEndSwitch^Inputs^VarData[2]"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT Automation Protocol)^Box To Model (Publisher)">
 				<Link VarA="PlcTask Outputs^IFC_HW.BandHub1" VarB="BandHub^Outputs^VarData[0]"/>
