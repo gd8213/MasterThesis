@@ -1,0 +1,334 @@
+<?xml version="1.0"?>
+<TcModuleLibrary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleLibrary">
+  <Vendor>
+    <Name>TE140x Module Vendor</Name>
+    <ImageData>
+    </ImageData>
+  </Vendor>
+  <DataTypes>
+    <DataType>
+      <Name GUID="{6D993839-C1CD-A4C1-FC5A-CFF2FDEA467F}" IecLibraryType="true" CName="matrix_256_SLStringType">T_matrix_256_SLStringType</Name>
+      <BitSize>2048</BitSize>
+      <BaseType GUID="{18071995-0000-0000-0000-0001000000FF}">STRING(255)</BaseType>
+      <Properties>
+        <Property>
+          <Name>ModuleGenerator_DutShadow</Name>
+          <Value>{C87DE2E8-868E-1911-6B69-9955AE482580}</Value>
+        </Property>
+      </Properties>
+    </DataType>
+  </DataTypes>
+  <Licenses />
+  <Library>
+    <Name>ModelLoadCell</Name>
+    <Version>0.0.0.2</Version>
+    <Group GUID="{5E25B681-A0D1-32F4-3E69-0CFC9DC6C42C}">TE140x Module Vendor</Group>
+    <POUs>
+      <POU Folder="Pous">
+        <Name GUID="{86F4F015-C75D-64A5-D400-335BFC286659}" IecLibraryType="true">FB_ModelLoadCell</Name>
+        <BitSize X64="6400">6336</BitSize>
+        <SubItem>
+          <Name>_internal_data</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000018}">PVOID</Type>
+          <BitSize X64="64">32</BitSize>
+          <BitOffs X64="64">32</BitOffs>
+          <Properties>
+            <Property>
+              <Name>plcAttribute_hide</Name>
+            </Property>
+            <Property>
+              <Name>plcAttribute_no_copy</Name>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>sPrefixMessage</Name>
+          <Type GUID="{16B0609E-9FDF-6038-98F8-39D2FB0AE447}">T_matrix256xchar_dynamic</Type>
+          <BitSize>2048</BitSize>
+          <BitOffs X64="128">64</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Input</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>fDesiredWeight</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs X64="2176">2112</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Input</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>sPostfixMessage</Name>
+          <Type GUID="{16B0609E-9FDF-6038-98F8-39D2FB0AE447}">T_matrix256xchar_dynamic</Type>
+          <BitSize>2048</BitSize>
+          <BitOffs X64="2240">2176</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Input</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>sMessage</Name>
+          <Type GUID="{16B0609E-9FDF-6038-98F8-39D2FB0AE447}">T_matrix256xchar_dynamic</Type>
+          <BitSize>2048</BitSize>
+          <BitOffs X64="4288">4224</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Output</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>pPModelLoadCell_M</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000018}">PVOID</Type>
+          <BitSize X64="64">32</BitSize>
+          <BitOffs X64="6336">6272</BitOffs>
+        </SubItem>
+        <Method>
+          <Name>FB_exit</Name>
+          <ReturnType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</ReturnType>
+          <ReturnBitSize>8</ReturnBitSize>
+          <Parameter>
+            <Name>bInCopyCode</Name>
+            <Type GUID="{18071995-0000-0000-0000-000000000030}" Direction="in">BOOL</Type>
+            <BitSize>8</BitSize>
+          </Parameter>
+        </Method>
+        <Method>
+          <Name>FB_init</Name>
+          <ReturnType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</ReturnType>
+          <ReturnBitSize>8</ReturnBitSize>
+          <Parameter>
+            <Name>bInitRetains</Name>
+            <Type GUID="{18071995-0000-0000-0000-000000000030}" Direction="in">BOOL</Type>
+            <BitSize>8</BitSize>
+          </Parameter>
+          <Parameter>
+            <Name>bInCopyCode</Name>
+            <Type GUID="{18071995-0000-0000-0000-000000000030}" Direction="in">BOOL</Type>
+            <BitSize>8</BitSize>
+          </Parameter>
+        </Method>
+        <Properties>
+          <Property>
+            <Name>PouType</Name>
+            <Value>FunctionBlock</Value>
+          </Property>
+          <Property>
+            <Name>TcExternalPou</Name>
+          </Property>
+        </Properties>
+        <Licenses>
+          <License>
+            <LicenseId>{AD7F40C3-F160-4413-83E3-6B7656A795A2}</LicenseId>
+            <Comment><![CDATA[MatSIM License]]></Comment>
+          </License>
+        </Licenses>
+      </POU>
+    </POUs>
+    <DUTs>
+      <DUT Folder="Duts">
+        <Name GUID="{6626CDE2-B134-4E32-7F96-10B3554187BC}" IecLibraryType="true">ST_FB_Main_FB_ModelLoadCell</Name>
+        <BitSize X64="128">64</BitSize>
+        <SubItem>
+          <Name>pInst</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000018}">PVOID</Type>
+          <BitSize X64="64">32</BitSize>
+          <BitOffs>0</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>result</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+          <BitSize>8</BitSize>
+          <BitOffs X64="64">32</BitOffs>
+        </SubItem>
+        <Properties>
+          <Property>
+            <Name>plcAttribute_hide</Name>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{867EEC4F-8EEB-8F9A-9F9A-41AAB8CA5068}" IecLibraryType="true">ST_FB_exit_FB_ModelLoadCell</Name>
+        <BitSize X64="128">64</BitSize>
+        <SubItem>
+          <Name>pInst</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000018}">PVOID</Type>
+          <BitSize X64="64">32</BitSize>
+          <BitOffs>0</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>bInCopyCode</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+          <BitSize>8</BitSize>
+          <BitOffs X64="64">32</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>result</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+          <BitSize>8</BitSize>
+          <BitOffs X64="72">40</BitOffs>
+        </SubItem>
+        <Properties>
+          <Property>
+            <Name>plcAttribute_hide</Name>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{3C20D97B-4FCD-BB24-F215-B38D61C14687}" IecLibraryType="true">ST_FB_init_FB_ModelLoadCell</Name>
+        <BitSize X64="128">64</BitSize>
+        <SubItem>
+          <Name>pInst</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000018}">PVOID</Type>
+          <BitSize X64="64">32</BitSize>
+          <BitOffs>0</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>bInitRetains</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+          <BitSize>8</BitSize>
+          <BitOffs X64="64">32</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>bInCopyCode</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+          <BitSize>8</BitSize>
+          <BitOffs X64="72">40</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>result</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+          <BitSize>8</BitSize>
+          <BitOffs X64="80">48</BitOffs>
+        </SubItem>
+        <Properties>
+          <Property>
+            <Name>plcAttribute_hide</Name>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{16B0609E-9FDF-6038-98F8-39D2FB0AE447}" IecLibraryType="true" CName="matrix256xchar_dynamic">T_matrix256xchar_dynamic</Name>
+        <BitSize>2048</BitSize>
+        <BaseType GUID="{18071995-0000-0000-0000-0001000000FF}">STRING(255)</BaseType>
+        <Properties>
+          <Property>
+            <Name>ModuleGenerator_DutShadow</Name>
+            <Value>{07098E90-EB64-D595-F18B-2CC086C7458E}</Value>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{16B0609E-9FDF-6038-98F8-39D2FB0AE447}" IecLibraryType="true" CName="matrix256xchar_dynamic">T_matrix256xchar_dynamic</Name>
+        <BitSize>2048</BitSize>
+        <BaseType GUID="{18071995-0000-0000-0000-0001000000FF}">STRING(255)</BaseType>
+        <Properties>
+          <Property>
+            <Name>ModuleGenerator_DutShadow</Name>
+            <Value>{07098E90-EB64-D595-F18B-2CC086C7458E}</Value>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{16B0609E-9FDF-6038-98F8-39D2FB0AE447}" IecLibraryType="true" CName="matrix256xchar_dynamic">T_matrix256xchar_dynamic</Name>
+        <BitSize>2048</BitSize>
+        <BaseType GUID="{18071995-0000-0000-0000-0001000000FF}">STRING(255)</BaseType>
+        <Properties>
+          <Property>
+            <Name>ModuleGenerator_DutShadow</Name>
+            <Value>{07098E90-EB64-D595-F18B-2CC086C7458E}</Value>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{6D993839-C1CD-A4C1-FC5A-CFF2FDEA467F}" IecLibraryType="true" CName="matrix_256_SLStringType">T_matrix_256_SLStringType</Name>
+        <BitSize>2048</BitSize>
+        <BaseType GUID="{18071995-0000-0000-0000-0001000000FF}">STRING(255)</BaseType>
+        <Properties>
+          <Property>
+            <Name>ModuleGenerator_DutShadow</Name>
+            <Value>{C87DE2E8-868E-1911-6B69-9955AE482580}</Value>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{6D993839-C1CD-A4C1-FC5A-CFF2FDEA467F}" IecLibraryType="true" CName="matrix_256_SLStringType">T_matrix_256_SLStringType</Name>
+        <BitSize>2048</BitSize>
+        <BaseType GUID="{18071995-0000-0000-0000-0001000000FF}">STRING(255)</BaseType>
+        <Properties>
+          <Property>
+            <Name>ModuleGenerator_DutShadow</Name>
+            <Value>{C87DE2E8-868E-1911-6B69-9955AE482580}</Value>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{39F1C8B3-63E6-1F81-8F20-F1E3919438FD}" IecLibraryType="true" CName="ExtU_ModelLoadCell_T">ST_ExtU_ModelLoadCell_T</Name>
+        <BitSize>4160</BitSize>
+        <SubItem>
+          <Name>sPrefixMessage</Name>
+          <Type GUID="{6D993839-C1CD-A4C1-FC5A-CFF2FDEA467F}">T_matrix_256_SLStringType</Type>
+          <BitSize>2048</BitSize>
+          <BitOffs>0</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fDesiredWeight</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>2048</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>sPostfixMessage</Name>
+          <Type GUID="{6D993839-C1CD-A4C1-FC5A-CFF2FDEA467F}">T_matrix_256_SLStringType</Type>
+          <BitSize>2048</BitSize>
+          <BitOffs>2112</BitOffs>
+        </SubItem>
+        <Properties>
+          <Property>
+            <Name>ModuleGenerator_DutShadow</Name>
+            <Value>{1197DB5F-7C21-CA5F-D179-A068455AF3EF}</Value>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{6D993839-C1CD-A4C1-FC5A-CFF2FDEA467F}" IecLibraryType="true" CName="matrix_256_SLStringType">T_matrix_256_SLStringType</Name>
+        <BitSize>2048</BitSize>
+        <BaseType GUID="{18071995-0000-0000-0000-0001000000FF}">STRING(255)</BaseType>
+        <Properties>
+          <Property>
+            <Name>ModuleGenerator_DutShadow</Name>
+            <Value>{C87DE2E8-868E-1911-6B69-9955AE482580}</Value>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{347036E6-D68A-FD3E-EE50-D2DF8B309ED5}" IecLibraryType="true" CName="ExtY_ModelLoadCell_T">ST_ExtY_ModelLoadCell_T</Name>
+        <BitSize>2048</BitSize>
+        <SubItem>
+          <Name>sMessage</Name>
+          <Type GUID="{6D993839-C1CD-A4C1-FC5A-CFF2FDEA467F}">T_matrix_256_SLStringType</Type>
+          <BitSize>2048</BitSize>
+          <BitOffs>0</BitOffs>
+        </SubItem>
+        <Properties>
+          <Property>
+            <Name>ModuleGenerator_DutShadow</Name>
+            <Value>{55976279-DDFC-037E-419C-56931C471677}</Value>
+          </Property>
+        </Properties>
+      </DUT>
+    </DUTs>
+  </Library>
+</TcModuleLibrary>

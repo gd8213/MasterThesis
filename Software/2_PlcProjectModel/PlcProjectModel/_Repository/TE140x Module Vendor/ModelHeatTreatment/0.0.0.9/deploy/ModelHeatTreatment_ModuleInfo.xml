@@ -1,0 +1,1034 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TctGeneratedModules>
+   <ModuleInfo CLSID="{EE8B1B3A-AD87-432F-73F8-876ECB51A6D9}" GUID="{EE8B1B3A-AD87-432F-73F8-876ECB51A6D9}" LibraryId="TE140x Module Vendor|ModelHeatTreatment|0.0.0.9">
+      <BlockDiagram>
+         <Name>ModelHeatTreatment</Name>
+         <Identifier>&lt;Root&gt;</Identifier>
+         <Type>root</Type>
+         <Position h="0" w="0" x="0" y="0"/>
+         <BlockDesign/>
+         <Block>
+            <Name>Hw_AnalogHeater</Name>
+            <Identifier>&lt;Root&gt;/Hw_AnalogHeater</Identifier>
+            <Type>Inport</Type>
+            <Position h="14" w="30" x="85" y="313"/>
+            <BlockDesign>
+               <Border>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="Port" Value="1"/>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="120" y="320"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="120" y="320"/>
+                  <Point x="200" y="320"/>
+               </Line>
+               <Signal Category="Input" Name="Hw_AnalogHeater" ReadOnly="true">
+                  <GlobalName>ModelHeatTreatment_U.Hw_AnalogHeater</GlobalName>
+                  <AdsIdxOffs>#x80000000</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <Block>
+            <Name>Signal_MaxTempFromHeating_DegCx100</Name>
+            <Identifier>&lt;Root&gt;/Signal_MaxTempFromHeating_DegCx100</Identifier>
+            <Type>Inport</Type>
+            <Position h="14" w="30" x="85" y="183"/>
+            <BlockDesign>
+               <Border>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="Port" Value="2"/>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="120" y="190"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="120" y="190"/>
+                  <Point x="245" y="190"/>
+                  <Point x="245" y="275"/>
+                  <Line>
+                     <Point x="245" y="275"/>
+                     <Point x="410" y="275"/>
+                  </Line>
+                  <Line>
+                     <Point x="245" y="275"/>
+                     <Point x="245" y="315"/>
+                     <Point x="260" y="315"/>
+                  </Line>
+               </Line>
+               <Signal Category="Input" Name="Signal_MaxTempFromHeating_DegCx100" ReadOnly="true"/>
+            </Port>
+         </Block>
+         <Block>
+            <Name>Signal_RoomTemp_DegCx1</Name>
+            <Identifier>&lt;Root&gt;/Signal_RoomTemp_DegCx1</Identifier>
+            <Type>Inport</Type>
+            <Position h="14" w="30" x="85" y="138"/>
+            <BlockDesign>
+               <Border>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="Port" Value="3"/>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="120" y="145"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="120" y="145"/>
+                  <Point x="655" y="145"/>
+                  <Point x="655" y="290"/>
+               </Line>
+               <Signal Category="Input" Name="Signal_RoomTemp_DegCx1" ReadOnly="true">
+                  <GlobalName>ModelHeatTreatment_U.Signal_RoomTemp_DegCx1</GlobalName>
+                  <AdsIdxOffs>#x80000004</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <Block>
+            <Name>Cast</Name>
+            <Identifier>&lt;Root&gt;/Cast</Identifier>
+            <Type>DataTypeConversion</Type>
+            <Position h="24" w="40" x="840" y="293"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="825" y="305"/>
+               <Name>Temperature of Probe</Name>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/Sum</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="885" y="305"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="885" y="305"/>
+                  <Point x="901" y="305"/>
+                  <Line>
+                     <Point x="901" y="305"/>
+                     <Point x="925" y="305"/>
+                  </Line>
+                  <Line>
+                     <Point x="901" y="305"/>
+                     <Point x="901" y="325"/>
+                     <Point x="925" y="325"/>
+                  </Line>
+               </Line>
+               <Signal Category="Output" Name="Cast" ReadOnly="true">
+                  <AdsIdxOffs>#x82000030</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <Block>
+            <Name>Cast To Double</Name>
+            <Identifier>&lt;Root&gt;/Cast To Double</Identifier>
+            <Type>DataTypeConversion</Type>
+            <Position h="24" w="45" x="415" y="263"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="400" y="275"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/Signal_MaxTempFromHeating_DegCx100</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="465" y="275"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="465" y="275"/>
+                  <Point x="490" y="275"/>
+                  <Point x="490" y="290"/>
+                  <Point x="515" y="290"/>
+               </Line>
+               <Signal Category="Output" Name="CastToDouble" ReadOnly="true">
+                  <AdsIdxOffs>#x82000000</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <Block>
+            <Name>Constant1</Name>
+            <Identifier>&lt;Root&gt;/Constant1</Identifier>
+            <Type>Constant</Type>
+            <Position h="20" w="30" x="135" y="325"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="Value" Value="32767"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="170" y="335"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="170" y="335"/>
+                  <Point x="200" y="335"/>
+               </Line>
+            </Port>
+         </Block>
+         <Block>
+            <Name>Divide1</Name>
+            <Identifier>&lt;Root&gt;/Divide1</Identifier>
+            <Type>Product</Type>
+            <Position h="31" w="30" x="205" y="312"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="190" y="320"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/Hw_AnalogHeater</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+            <Port>
+               <Type No="2">Inport</Type>
+               <Position x="190" y="335"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/Constant1</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="240" y="330"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="240" y="330"/>
+                  <Point x="260" y="330"/>
+               </Line>
+               <Signal Category="Output" Name="Divide1" ReadOnly="true">
+                  <AdsIdxOffs>#x82000028</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <Block>
+            <Name>MATLAB Function</Name>
+            <Identifier>&lt;Root&gt;/MATLAB Function</Identifier>
+            <Type>SubSystem</Type>
+            <Position h="62" w="95" x="520" y="274"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="505" y="290"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/Cast To Double</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+            <Port>
+               <Type No="2">Inport</Type>
+               <Position x="505" y="320"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/Transfer Fcn1</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="620" y="305"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="620" y="305"/>
+                  <Point x="640" y="305"/>
+               </Line>
+               <Signal Category="Output" Name="probeTemp" ReadOnly="true">
+                  <AdsIdxOffs>#x82000018</AdsIdxOffs>
+               </Signal>
+            </Port>
+            <Block>
+               <Name>probeTemp</Name>
+               <Type>MCodeDisplayBlock</Type>
+               <Position h="12" w="55" x="230" y="20"/>
+               <BlockDesign>
+                  <Image>
+                     <Placeholder Name="Name" Value="---"/>
+                  </Image>
+               </BlockDesign>
+               <State Name="probeTemp" ReadOnly="0">
+                  <AdsIdxOffs>#x82000018</AdsIdxOffs>
+               </State>
+            </Block>
+            <Annotation>
+               <Text>function</Text>
+               <Position x="80" y="20"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+               <FontColor>#FF0000FF</FontColor>
+            </Annotation>
+            <Annotation>
+               <Text> </Text>
+               <Position x="137" y="20"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+            </Annotation>
+            <Annotation>
+               <Text>probeTemp</Text>
+               <Position x="145" y="20"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+            </Annotation>
+            <Annotation>
+               <Text> = fcn(</Text>
+               <Position x="285" y="20"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+            </Annotation>
+            <Annotation>
+               <Text>maxTemp</Text>
+               <Position x="331" y="20"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+            </Annotation>
+            <Annotation>
+               <Text>, </Text>
+               <Position x="404" y="20"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+            </Annotation>
+            <Annotation>
+               <Text>currentTemp</Text>
+               <Position x="416" y="20"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+            </Annotation>
+            <Annotation>
+               <Text>)</Text>
+               <Position x="507" y="20"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+            </Annotation>
+            <Annotation>
+               <Text>if</Text>
+               <Position x="80" y="48"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+               <FontColor>#FF0000FF</FontColor>
+            </Annotation>
+            <Annotation>
+               <Text> (</Text>
+               <Position x="92" y="48"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+            </Annotation>
+            <Annotation>
+               <Text>currentTemp</Text>
+               <Position x="105" y="48"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+            </Annotation>
+            <Annotation>
+               <Text> &lt; 0)</Text>
+               <Position x="196" y="48"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+            </Annotation>
+            <Annotation>
+               <Text>    </Text>
+               <Position x="80" y="62"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+            </Annotation>
+            <Annotation>
+               <Text>currentTemp</Text>
+               <Position x="100" y="62"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+            </Annotation>
+            <Annotation>
+               <Text> = 0;</Text>
+               <Position x="191" y="62"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+            </Annotation>
+            <Annotation>
+               <Text>elseif</Text>
+               <Position x="80" y="76"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+               <FontColor>#FF0000FF</FontColor>
+            </Annotation>
+            <Annotation>
+               <Text> (</Text>
+               <Position x="121" y="76"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+            </Annotation>
+            <Annotation>
+               <Text>currentTemp</Text>
+               <Position x="134" y="76"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+            </Annotation>
+            <Annotation>
+               <Text> &gt; </Text>
+               <Position x="225" y="76"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+            </Annotation>
+            <Annotation>
+               <Text>maxTemp</Text>
+               <Position x="246" y="76"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+            </Annotation>
+            <Annotation>
+               <Text>)</Text>
+               <Position x="319" y="76"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+            </Annotation>
+            <Annotation>
+               <Text>    </Text>
+               <Position x="80" y="90"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+            </Annotation>
+            <Annotation>
+               <Text>currentTemp</Text>
+               <Position x="100" y="90"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+            </Annotation>
+            <Annotation>
+               <Text> = </Text>
+               <Position x="191" y="90"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+            </Annotation>
+            <Annotation>
+               <Text>maxTemp</Text>
+               <Position x="212" y="90"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+            </Annotation>
+            <Annotation>
+               <Text>;</Text>
+               <Position x="285" y="90"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+            </Annotation>
+            <Annotation>
+               <Text>end</Text>
+               <Position x="80" y="104"/>
+               <Alignment H="left" V="top"/>
+               <FontName>Arial</FontName>
+               <FontSize>12</FontSize>
+               <FontColor>#FF0000FF</FontColor>
+            </Annotation>
+         </Block>
+         <Block>
+            <Name>Product1</Name>
+            <Identifier>&lt;Root&gt;/Product1</Identifier>
+            <Type>Product</Type>
+            <Position h="31" w="30" x="265" y="307"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="250" y="315"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/Signal_MaxTempFromHeating_DegCx100</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+            <Port>
+               <Type No="2">Inport</Type>
+               <Position x="250" y="330"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/Divide1</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="300" y="325"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="300" y="325"/>
+                  <Point x="315" y="325"/>
+                  <Point x="315" y="320"/>
+                  <Point x="330" y="320"/>
+               </Line>
+               <Signal Category="Output" Name="Product1" ReadOnly="true">
+                  <AdsIdxOffs>#x82000020</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <Block>
+            <Name>Saturation</Name>
+            <Identifier>&lt;Root&gt;/Saturation</Identifier>
+            <Type>Saturate</Type>
+            <Position h="20" w="30" x="335" y="310"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="320" y="320"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/Product1</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="370" y="320"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="370" y="320"/>
+                  <Point x="400" y="320"/>
+               </Line>
+               <Signal Category="Output" Name="Saturation" ReadOnly="true">
+                  <AdsIdxOffs>#x82000010</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <Block>
+            <Name>Sum</Name>
+            <Identifier>&lt;Root&gt;/Sum</Identifier>
+            <Type>Sum</Type>
+            <Position h="20" w="20" x="645" y="295"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="655" y="280"/>
+               <Rotation>-1.5708</Rotation>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/Signal_RoomTemp_DegCx1</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+            <Port>
+               <Type No="2">Inport</Type>
+               <Position x="630" y="305"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/MATLAB Function</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="670" y="305"/>
+               <Name>Temperature of Probe</Name>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Name>Temperature of Probe</Name>
+                  <Point x="670" y="305"/>
+                  <Point x="835" y="305"/>
+               </Line>
+            </Port>
+            <State Category="DWork" Name="Sum_DWORK1" ReadOnly="true">
+               <AdsIdxOffs>#x84000000</AdsIdxOffs>
+            </State>
+         </Block>
+         <Block>
+            <Name>Transfer Fcn1</Name>
+            <Identifier>&lt;Root&gt;/Transfer Fcn1</Identifier>
+            <Type>TransferFcn</Type>
+            <Position h="36" w="60" x="405" y="302"/>
+            <BlockDesign>
+               <Border>
+                  <svg height="1" width="1"/>
+               </Border>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="390" y="320"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/Saturation</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+            </Port>
+            <Port>
+               <Type No="1">Outport</Type>
+               <Position x="470" y="320"/>
+               <IsConnected>1</IsConnected>
+               <Line>
+                  <Point x="470" y="320"/>
+                  <Point x="515" y="320"/>
+               </Line>
+               <Signal Category="Output" Name="TransferFcn1" ReadOnly="true">
+                  <AdsIdxOffs>#x82000008</AdsIdxOffs>
+               </Signal>
+            </Port>
+            <State Category="ContStates" Name="TransferFcn1_CSTATE" ReadOnly="true">
+               <AdsIdxOffs>#x83000000</AdsIdxOffs>
+            </State>
+         </Block>
+         <Block>
+            <Name>Hw_ThermoElement1</Name>
+            <Identifier>&lt;Root&gt;/Hw_ThermoElement1</Identifier>
+            <Type>Outport</Type>
+            <Position h="14" w="30" x="930" y="298"/>
+            <BlockDesign>
+               <Border>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="Port" Value="1"/>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="915" y="305"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/Cast</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+               <Signal Category="Output" Name="Hw_ThermoElement1" ReadOnly="true">
+                  <GlobalName>ModelHeatTreatment_Y.Hw_ThermoElement1</GlobalName>
+                  <AdsIdxOffs>#x81000000</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <Block>
+            <Name>Hw_ThermoElement2</Name>
+            <Identifier>&lt;Root&gt;/Hw_ThermoElement2</Identifier>
+            <Type>Outport</Type>
+            <Position h="14" w="30" x="930" y="318"/>
+            <BlockDesign>
+               <Border>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Border>
+               <Image>
+                  <Placeholder Name="Port" Value="2"/>
+                  <svg fill="yellow" height="1" width="1"/>
+               </Image>
+            </BlockDesign>
+            <Port>
+               <Type No="1">Inport</Type>
+               <Position x="915" y="325"/>
+               <IsConnected>1</IsConnected>
+               <Source>
+                  <BlockIdentifier>&lt;Root&gt;/Cast</BlockIdentifier>
+                  <PortType>Outport</PortType>
+                  <PortNo>1</PortNo>
+               </Source>
+               <Signal Category="Output" Name="Hw_ThermoElement2" ReadOnly="true">
+                  <GlobalName>ModelHeatTreatment_Y.Hw_ThermoElement2</GlobalName>
+                  <AdsIdxOffs>#x81000002</AdsIdxOffs>
+               </Signal>
+            </Port>
+         </Block>
+         <Annotation>
+            <Text>in degC*100</Text>
+            <Position x="981" y="331"/>
+            <Alignment H="left" V="top"/>
+            <FontName>auto</FontName>
+            <FontSize>-1</FontSize>
+            <FontWeight>auto</FontWeight>
+         </Annotation>
+         <Annotation>
+            <Text>max 16383</Text>
+            <Position x="6" y="331"/>
+            <Alignment H="left" V="top"/>
+            <FontName>auto</FontName>
+            <FontSize>-1</FontSize>
+            <FontWeight>auto</FontWeight>
+         </Annotation>
+         <Annotation>
+            <Text>2000</Text>
+            <Position x="20" y="152"/>
+            <Alignment H="left" V="top"/>
+            <FontName>auto</FontName>
+            <FontSize>-1</FontSize>
+            <FontWeight>auto</FontWeight>
+         </Annotation>
+         <Annotation>
+            <Text>5500</Text>
+            <Position x="20" y="201"/>
+            <Alignment H="left" V="top"/>
+            <FontName>auto</FontName>
+            <FontSize>-1</FontSize>
+            <FontWeight>auto</FontWeight>
+         </Annotation>
+         <SubsystemHierarchy>
+            <Subsystem>
+               <ID>&lt;Root&gt;</ID>
+            </Subsystem>
+         </SubsystemHierarchy>
+         <DebugInfo>
+            <SourceFile>
+               <Name>ModelHeatTreatment.cpp</Name>
+               <Path>C:\Users\kaebi\OneDrive\Desktop\2_BehaviourModels\HeatTreatment\ModelHeatTreatment_tcgrt\ModelHeatTreatment.cpp</Path>
+               <CodeSection CommentStartLine="139" EndLine="144" Method="ModelHeatTreatment_step" StartLine="142">
+                  <Block>&lt;Root&gt;/Cast To Double</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="139" EndLine="144" Method="ModelHeatTreatment_step" StartLine="142">
+                  <Block>&lt;Root&gt;/Signal_MaxTempFromHeating_DegCx100</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="145" EndLine="149" Method="ModelHeatTreatment_step" StartLine="146">
+                  <Block>&lt;Root&gt;/Transfer Fcn1</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="150" EndLine="160" Method="ModelHeatTreatment_step" StartLine="151">
+                  <Block>&lt;Root&gt;/MATLAB Function</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="161" EndLine="162" Method="ModelHeatTreatment_step" StartLine="162">
+                  <Block>&lt;Root&gt;/MATLAB Function</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="163" EndLine="170" Method="ModelHeatTreatment_step" StartLine="167">
+                  <Block>&lt;Root&gt;/Divide1</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="163" EndLine="170" Method="ModelHeatTreatment_step" StartLine="167">
+                  <Block>&lt;Root&gt;/Signal_RoomTemp_DegCx1</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="163" EndLine="170" Method="ModelHeatTreatment_step" StartLine="167">
+                  <Block>&lt;Root&gt;/Sum</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="171" EndLine="178" Method="ModelHeatTreatment_step" StartLine="172">
+                  <Block>&lt;Root&gt;/Cast</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="179" EndLine="184" Method="ModelHeatTreatment_step" StartLine="180">
+                  <Block>&lt;Root&gt;/Cast</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="185" EndLine="187" Method="ModelHeatTreatment_step" StartLine="186">
+                  <Block>&lt;Root&gt;/Hw_ThermoElement1</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="188" EndLine="190" Method="ModelHeatTreatment_step" StartLine="189">
+                  <Block>&lt;Root&gt;/Hw_ThermoElement2</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="191" EndLine="197" Method="ModelHeatTreatment_step" StartLine="195">
+                  <Block>&lt;Root&gt;/Divide1</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="191" EndLine="197" Method="ModelHeatTreatment_step" StartLine="195">
+                  <Block>&lt;Root&gt;/Constant1</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="191" EndLine="197" Method="ModelHeatTreatment_step" StartLine="195">
+                  <Block>&lt;Root&gt;/Hw_AnalogHeater</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="198" EndLine="204" Method="ModelHeatTreatment_step" StartLine="201">
+                  <Block>&lt;Root&gt;/Product1</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="198" EndLine="204" Method="ModelHeatTreatment_step" StartLine="201">
+                  <Block>&lt;Root&gt;/Signal_MaxTempFromHeating_DegCx100</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="205" EndLine="206" Method="ModelHeatTreatment_step" StartLine="206">
+                  <Block>&lt;Root&gt;/Saturation</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="207" EndLine="209" Method="ModelHeatTreatment_step" StartLine="208">
+                  <Block>&lt;Root&gt;/Saturation</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="210" EndLine="213" Method="ModelHeatTreatment_step" StartLine="211">
+                  <Block>&lt;Root&gt;/Saturation</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="214" EndLine="218" Method="ModelHeatTreatment_step" StartLine="215">
+                  <Block>&lt;Root&gt;/Saturation</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="263" EndLine="269" Method="ModelHeatTreatment_derivatives" StartLine="264">
+                  <Block>&lt;Root&gt;/Transfer Fcn1</Block>
+               </CodeSection>
+               <CodeSection CommentStartLine="277" EndLine="280" Method="ModelHeatTreatment_initialize" StartLine="278">
+                  <Block>&lt;Root&gt;/Transfer Fcn1</Block>
+               </CodeSection>
+            </SourceFile>
+         </DebugInfo>
+      </BlockDiagram>
+      <DefaultValues>
+         <Value>
+            <Name>TaskOid</Name>
+         </Value>
+         <Value>
+            <Name>TaskPriority</Name>
+            <Value>0</Value>
+         </Value>
+         <Value>
+            <Name>TaskCycleTimeNs</Name>
+            <Value>0</Value>
+         </Value>
+         <Value>
+            <Name>TaskPort</Name>
+            <Value>0</Value>
+         </Value>
+         <Value>
+            <Name>TaskSortOrder</Name>
+            <Value>0</Value>
+         </Value>
+         <Value>
+            <Name>TraceLevelMax</Name>
+            <EnumText>tlInfo</EnumText>
+         </Value>
+         <Value>
+            <Name>ModuleCaller</Name>
+            <EnumText>CyclicTask</EnumText>
+         </Value>
+         <Value>
+            <Name>CallerVerification</Name>
+            <EnumText>Default</EnumText>
+         </Value>
+         <Value>
+            <Name>StepSizeAdaptation</Name>
+            <EnumText>RequireMatchingTaskCycleTime</EnumText>
+         </Value>
+         <Value>
+            <Name>ExecutionSequence</Name>
+            <EnumText>UpdateBeforeOutputMapping</EnumText>
+         </Value>
+         <Value>
+            <Name>Execute</Name>
+            <EnumText>TRUE</EnumText>
+         </Value>
+         <Value>
+            <Name>AccessLockState</Name>
+            <EnumText>TCOM_STATE_OP</EnumText>
+         </Value>
+         <Value>
+            <Name>InitExceptionHandling</Name>
+            <EnumText>CallerExceptions</EnumText>
+         </Value>
+         <Value>
+            <Name>UpdateExceptionHandling</Name>
+            <EnumText>CallerExceptions</EnumText>
+         </Value>
+      </DefaultValues>
+      <ModuleParameters>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="READONLY" StartupValueAccess="WRITE">
+            <Name>CallBy</Name>
+            <Category>Module parameters</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="READONLY" StartupValueAccess="WRITE">
+            <Name>ExecutionSequence</Name>
+            <Category>Module parameters</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="READONLY" StartupValueAccess="WRITE">
+            <Name>StepSizeAdaptation</Name>
+            <Category>Module parameters</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="READONLY" StartupValueAccess="">
+            <Name>Initialized</Name>
+            <Category>Monitoring</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="READONLY" StartupValueAccess="">
+            <Name>CycleUpdateExecuted</Name>
+            <Category>Monitoring</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="" StartupValueAccess="">
+            <Name>ModuleInfo</Name>
+            <Category>Module identification</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="" OnlineValueAccess="READONLY" StartupValueAccess="">
+            <Name>ModuleBuildInfo</Name>
+            <Category>Module identification</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="WRITE" StartupValueAccess="WRITE">
+            <Name>Execute</Name>
+            <Category>Module parameters</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="READONLY" StartupValueAccess="">
+            <Name>SimulinkTime</Name>
+            <Category>Monitoring</Category>
+         </Parameter>
+         <Parameter DefaultValueAccess="READONLY" OnlineValueAccess="READONLY" StartupValueAccess="">
+            <Name>AccessLockState</Name>
+            <Category>Module parameters</Category>
+         </Parameter>
+      </ModuleParameters>
+      <BlockDesigns>
+         <BlockDesign>
+            <Type>Inport</Type>
+            <Border>
+               <svg height="30" id="svg3009" version="1.1" width="60">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <g id="layer1" transform="translate(0,-1022.3622)">
+                     <rect height="28.121166" id="rect2996" ry="14.060583" style="fill:none;stroke:#000000;stroke-width:1.87883461;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none" width="58.121166" x="0.9394173" y="1023.3016"/>
+                  </g>
+               </svg>
+            </Border>
+            <Image>
+               <svg height="30" id="svg3009" version="1.1" width="60">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <text id="text3010" style="font-size:8px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans" x="30" xml:space="preserve" y="15"><tspan id="tspan3012" x="30" y="15">Block::Port</tspan></text></svg>
+            </Image>
+         </BlockDesign>
+         <BlockDesign>
+            <Type>Constant</Type>
+            <Image>
+               <svg height="100" id="svg3009" version="1.1" width="100">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <g id="layer1">
+                     <text id="text3001" style="font-size:8px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans" x="50" xml:space="preserve" y="50"><tspan id="tspan3003" x="50" y="50">ADS::Value Block::Value</tspan></text></g>
+               </svg>
+            </Image>
+         </BlockDesign>
+         <BlockDesign>
+            <Type>Product</Type>
+            <Image>
+               <svg height="100" id="svg3009" version="1.1" width="100">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <g id="layer1" transform="translate(0,-952.36218)">
+                     <path d="M 35.89,34.11 66.61,64.82" id="path4361" style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" transform="translate(0,952.36218)"/>
+                     <path d="M 66.61,34.11 35.36,64.82" id="path4363" style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" transform="translate(0,952.36218)"/>
+                  </g>
+               </svg>
+            </Image>
+         </BlockDesign>
+         <BlockDesign>
+            <Type SubType="Compare To Constant">SubSystem</Type>
+            <Image>
+               <svg height="100" id="svg3009" version="1.1" width="100">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <g id="layer1">
+                     <text id="text3001" style="font-size:8px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans" x="50" xml:space="preserve" y="50"><tspan id="tspan3003" x="50" y="50">Block::Operator</tspan></text></g>
+               </svg>
+            </Image>
+         </BlockDesign>
+         <BlockDesign>
+            <Type>MCodeDisplayBlock</Type>
+            <Image>
+               <svg height="100" id="svg3009" version="1.1" width="100">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <g id="layer1">
+                     <text id="text3001" style="font-size:6px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#0000FF;fill-opacity:1;stroke:none;font-family:Sans" x="50" xml:space="preserve" y="50"><tspan id="tspan3003" x="50" y="50">ADS::Name</tspan></text></g>
+               </svg>
+            </Image>
+         </BlockDesign>
+         <BlockDesign>
+            <Type>Saturate</Type>
+            <Image>
+               <svg height="100" id="svg2" version="1.1" width="100">
+                  <title id="title3802">Saturate</title>
+                  <defs id="defs4"/>
+                  <metadata id="metadata7"/>
+                  <path d="m 21.343889,77.165351 15.019759,0 L 69.631521,24 84,24" id="path3774" style="fill:none;stroke:#000000;stroke-width:0.55226934px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+                  <path d="m 51.778672,20.078738 0,62.598424" id="path3776" style="fill:none;stroke:#000000;stroke-width:0.55226934px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+                  <path d="m 21.739143,50.393698 61.264826,0" id="path3778" style="fill:none;stroke:#000000;stroke-width:0.55226934px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+               </svg>
+            </Image>
+         </BlockDesign>
+         <BlockDesign>
+            <Type>Sum</Type>
+            <Image>
+               <svg height="100" id="svg3009" version="1.1" width="100">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <g id="layer1">
+                     <text id="text2991" style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;text-anchor:middle;text-align:center;stroke:none;font-family:Sans" x="50" xml:space="preserve" y="50"><tspan id="tspan2993" x="50" y="50">+</tspan></text></g>
+               </svg>
+            </Image>
+         </BlockDesign>
+         <BlockDesign>
+            <Type>Outport</Type>
+            <Border>
+               <svg height="30" id="svg3009" version="1.1" width="60">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <g id="layer1" transform="translate(0,-1022.3622)">
+                     <rect height="28.121166" id="rect2996" ry="14.060583" style="fill:none;stroke:#000000;stroke-width:1.87883461;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none" width="58.121166" x="0.9394173" y="1023.3016"/>
+                  </g>
+               </svg>
+            </Border>
+            <Image>
+               <svg height="30" id="svg3009" version="1.1" width="60">
+                  <defs id="defs3011"/>
+                  <metadata id="metadata3014"/>
+                  <text id="text3010" style="font-size:8px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans" x="30" xml:space="preserve" y="15"><tspan id="tspan3012" x="30" y="15">Block::Port</tspan></text></svg>
+            </Image>
+         </BlockDesign>
+      </BlockDesigns>
+   </ModuleInfo>
+</TctGeneratedModules>

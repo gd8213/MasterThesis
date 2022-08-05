@@ -1,0 +1,1073 @@
+<?xml version="1.0"?>
+<TcModuleLibrary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleLibrary">
+  <Vendor>
+    <Name>TE140x Module Vendor</Name>
+    <ImageData>
+    </ImageData>
+  </Vendor>
+  <DataTypes>
+    <DataType>
+      <Name GUID="{A9AE26A1-6C5F-76F0-2332-909872ACEA74}" IecLibraryType="true" CName="B_MATLABFunction_ModelKinemat_T">ST_B_MATLABFunction_ModelKinemat_T</Name>
+      <BitSize>128</BitSize>
+      <SubItem>
+        <Name>fcounter</Name>
+        <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>0</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>ndriveState</Name>
+        <Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>64</BitOffs>
+      </SubItem>
+      <Properties>
+        <Property>
+          <Name>ModuleGenerator_DutShadow</Name>
+          <Value>{D2324E0E-6BF8-4808-3F9E-DDE73010477E}</Value>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name GUID="{353822D2-DBAB-836B-FFE9-8D1B288F6A6C}" IecLibraryType="true" CName="B_EndSwitch_ModelKinematicRob_T">ST_B_EndSwitch_ModelKinematicRob_T</Name>
+      <BitSize>8</BitSize>
+      <SubItem>
+        <Name>bEndSwitch</Name>
+        <Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+        <BitSize>8</BitSize>
+        <BitOffs>0</BitOffs>
+      </SubItem>
+      <Properties>
+        <Property>
+          <Name>ModuleGenerator_DutShadow</Name>
+          <Value>{0940A389-B65A-FF6B-FE38-F23869316562}</Value>
+        </Property>
+      </Properties>
+    </DataType>
+  </DataTypes>
+  <Licenses />
+  <Library>
+    <Name>ModelKinematicRobot</Name>
+    <Version>0.0.0.9</Version>
+    <Group GUID="{5E25B681-A0D1-32F4-3E69-0CFC9DC6C42C}">TE140x Module Vendor</Group>
+    <POUs>
+      <POU Folder="Pous">
+        <Name GUID="{FC8F02E4-8B51-C0CC-2C0B-DFE6CF14D5DE}" IecLibraryType="true">FB_ModelKinematicRobot</Name>
+        <BitSize X64="960">896</BitSize>
+        <SubItem>
+          <Name>_internal_data</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000018}">PVOID</Type>
+          <BitSize X64="64">32</BitSize>
+          <BitOffs X64="64">32</BitOffs>
+          <Properties>
+            <Property>
+              <Name>plcAttribute_hide</Name>
+            </Property>
+            <Property>
+              <Name>plcAttribute_no_copy</Name>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>fSamplingTime</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs X64="128">64</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Input</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>nVelocityFromPlcX</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000006}">INT</Type>
+          <BitSize>16</BitSize>
+          <BitOffs X64="192">128</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Input</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>nVelocityFromPlcY</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000006}">INT</Type>
+          <BitSize>16</BitSize>
+          <BitOffs X64="208">144</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Input</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>nVelocityFromPlcZ</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000006}">INT</Type>
+          <BitSize>16</BitSize>
+          <BitOffs X64="224">160</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Input</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>nVelocityFromPlcGripper</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000006}">INT</Type>
+          <BitSize>16</BitSize>
+          <BitOffs X64="240">176</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Input</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>nCounterValueMotorX</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+          <BitSize>16</BitSize>
+          <BitOffs X64="256">192</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Output</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>nCounterValueMotorY</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+          <BitSize>16</BitSize>
+          <BitOffs X64="272">208</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Output</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>nCounterValueMotorZ</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+          <BitSize>16</BitSize>
+          <BitOffs X64="288">224</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Output</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>nCounterValueMotorGripper</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+          <BitSize>16</BitSize>
+          <BitOffs X64="304">240</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Output</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>nDriveStateMotorX</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+          <BitSize>8</BitSize>
+          <BitOffs X64="320">256</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Output</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>nDriveStateMotorY</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+          <BitSize>8</BitSize>
+          <BitOffs X64="328">264</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Output</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>nDriveStateMotorZ</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+          <BitSize>8</BitSize>
+          <BitOffs X64="336">272</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Output</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>nDriveStateMotorGripper</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+          <BitSize>8</BitSize>
+          <BitOffs X64="344">280</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Output</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>bMinSwitchX</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+          <BitSize>8</BitSize>
+          <BitOffs X64="352">288</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Output</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>bMinSwitchY</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+          <BitSize>8</BitSize>
+          <BitOffs X64="360">296</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Output</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>bMinSwitchZ</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+          <BitSize>8</BitSize>
+          <BitOffs X64="368">304</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Output</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>bMinSwitchGripper</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+          <BitSize>8</BitSize>
+          <BitOffs X64="376">312</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Output</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>fSignalCurrentVelocityX</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs X64="384">320</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Output</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>fSignalCurrentVelocityY</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs X64="448">384</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Output</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>fSignalCurrentVelocityZ</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs X64="512">448</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Output</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>fSignalCurrentVelocityGripper</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs X64="576">512</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Output</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>fSignalCurrentPositionX</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs X64="640">576</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Output</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>fSignalCurrentPositionY</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs X64="704">640</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Output</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>fSignalCurrentPositionZ</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs X64="768">704</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Output</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>fSignalCurrentPositionGripper</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs X64="832">768</BitOffs>
+          <Properties>
+            <Property>
+              <Name>ItemType</Name>
+              <Value>Output</Value>
+            </Property>
+          </Properties>
+        </SubItem>
+        <SubItem>
+          <Name>pPModelKinematicRobot_M</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000018}">PVOID</Type>
+          <BitSize X64="64">32</BitSize>
+          <BitOffs X64="896">832</BitOffs>
+        </SubItem>
+        <Method>
+          <Name>FB_exit</Name>
+          <ReturnType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</ReturnType>
+          <ReturnBitSize>8</ReturnBitSize>
+          <Parameter>
+            <Name>bInCopyCode</Name>
+            <Type GUID="{18071995-0000-0000-0000-000000000030}" Direction="in">BOOL</Type>
+            <BitSize>8</BitSize>
+          </Parameter>
+        </Method>
+        <Method>
+          <Name>FB_init</Name>
+          <ReturnType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</ReturnType>
+          <ReturnBitSize>8</ReturnBitSize>
+          <Parameter>
+            <Name>bInitRetains</Name>
+            <Type GUID="{18071995-0000-0000-0000-000000000030}" Direction="in">BOOL</Type>
+            <BitSize>8</BitSize>
+          </Parameter>
+          <Parameter>
+            <Name>bInCopyCode</Name>
+            <Type GUID="{18071995-0000-0000-0000-000000000030}" Direction="in">BOOL</Type>
+            <BitSize>8</BitSize>
+          </Parameter>
+        </Method>
+        <Properties>
+          <Property>
+            <Name>PouType</Name>
+            <Value>FunctionBlock</Value>
+          </Property>
+          <Property>
+            <Name>TcExternalPou</Name>
+          </Property>
+        </Properties>
+        <Licenses>
+          <License>
+            <LicenseId>{AD7F40C3-F160-4413-83E3-6B7656A795A2}</LicenseId>
+            <Comment><![CDATA[MatSIM License]]></Comment>
+          </License>
+        </Licenses>
+      </POU>
+    </POUs>
+    <DUTs>
+      <DUT Folder="Duts">
+        <Name GUID="{4ACB92F5-4DB2-B78C-F7B1-1F7E22A424C4}" IecLibraryType="true">ST_FB_Main_FB_ModelKinematicRobot</Name>
+        <BitSize X64="128">64</BitSize>
+        <SubItem>
+          <Name>pInst</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000018}">PVOID</Type>
+          <BitSize X64="64">32</BitSize>
+          <BitOffs>0</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>result</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+          <BitSize>8</BitSize>
+          <BitOffs X64="64">32</BitOffs>
+        </SubItem>
+        <Properties>
+          <Property>
+            <Name>plcAttribute_hide</Name>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{D295D4B7-8CA6-7562-FB6E-8074E1C7736D}" IecLibraryType="true">ST_FB_exit_FB_ModelKinematicRobot</Name>
+        <BitSize X64="128">64</BitSize>
+        <SubItem>
+          <Name>pInst</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000018}">PVOID</Type>
+          <BitSize X64="64">32</BitSize>
+          <BitOffs>0</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>bInCopyCode</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+          <BitSize>8</BitSize>
+          <BitOffs X64="64">32</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>result</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+          <BitSize>8</BitSize>
+          <BitOffs X64="72">40</BitOffs>
+        </SubItem>
+        <Properties>
+          <Property>
+            <Name>plcAttribute_hide</Name>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{A0C7A0B6-2018-E280-F9E8-99C8763133E6}" IecLibraryType="true">ST_FB_init_FB_ModelKinematicRobot</Name>
+        <BitSize X64="128">64</BitSize>
+        <SubItem>
+          <Name>pInst</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000018}">PVOID</Type>
+          <BitSize X64="64">32</BitSize>
+          <BitOffs>0</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>bInitRetains</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+          <BitSize>8</BitSize>
+          <BitOffs X64="64">32</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>bInCopyCode</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+          <BitSize>8</BitSize>
+          <BitOffs X64="72">40</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>result</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+          <BitSize>8</BitSize>
+          <BitOffs X64="80">48</BitOffs>
+        </SubItem>
+        <Properties>
+          <Property>
+            <Name>plcAttribute_hide</Name>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{353822D2-DBAB-836B-FFE9-8D1B288F6A6C}" IecLibraryType="true" CName="B_EndSwitch_ModelKinematicRob_T">ST_B_EndSwitch_ModelKinematicRob_T</Name>
+        <BitSize>8</BitSize>
+        <SubItem>
+          <Name>bEndSwitch</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+          <BitSize>8</BitSize>
+          <BitOffs>0</BitOffs>
+        </SubItem>
+        <Properties>
+          <Property>
+            <Name>ModuleGenerator_DutShadow</Name>
+            <Value>{0940A389-B65A-FF6B-FE38-F23869316562}</Value>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{A9AE26A1-6C5F-76F0-2332-909872ACEA74}" IecLibraryType="true" CName="B_MATLABFunction_ModelKinemat_T">ST_B_MATLABFunction_ModelKinemat_T</Name>
+        <BitSize>128</BitSize>
+        <SubItem>
+          <Name>fcounter</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>0</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>ndriveState</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+          <BitSize>8</BitSize>
+          <BitOffs>64</BitOffs>
+        </SubItem>
+        <Properties>
+          <Property>
+            <Name>ModuleGenerator_DutShadow</Name>
+            <Value>{D2324E0E-6BF8-4808-3F9E-DDE73010477E}</Value>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{A9AE26A1-6C5F-76F0-2332-909872ACEA74}" IecLibraryType="true" CName="B_MATLABFunction_ModelKinemat_T">ST_B_MATLABFunction_ModelKinemat_T</Name>
+        <BitSize>128</BitSize>
+        <SubItem>
+          <Name>fcounter</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>0</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>ndriveState</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+          <BitSize>8</BitSize>
+          <BitOffs>64</BitOffs>
+        </SubItem>
+        <Properties>
+          <Property>
+            <Name>ModuleGenerator_DutShadow</Name>
+            <Value>{D2324E0E-6BF8-4808-3F9E-DDE73010477E}</Value>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{353822D2-DBAB-836B-FFE9-8D1B288F6A6C}" IecLibraryType="true" CName="B_EndSwitch_ModelKinematicRob_T">ST_B_EndSwitch_ModelKinematicRob_T</Name>
+        <BitSize>8</BitSize>
+        <SubItem>
+          <Name>bEndSwitch</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+          <BitSize>8</BitSize>
+          <BitOffs>0</BitOffs>
+        </SubItem>
+        <Properties>
+          <Property>
+            <Name>ModuleGenerator_DutShadow</Name>
+            <Value>{0940A389-B65A-FF6B-FE38-F23869316562}</Value>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{A9AE26A1-6C5F-76F0-2332-909872ACEA74}" IecLibraryType="true" CName="B_MATLABFunction_ModelKinemat_T">ST_B_MATLABFunction_ModelKinemat_T</Name>
+        <BitSize>128</BitSize>
+        <SubItem>
+          <Name>fcounter</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>0</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>ndriveState</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+          <BitSize>8</BitSize>
+          <BitOffs>64</BitOffs>
+        </SubItem>
+        <Properties>
+          <Property>
+            <Name>ModuleGenerator_DutShadow</Name>
+            <Value>{D2324E0E-6BF8-4808-3F9E-DDE73010477E}</Value>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{353822D2-DBAB-836B-FFE9-8D1B288F6A6C}" IecLibraryType="true" CName="B_EndSwitch_ModelKinematicRob_T">ST_B_EndSwitch_ModelKinematicRob_T</Name>
+        <BitSize>8</BitSize>
+        <SubItem>
+          <Name>bEndSwitch</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+          <BitSize>8</BitSize>
+          <BitOffs>0</BitOffs>
+        </SubItem>
+        <Properties>
+          <Property>
+            <Name>ModuleGenerator_DutShadow</Name>
+            <Value>{0940A389-B65A-FF6B-FE38-F23869316562}</Value>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{A9AE26A1-6C5F-76F0-2332-909872ACEA74}" IecLibraryType="true" CName="B_MATLABFunction_ModelKinemat_T">ST_B_MATLABFunction_ModelKinemat_T</Name>
+        <BitSize>128</BitSize>
+        <SubItem>
+          <Name>fcounter</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>0</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>ndriveState</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+          <BitSize>8</BitSize>
+          <BitOffs>64</BitOffs>
+        </SubItem>
+        <Properties>
+          <Property>
+            <Name>ModuleGenerator_DutShadow</Name>
+            <Value>{D2324E0E-6BF8-4808-3F9E-DDE73010477E}</Value>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{353822D2-DBAB-836B-FFE9-8D1B288F6A6C}" IecLibraryType="true" CName="B_EndSwitch_ModelKinematicRob_T">ST_B_EndSwitch_ModelKinematicRob_T</Name>
+        <BitSize>8</BitSize>
+        <SubItem>
+          <Name>bEndSwitch</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+          <BitSize>8</BitSize>
+          <BitOffs>0</BitOffs>
+        </SubItem>
+        <Properties>
+          <Property>
+            <Name>ModuleGenerator_DutShadow</Name>
+            <Value>{0940A389-B65A-FF6B-FE38-F23869316562}</Value>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{A9AE26A1-6C5F-76F0-2332-909872ACEA74}" IecLibraryType="true" CName="B_MATLABFunction_ModelKinemat_T">ST_B_MATLABFunction_ModelKinemat_T</Name>
+        <BitSize>128</BitSize>
+        <SubItem>
+          <Name>fcounter</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>0</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>ndriveState</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+          <BitSize>8</BitSize>
+          <BitOffs>64</BitOffs>
+        </SubItem>
+        <Properties>
+          <Property>
+            <Name>ModuleGenerator_DutShadow</Name>
+            <Value>{D2324E0E-6BF8-4808-3F9E-DDE73010477E}</Value>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{353822D2-DBAB-836B-FFE9-8D1B288F6A6C}" IecLibraryType="true" CName="B_EndSwitch_ModelKinematicRob_T">ST_B_EndSwitch_ModelKinematicRob_T</Name>
+        <BitSize>8</BitSize>
+        <SubItem>
+          <Name>bEndSwitch</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+          <BitSize>8</BitSize>
+          <BitOffs>0</BitOffs>
+        </SubItem>
+        <Properties>
+          <Property>
+            <Name>ModuleGenerator_DutShadow</Name>
+            <Value>{0940A389-B65A-FF6B-FE38-F23869316562}</Value>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{8E3F159B-3A75-2755-B7CA-A71AFF4F1927}" IecLibraryType="true" CName="B_ModelKinematicRobot_T">ST_B_ModelKinematicRobot_T</Name>
+        <BitSize>1664</BitSize>
+        <SubItem>
+          <Name>fProduct</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>0</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fDelay</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>64</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fProduct_n</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>128</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fDelay_d</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>192</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fProduct_k</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>256</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fDelay_e</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>320</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fProduct_m</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>384</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fDelay_c</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>448</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fIntegrator</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>512</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fIntegrator_p</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>576</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fIntegrator_b</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>640</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fIntegrator_a</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>704</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fDivide</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>768</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>nDataTypeConversion</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+          <BitSize>16</BitSize>
+          <BitOffs>832</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>stsf_MATLABFunction_c</Name>
+          <Type GUID="{A9AE26A1-6C5F-76F0-2332-909872ACEA74}">ST_B_MATLABFunction_ModelKinemat_T</Type>
+          <BitSize>128</BitSize>
+          <BitOffs>896</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>stsf_EndSwitch_p</Name>
+          <Type GUID="{353822D2-DBAB-836B-FFE9-8D1B288F6A6C}">ST_B_EndSwitch_ModelKinematicRob_T</Type>
+          <BitSize>8</BitSize>
+          <BitOffs>1024</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>stsf_MATLABFunction_h</Name>
+          <Type GUID="{A9AE26A1-6C5F-76F0-2332-909872ACEA74}">ST_B_MATLABFunction_ModelKinemat_T</Type>
+          <BitSize>128</BitSize>
+          <BitOffs>1088</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>stsf_EndSwitch_i</Name>
+          <Type GUID="{353822D2-DBAB-836B-FFE9-8D1B288F6A6C}">ST_B_EndSwitch_ModelKinematicRob_T</Type>
+          <BitSize>8</BitSize>
+          <BitOffs>1216</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>stsf_MATLABFunction_f</Name>
+          <Type GUID="{A9AE26A1-6C5F-76F0-2332-909872ACEA74}">ST_B_MATLABFunction_ModelKinemat_T</Type>
+          <BitSize>128</BitSize>
+          <BitOffs>1280</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>stsf_EndSwitch_a</Name>
+          <Type GUID="{353822D2-DBAB-836B-FFE9-8D1B288F6A6C}">ST_B_EndSwitch_ModelKinematicRob_T</Type>
+          <BitSize>8</BitSize>
+          <BitOffs>1408</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>stsf_MATLABFunction</Name>
+          <Type GUID="{A9AE26A1-6C5F-76F0-2332-909872ACEA74}">ST_B_MATLABFunction_ModelKinemat_T</Type>
+          <BitSize>128</BitSize>
+          <BitOffs>1472</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>stsf_EndSwitch</Name>
+          <Type GUID="{353822D2-DBAB-836B-FFE9-8D1B288F6A6C}">ST_B_EndSwitch_ModelKinematicRob_T</Type>
+          <BitSize>8</BitSize>
+          <BitOffs>1600</BitOffs>
+        </SubItem>
+        <Properties>
+          <Property>
+            <Name>ModuleGenerator_DutShadow</Name>
+            <Value>{F6A8EBD4-6076-110B-F02F-E212F9D61111}</Value>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{F173A6C5-CF97-1EC0-F59E-6216D0FC2D0F}" IecLibraryType="true" CName="DW_ModelKinematicRobot_T">ST_DW_ModelKinematicRobot_T</Name>
+        <BitSize>256</BitSize>
+        <SubItem>
+          <Name>fDelay_DSTATE</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>0</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fDelay_DSTATE_j</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>64</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fDelay_DSTATE_p</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>128</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fDelay_DSTATE_h</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>192</BitOffs>
+        </SubItem>
+        <Properties>
+          <Property>
+            <Name>ModuleGenerator_DutShadow</Name>
+            <Value>{F6E59C1F-7266-CF26-F056-EECA6443C496}</Value>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{20954A69-2336-9334-6427-12B672031944}" IecLibraryType="true" CName="ExtU_ModelKinematicRobot_T">ST_ExtU_ModelKinematicRobot_T</Name>
+        <BitSize>128</BitSize>
+        <SubItem>
+          <Name>fSamplingTime</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>0</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>nVelocityFromPlcX</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000006}">INT</Type>
+          <BitSize>16</BitSize>
+          <BitOffs>64</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>nVelocityFromPlcY</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000006}">INT</Type>
+          <BitSize>16</BitSize>
+          <BitOffs>80</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>nVelocityFromPlcZ</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000006}">INT</Type>
+          <BitSize>16</BitSize>
+          <BitOffs>96</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>nVelocityFromPlcGripper</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000006}">INT</Type>
+          <BitSize>16</BitSize>
+          <BitOffs>112</BitOffs>
+        </SubItem>
+        <Properties>
+          <Property>
+            <Name>ModuleGenerator_DutShadow</Name>
+            <Value>{87E5943E-4E32-F22D-23EE-49AE464013CE}</Value>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{279E3429-247D-73A9-2079-0B7E0AECBFF8}" IecLibraryType="true" CName="ExtY_ModelKinematicRobot_T">ST_ExtY_ModelKinematicRobot_T</Name>
+        <BitSize>640</BitSize>
+        <SubItem>
+          <Name>nCounterValueMotorX</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+          <BitSize>16</BitSize>
+          <BitOffs>0</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>nCounterValueMotorY</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+          <BitSize>16</BitSize>
+          <BitOffs>16</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>nCounterValueMotorZ</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+          <BitSize>16</BitSize>
+          <BitOffs>32</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>nCounterValueMotorGripper</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+          <BitSize>16</BitSize>
+          <BitOffs>48</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>nDriveStateMotorX</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+          <BitSize>8</BitSize>
+          <BitOffs>64</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>nDriveStateMotorY</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+          <BitSize>8</BitSize>
+          <BitOffs>72</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>nDriveStateMotorZ</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+          <BitSize>8</BitSize>
+          <BitOffs>80</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>nDriveStateMotorGripper</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+          <BitSize>8</BitSize>
+          <BitOffs>88</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>bMinSwitchX</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+          <BitSize>8</BitSize>
+          <BitOffs>96</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>bMinSwitchY</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+          <BitSize>8</BitSize>
+          <BitOffs>104</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>bMinSwitchZ</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+          <BitSize>8</BitSize>
+          <BitOffs>112</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>bMinSwitchGripper</Name>
+          <Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+          <BitSize>8</BitSize>
+          <BitOffs>120</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fSignalCurrentVelocityX</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>128</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fSignalCurrentVelocityY</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>192</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fSignalCurrentVelocityZ</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>256</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fSignalCurrentVelocityGripper</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>320</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fSignalCurrentPositionX</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>384</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fSignalCurrentPositionY</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>448</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fSignalCurrentPositionZ</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>512</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fSignalCurrentPositionGripper</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>576</BitOffs>
+        </SubItem>
+        <Properties>
+          <Property>
+            <Name>ModuleGenerator_DutShadow</Name>
+            <Value>{8EC51CCA-63C8-C163-F6E2-279BD8624049}</Value>
+          </Property>
+        </Properties>
+      </DUT>
+      <DUT Folder="Duts">
+        <Name GUID="{B8F74001-BBDF-9955-0B6B-BE06E445CD27}" IecLibraryType="true" CName="X_ModelKinematicRobot_T">ST_X_ModelKinematicRobot_T</Name>
+        <BitSize>256</BitSize>
+        <SubItem>
+          <Name>fIntegrator_CSTATE</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>0</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fIntegrator_CSTATE_m</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>64</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fIntegrator_CSTATE_g</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>128</BitOffs>
+        </SubItem>
+        <SubItem>
+          <Name>fIntegrator_CSTATE_i</Name>
+          <Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+          <BitSize>64</BitSize>
+          <BitOffs>192</BitOffs>
+        </SubItem>
+        <Properties>
+          <Property>
+            <Name>ModuleGenerator_DutShadow</Name>
+            <Value>{51C0DD76-A240-314D-95A3-AC3CBD2444FC}</Value>
+          </Property>
+        </Properties>
+      </DUT>
+    </DUTs>
+  </Library>
+</TcModuleLibrary>

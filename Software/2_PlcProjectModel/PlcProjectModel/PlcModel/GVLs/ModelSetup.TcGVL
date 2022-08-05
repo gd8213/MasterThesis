@@ -7,15 +7,25 @@ VAR_GLOBAL
 	samplingtimeNC 			AT%Q* : LREAL := 0.002;
 	
 	signalCreateContainer 	AT%Q* : BOOL;
-	signalRevomeContainer 	AT%Q* : BOOL;
+	sigRemoveFromSeperation 	AT%Q* : BOOL;
 	signalMinPosAct 		AT%Q* : LREAL := 0;
 	signalMaxPosAct 		AT%Q* : LREAL := 10;
+	
+	// Seperation
+	seperationLowestSensor 	AT%I* : BOOL;
 	
 	// Conveyor
 	signalCreateContainerConveyor 	AT%Q* : BOOL;
 	signalRevomeContainerConveyor 	AT%Q* : BOOL;
 	
-	velo AT%Q* : INT;
+	// Heater
+	maxTempHeater 			AT%Q* : UINT := 5500;
+	roomTemp 				AT%Q* : UINT := 2000;
+	
+	// Load Cell
+	Prefix 					AT%Q* : matrix_256_SLStringType; 		//  := "N 000";
+	Postfix 				AT%Q* : matrix_256_SLStringType; 		//  := "0 g";
+	currentWeight 			AT%Q* : LREAL := 50;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
