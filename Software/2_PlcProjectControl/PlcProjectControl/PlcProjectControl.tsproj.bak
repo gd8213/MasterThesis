@@ -2,624 +2,78 @@
 <TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.32">
 	<DataTypes>
 		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-000000000035}" TcBaseType="true" HideType="true">UINTARR2</Name>
-			<BitSize>32</BitSize>
-			<BaseType GUID="{18071995-0000-0000-0000-000000000005}">UINT</BaseType>
-			<ArrayInfo>
-				<LBound>0</LBound>
-				<Elements>2</Elements>
-			</ArrayInfo>
-			<Format Name="ArrayView" Preview="[%u, %u]">
-				<Printf>[%u, %u]</Printf>
-				<Parameter>[0]</Parameter>
-				<Parameter>[1]</Parameter>
-			</Format>
-			<Format Name="MixedView" Preview="%x [%u, %u]">
-				<Printf>0x%08x [%u, %u]</Printf>
-				<Parameter>.</Parameter>
-				<Parameter>[0]</Parameter>
-				<Parameter>[1]</Parameter>
-			</Format>
-			<Format Name="32bitView" Preview="%x (%u)">
-				<Printf>0x%08x (%u)</Printf>
-				<Parameter>.</Parameter>
-				<Parameter>.</Parameter>
-			</Format>
+			<Name GUID="{6D4FD3BA-AB2F-4710-8EA7-4053669988E2}">ITcSimIoCfgProvider</Name>
+			<BitSize X64="64">32</BitSize>
+			<BaseType GUID="{00000001-0000-0000-E000-000000000064}">ITcUnknown</BaseType>
+			<Method>
+				<Name>GetGuid</Name>
+				<ReturnType GUID="{18071995-0000-0000-0000-000000000019}">HRESULT</ReturnType>
+				<ReturnBitSize>32</ReturnBitSize>
+				<Parameter>
+					<Name>guid</Name>
+					<Type GUID="{18071995-0000-0000-0000-000000000021}" PointerTo="1">GUID</Type>
+					<BitSize X64="64">32</BitSize>
+				</Parameter>
+			</Method>
+			<Method>
+				<Name>GetTmcSize</Name>
+				<ReturnType GUID="{18071995-0000-0000-0000-000000000019}">HRESULT</ReturnType>
+				<ReturnBitSize>32</ReturnBitSize>
+				<Parameter>
+					<Name>tmcBufferSize</Name>
+					<Type GUID="{18071995-0000-0000-0000-000000000008}" PointerTo="1">UDINT</Type>
+					<BitSize X64="64">32</BitSize>
+				</Parameter>
+			</Method>
+			<Method>
+				<Name>GetTmcContent</Name>
+				<ReturnType GUID="{18071995-0000-0000-0000-000000000019}">HRESULT</ReturnType>
+				<ReturnBitSize>32</ReturnBitSize>
+				<Parameter>
+					<Name>pData</Name>
+					<Type GUID="{18071995-0000-0000-0000-000000000018}">PVOID</Type>
+					<BitSize X64="64">32</BitSize>
+				</Parameter>
+				<Parameter>
+					<Name>nData</Name>
+					<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+					<BitSize>32</BitSize>
+				</Parameter>
+			</Method>
+			<Hides>
+				<Hide GUID="{DE4B9EB6-1FDB-4B7E-8B9F-C43476CEBDFB}"/>
+			</Hides>
 		</DataType>
 		<DataType>
-			<Name GUID="{901C2423-655B-45CE-B7E3-21F174F0F99F}" Namespace="MC" TcBaseType="true">NCENCODERSTRUCT_IN2B</Name>
-			<BitSize>320</BitSize>
+			<Name GUID="{3D91661B-6ECB-4F59-B5AD-42C1883E79F1}">ITcSimIoCfgGateway</Name>
+			<BitSize X64="64">32</BitSize>
+			<BaseType GUID="{00000001-0000-0000-E000-000000000064}">ITcUnknown</BaseType>
+			<Method>
+				<Name>RegisterProvider</Name>
+				<ReturnType GUID="{18071995-0000-0000-0000-000000000019}">HRESULT</ReturnType>
+				<ReturnBitSize>32</ReturnBitSize>
+				<Parameter>
+					<Name>ipProvider</Name>
+					<Type GUID="{6D4FD3BA-AB2F-4710-8EA7-4053669988E2}">ITcSimIoCfgProvider</Type>
+					<BitSize X64="64">32</BitSize>
+				</Parameter>
+			</Method>
+		</DataType>
+		<DataType>
+			<Name GUID="{5B2475B3-CDFC-F4B1-CE59-D046B8F9EB25}">OutPutParameter</Name>
+			<BitSize>128</BitSize>
 			<SubItem>
-				<Name>nDataIn1</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
-				<BitSize>32</BitSize>
+				<Name>Offset</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
 				<BitOffs>0</BitOffs>
 			</SubItem>
 			<SubItem>
-				<Name>nDataIn2</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>32</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nState1</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
+				<Name>Scaling</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
 				<BitOffs>64</BitOffs>
 			</SubItem>
-			<SubItem>
-				<Name>nState2</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>72</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nState3</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>80</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nState4</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<Comment><![CDATA[Encoder Status 4 (automatically linked):
-0x01 (Bit 0) = IO data invalid (e.g. EtherCAT 'WcState')
-0x02 (Bit 1) = IO data input toggle (e.g. EtherCAT 'InputToggle')
-]]></Comment>
-				<BitSize>8</BitSize>
-				<BitOffs>88</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nDataIn3</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>96</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nDataIn4</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>128</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nDataIn5</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>160</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nDataIn6</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>192</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nState5</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>224</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nState6</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>232</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nState7</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>240</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nState8</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>248</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nDcInputTime</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000009}">DINT</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>256</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nDataIn7</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
-				<Comment><![CDATA[Drive Velocity Actual Value
-]]></Comment>
-				<BitSize>32</BitSize>
-				<BitOffs>288</BitOffs>
-			</SubItem>
-			<Relations>
-				<Relation>
-					<Type GUID="{55728D3F-7B02-4448-8096-580617CECBA3}">NCENCODERSTRUCT_IN</Type>
-					<MapEntry>
-						<BitSize>96</BitSize>
-					</MapEntry>
-				</Relation>
-			</Relations>
-		</DataType>
-		<DataType>
-			<Name GUID="{9CC50AB2-5D79-4869-A3C2-1FA7761BAFEA}" Namespace="MC" TcBaseType="true">NCENCODERSTRUCT_OUT2</Name>
-			<BitSize>320</BitSize>
-			<SubItem>
-				<Name>nDataOut1</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>0</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nDataOut2</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>32</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nCtrl1</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>64</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nCtrl2</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>72</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nCtrl3</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>80</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nCtrl4</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>88</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nDataOut3</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>96</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nDataOut4</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>128</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nDataOut5</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>160</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nDataOut6</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>192</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nCtrl5</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>224</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nCtrl6</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>232</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nCtrl7</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>240</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nCtrl8</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>248</BitOffs>
-			</SubItem>
-			<Relations>
-				<Relation>
-					<Type GUID="{5FE34D39-3B85-4458-8264-8C4874D8985C}">NCENCODERSTRUCT_OUT</Type>
-					<MapEntry>
-						<BitSize>96</BitSize>
-					</MapEntry>
-				</Relation>
-			</Relations>
-		</DataType>
-		<DataType>
-			<Name GUID="{F95C7C69-0C87-46C4-9559-1285CCA5B23A}" Namespace="MC" TcBaseType="true">NCDRIVESTRUCT_IN2</Name>
-			<BitSize>320</BitSize>
-			<SubItem>
-				<Name>nDataIn1</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>0</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nDataIn2</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>32</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nState1</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>64</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nState2</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>72</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nState3</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>80</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nState4</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<Comment><![CDATA[Drive Status 4 (automatically linked):
-0x01 (0000 0001) = IO data invalid (e.g. EtherCAT 'WcState')
-0x02 (0000 0010) = IO data input toggle (e.g. EtherCAT 'InputToggle')
-
-Drive Status 4 (manually linked):
-0x80 (1000 0000) = Fast axis stop (digital IO interrupt)
-]]></Comment>
-				<BitSize>8</BitSize>
-				<BitOffs>88</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nDataIn3</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>96</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nDataIn4</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>128</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nDataIn5</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>160</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nDataIn6</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>192</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nState5</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>224</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nState6</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>232</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nState7</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>240</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nState8</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<Comment><![CDATA[Digital Inputs 1..8
-]]></Comment>
-				<BitSize>8</BitSize>
-				<BitOffs>248</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nDcOutputTime</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000009}">DINT</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>256</BitOffs>
-			</SubItem>
-			<Relations>
-				<Relation>
-					<Type GUID="{9AC463DC-3417-4DEA-AD2A-5FBD4C9C15AA}">NCDRIVESTRUCT_IN</Type>
-					<MapEntry>
-						<BitSize>96</BitSize>
-					</MapEntry>
-				</Relation>
-			</Relations>
-		</DataType>
-		<DataType>
-			<Name GUID="{644DC4BD-3D15-4DCB-94C7-24F3A5D579AA}" Namespace="MC" TcBaseType="true">NCDRIVESTRUCT_OUT2</Name>
-			<BitSize>320</BitSize>
-			<SubItem>
-				<Name>nDataOut1</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>0</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nDataOut2</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>32</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nCtrl1</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>64</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nCtrl2</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>72</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nCtrl3</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>80</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nCtrl4</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>88</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nDataOut3</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>96</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nDataOut4</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>128</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nDataOut5</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>160</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nDataOut6</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>192</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nCtrl5</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>224</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nCtrl6</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>232</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nCtrl7</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>240</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>nCtrl8</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>248</BitOffs>
-			</SubItem>
-			<Relations>
-				<Relation>
-					<Type GUID="{595E16A9-7783-4B1C-A30C-48BA6EFCC859}">NCDRIVESTRUCT_OUT</Type>
-					<MapEntry>
-						<BitSize>96</BitSize>
-					</MapEntry>
-				</Relation>
-			</Relations>
-		</DataType>
-		<DataType>
-			<Name GUID="{875D2B22-B7EB-497E-B933-0C004593CCF3}" Namespace="MC" TcBaseType="true" HideType="true" IecDeclaration="DWORD;">PLCTONC_AXIS_REF_CTRL</Name>
-			<BitSize>32</BitSize>
-			<SubItem>
-				<Name>Enable</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
-				<BitSize>1</BitSize>
-				<BitOffs>0</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>FeedEnablePlus</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
-				<BitSize>1</BitSize>
-				<BitOffs>1</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>FeedEnableMinus</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
-				<BitSize>1</BitSize>
-				<BitOffs>2</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>HomingSensor</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
-				<BitSize>1</BitSize>
-				<BitOffs>5</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>AcceptBlockedDrive</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
-				<BitSize>1</BitSize>
-				<BitOffs>8</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>PlcDebugFlag</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
-				<BitSize>1</BitSize>
-				<BitOffs>30</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>NcDebugFlag</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
-				<BitSize>1</BitSize>
-				<BitOffs>31</BitOffs>
-			</SubItem>
-			<Format Name="Short">
-				<Printf>%08x</Printf>
-			</Format>
-			<Format Name="Cpp">
-				<Printf>0x%08x</Printf>
-			</Format>
-			<Format Name="IEC">
-				<Printf>16#%08X</Printf>
-			</Format>
-		</DataType>
-		<DataType>
-			<Name GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC" TcBaseType="true">PLCTONC_AXIS_REF</Name>
-			<BitSize>1024</BitSize>
-			<SubItem>
-				<Name>ControlDWord</Name>
-				<Type GUID="{875D2B22-B7EB-497E-B933-0C004593CCF3}" Namespace="MC">PLCTONC_AXIS_REF_CTRL</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>0</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>Override</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>32</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>AxisModeRequest</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>64</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>AxisModeDWord</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>96</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>AxisModeLReal</Name>
-				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>128</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>PositionCorrection</Name>
-				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>192</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>ExtSetPos</Name>
-				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>256</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>ExtSetVelo</Name>
-				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>320</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>ExtSetAcc</Name>
-				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>384</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>ExtSetDirection</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000009}">DINT</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>448</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>ExtControllerOutput</Name>
-				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>512</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>GearRatio1</Name>
-				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>576</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>GearRatio2</Name>
-				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>640</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>GearRatio3</Name>
-				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>704</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>GearRatio4</Name>
-				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
-				<BitSize>64</BitSize>
-				<BitOffs>768</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>MapState</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>832</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>PlcCycleControl</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>840</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>PlcCycleCount</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>848</BitOffs>
-			</SubItem>
-			<Properties>
-				<Property>
-					<Name>NcStructType</Name>
-					<Value>1</Value>
-				</Property>
-			</Properties>
-			<Relations>
-				<Relation Priority="100">
-					<Type GUID="{60392271-8688-4F4C-B404-618DF106325D}">NCAXLESTRUCT_FROMPLC3</Type>
-				</Relation>
-			</Relations>
 		</DataType>
 		<DataType>
 			<Name GUID="{CBC83B73-B816-4597-A9E5-2B03263CA131}" Namespace="MC" TcBaseType="true" HideType="true" IecDeclaration="DWORD;">NCTOPLC_AXIS_REF_STATE</Name>
@@ -1406,6 +860,626 @@ External Setpoint Generation:
 			</Relations>
 		</DataType>
 		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-000000000035}" TcBaseType="true" HideType="true">UINTARR2</Name>
+			<BitSize>32</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000005}">UINT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>2</Elements>
+			</ArrayInfo>
+			<Format Name="ArrayView" Preview="[%u, %u]">
+				<Printf>[%u, %u]</Printf>
+				<Parameter>[0]</Parameter>
+				<Parameter>[1]</Parameter>
+			</Format>
+			<Format Name="MixedView" Preview="%x [%u, %u]">
+				<Printf>0x%08x [%u, %u]</Printf>
+				<Parameter>.</Parameter>
+				<Parameter>[0]</Parameter>
+				<Parameter>[1]</Parameter>
+			</Format>
+			<Format Name="32bitView" Preview="%x (%u)">
+				<Printf>0x%08x (%u)</Printf>
+				<Parameter>.</Parameter>
+				<Parameter>.</Parameter>
+			</Format>
+		</DataType>
+		<DataType>
+			<Name GUID="{901C2423-655B-45CE-B7E3-21F174F0F99F}" Namespace="MC" TcBaseType="true">NCENCODERSTRUCT_IN2B</Name>
+			<BitSize>320</BitSize>
+			<SubItem>
+				<Name>nDataIn1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nDataIn2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nState1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nState2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>72</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nState3</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nState4</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<Comment><![CDATA[Encoder Status 4 (automatically linked):
+0x01 (Bit 0) = IO data invalid (e.g. EtherCAT 'WcState')
+0x02 (Bit 1) = IO data input toggle (e.g. EtherCAT 'InputToggle')
+]]></Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>88</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nDataIn3</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nDataIn4</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>128</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nDataIn5</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>160</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nDataIn6</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>192</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nState5</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>224</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nState6</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>232</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nState7</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>240</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nState8</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>248</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nDcInputTime</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000009}">DINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>256</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nDataIn7</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<Comment><![CDATA[Drive Velocity Actual Value
+]]></Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>288</BitOffs>
+			</SubItem>
+			<Relations>
+				<Relation>
+					<Type GUID="{55728D3F-7B02-4448-8096-580617CECBA3}">NCENCODERSTRUCT_IN</Type>
+					<MapEntry>
+						<BitSize>96</BitSize>
+					</MapEntry>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{9CC50AB2-5D79-4869-A3C2-1FA7761BAFEA}" Namespace="MC" TcBaseType="true">NCENCODERSTRUCT_OUT2</Name>
+			<BitSize>320</BitSize>
+			<SubItem>
+				<Name>nDataOut1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nDataOut2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nCtrl1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nCtrl2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>72</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nCtrl3</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nCtrl4</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>88</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nDataOut3</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nDataOut4</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>128</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nDataOut5</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>160</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nDataOut6</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>192</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nCtrl5</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>224</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nCtrl6</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>232</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nCtrl7</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>240</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nCtrl8</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>248</BitOffs>
+			</SubItem>
+			<Relations>
+				<Relation>
+					<Type GUID="{5FE34D39-3B85-4458-8264-8C4874D8985C}">NCENCODERSTRUCT_OUT</Type>
+					<MapEntry>
+						<BitSize>96</BitSize>
+					</MapEntry>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{F95C7C69-0C87-46C4-9559-1285CCA5B23A}" Namespace="MC" TcBaseType="true">NCDRIVESTRUCT_IN2</Name>
+			<BitSize>320</BitSize>
+			<SubItem>
+				<Name>nDataIn1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nDataIn2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nState1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nState2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>72</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nState3</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nState4</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<Comment><![CDATA[Drive Status 4 (automatically linked):
+0x01 (0000 0001) = IO data invalid (e.g. EtherCAT 'WcState')
+0x02 (0000 0010) = IO data input toggle (e.g. EtherCAT 'InputToggle')
+
+Drive Status 4 (manually linked):
+0x80 (1000 0000) = Fast axis stop (digital IO interrupt)
+]]></Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>88</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nDataIn3</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nDataIn4</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>128</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nDataIn5</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>160</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nDataIn6</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>192</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nState5</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>224</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nState6</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>232</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nState7</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>240</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nState8</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<Comment><![CDATA[Digital Inputs 1..8
+]]></Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>248</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nDcOutputTime</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000009}">DINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>256</BitOffs>
+			</SubItem>
+			<Relations>
+				<Relation>
+					<Type GUID="{9AC463DC-3417-4DEA-AD2A-5FBD4C9C15AA}">NCDRIVESTRUCT_IN</Type>
+					<MapEntry>
+						<BitSize>96</BitSize>
+					</MapEntry>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{644DC4BD-3D15-4DCB-94C7-24F3A5D579AA}" Namespace="MC" TcBaseType="true">NCDRIVESTRUCT_OUT2</Name>
+			<BitSize>320</BitSize>
+			<SubItem>
+				<Name>nDataOut1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nDataOut2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nCtrl1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nCtrl2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>72</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nCtrl3</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nCtrl4</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>88</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nDataOut3</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nDataOut4</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>128</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nDataOut5</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>160</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nDataOut6</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>192</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nCtrl5</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>224</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nCtrl6</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>232</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nCtrl7</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>240</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nCtrl8</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>248</BitOffs>
+			</SubItem>
+			<Relations>
+				<Relation>
+					<Type GUID="{595E16A9-7783-4B1C-A30C-48BA6EFCC859}">NCDRIVESTRUCT_OUT</Type>
+					<MapEntry>
+						<BitSize>96</BitSize>
+					</MapEntry>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
+			<Name GUID="{875D2B22-B7EB-497E-B933-0C004593CCF3}" Namespace="MC" TcBaseType="true" HideType="true" IecDeclaration="DWORD;">PLCTONC_AXIS_REF_CTRL</Name>
+			<BitSize>32</BitSize>
+			<SubItem>
+				<Name>Enable</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FeedEnablePlus</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FeedEnableMinus</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>2</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>HomingSensor</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>5</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>AcceptBlockedDrive</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>PlcDebugFlag</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>30</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>NcDebugFlag</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>31</BitOffs>
+			</SubItem>
+			<Format Name="Short">
+				<Printf>%08x</Printf>
+			</Format>
+			<Format Name="Cpp">
+				<Printf>0x%08x</Printf>
+			</Format>
+			<Format Name="IEC">
+				<Printf>16#%08X</Printf>
+			</Format>
+		</DataType>
+		<DataType>
+			<Name GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC" TcBaseType="true">PLCTONC_AXIS_REF</Name>
+			<BitSize>1024</BitSize>
+			<SubItem>
+				<Name>ControlDWord</Name>
+				<Type GUID="{875D2B22-B7EB-497E-B933-0C004593CCF3}" Namespace="MC">PLCTONC_AXIS_REF_CTRL</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Override</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>AxisModeRequest</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>AxisModeDWord</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>AxisModeLReal</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>128</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>PositionCorrection</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>192</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ExtSetPos</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>256</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ExtSetVelo</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>320</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ExtSetAcc</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>384</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ExtSetDirection</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000009}">DINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>448</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ExtControllerOutput</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>512</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>GearRatio1</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>576</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>GearRatio2</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>640</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>GearRatio3</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>704</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>GearRatio4</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>768</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>MapState</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>832</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>PlcCycleControl</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>840</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>PlcCycleCount</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>848</BitOffs>
+			</SubItem>
+			<Properties>
+				<Property>
+					<Name>NcStructType</Name>
+					<Value>1</Value>
+				</Property>
+			</Properties>
+			<Relations>
+				<Relation Priority="100">
+					<Type GUID="{60392271-8688-4F4C-B404-618DF106325D}">NCAXLESTRUCT_FROMPLC3</Type>
+				</Relation>
+			</Relations>
+		</DataType>
+		<DataType>
 			<Name GUID="{0146173C-D895-D219-E209-CC005AC77636}" Namespace="Tc2_SerialCom" AutoDeleteType="true">EL6inData22B</Name>
 			<Comment><![CDATA[ This data type is corresponding to the
    EL-6xxx data structure used in the
@@ -1532,6 +1606,9 @@ External Setpoint Generation:
 			</ArrayInfo>
 		</DataType>
 	</DataTypes>
+	<ImageDatas>
+		<ImageData Id="1000">424d360300000000000036000000280000001000000010000000010018000000000000000000c40e0000c40e00000000000000000000ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ffff00ff000000000000000000000000000000000000000000000000000000000000000000000000000000000000ff00ffff00ff000000ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ffff00ff000000ff00ff000000ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ff000000ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ffff00ff000000000000000000000000000000000000ff00ffff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ffff00ff000000c0c0c0c0c0c0c0c0c0c0c0c0000000000000ff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ffff00ff000000c0c0c0c0c0c0c0c0c0c0c0c0000000c0c0c0000000ff00ffff00ffff00ffff00ff000000ff00ffff00ffff00ff000000c0c0c0c0c0c0c0c0c0c0c0c0000000c0c0c0c0c0c0000000ff00ffff00ffff00ff000000ff00ffff00ffff00ff030003c0c0c0c0c0c0c0c0c0c0c0c0000000c0c0c0c0c0c0000000ff00ffff00ffff00ff000000ff00ffff00ffff00ff000000000000000000000000000000000000c0c0c0c0c0c0000000ff00ffff00ffff00ff000000ff00ffff00ffff00ffff00ff000000c0c0c0c0c0c0c0c0c0c0c0c0000000c0c0c0000000ff00ffff00ffff00ff000000ff00ffff00ffff00ffff00ffff00ff000000c0c0c0c0c0c0c0c0c0c0c0c0000000000000ff00ffff00ff000000000000000000ff00ffff00ffff00ffff00ffff00ff000000000000000000000000000000000000ff00ffff00ffff00ff000000ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff</ImageData>
+	</ImageDatas>
 	<Project ProjectGUID="{10AC72BD-AA47-47E3-BDBD-965034782F86}" TargetNetId="169.254.59.75.1.1" Target64Bit="true" ShowHideConfigurations="#x106">
 		<System>
 			<Tasks>
@@ -1539,6 +1616,401 @@ External Setpoint Generation:
 					<Name>PlcTask</Name>
 				</Task>
 			</Tasks>
+			<Modules>
+				<Module Id="#x01010010" KeepUnrestoredLinks="2" ClassFactoryId="Beckhoff Automation|SimulationIO|1.0.0.355">
+					<Name>Inventor IO Master</Name>
+					<ImageId>1000</ImageId>
+					<TmcDesc GUID="{A32E27DD-62A1-439C-BBEF-006270A86965}">
+						<Name>Inventor IO Master</Name>
+						<CLSID ClassFactory="SimulationIO">{020BA85F-9E45-41BC-86A4-7470B07659B3}</CLSID>
+						<Licenses>
+							<License>
+								<LicenseId>{304D006A-8299-4560-AB79-438534B50288}</LicenseId>
+							</License>
+						</Licenses>
+						<InitSequence>PSO</InitSequence>
+						<Contexts>
+							<Context>
+								<Id>1</Id>
+							</Context>
+						</Contexts>
+						<Interfaces>
+							<Interface DisableCodeGeneration="true">
+								<Type GUID="{00000012-0000-0000-E000-000000000064}">ITComObject</Type>
+							</Interface>
+							<Interface>
+								<Type GUID="{03000010-0000-0000-E000-000000000064}">ITcCyclic</Type>
+							</Interface>
+							<Interface DisableCodeGeneration="true">
+								<Type GUID="{03000012-0000-0000-E000-000000000064}">ITcADI</Type>
+							</Interface>
+							<Interface DisableCodeGeneration="true">
+								<Type GUID="{03000018-0000-0000-E000-000000000064}">ITcWatchSource</Type>
+							</Interface>
+							<Interface>
+								<Type GUID="{00000038-0000-0000-E000-000000000064}">ITComObjectCategory</Type>
+							</Interface>
+							<Interface>
+								<Type GUID="{3D91661B-6ECB-4F59-B5AD-42C1883E79F1}">ITcSimIoCfgGateway</Type>
+							</Interface>
+						</Interfaces>
+						<Parameters>
+							<Parameter HideParameter="true">
+								<Name>TraceLevelMax</Name>
+								<Comment><![CDATA[Controls the amount of log messages.]]></Comment>
+								<BitSize>32</BitSize>
+								<BaseType GUID="{8007AE3B-86BB-40F2-B385-EF87FCC239A4}">TcTraceLevel</BaseType>
+								<PTCID>#x03002103</PTCID>
+								<ContextId>1</ContextId>
+							</Parameter>
+						</Parameters>
+						<DataAreas>
+							<DataArea>
+								<AreaNo AreaType="InputSrc">0</AreaNo>
+								<Name>Inputs</Name>
+								<ContextId>1</ContextId>
+								<ByteSize>0</ByteSize>
+							</DataArea>
+							<DataArea>
+								<AreaNo AreaType="OutputDst">1</AreaNo>
+								<Name>Outputs</Name>
+								<ContextId>1</ContextId>
+								<ByteSize>0</ByteSize>
+							</DataArea>
+						</DataAreas>
+						<InterfacePointers>
+							<InterfacePointer>
+								<PTCID>#x03002060</PTCID>
+								<Name>CyclicCaller</Name>
+								<Type GUID="{0300001E-0000-0000-E000-000000000064}">ITcCyclicCaller</Type>
+							</InterfacePointer>
+						</InterfacePointers>
+						<Properties>
+							<Property>
+								<Name>Category</Name>
+								<Value>TargetInstance</Value>
+							</Property>
+						</Properties>
+						<ParameterValues>
+							<Value>
+								<Name>TraceLevelMax</Name>
+								<EnumText>tlAlways</EnumText>
+							</Value>
+						</ParameterValues>
+						<InterfacePointerValues>
+							<Value>
+								<Name>CyclicCaller</Name>
+								<OTCID>#x00000000</OTCID>
+							</Value>
+						</InterfacePointerValues>
+					</TmcDesc>
+					<Module Id="#x01010020" KeepUnrestoredLinks="2" ClassFactoryId="Beckhoff Automation|SimulationIO|1.0.0.355">
+						<Name>Zusammenbau</Name>
+						<ImageId>1000</ImageId>
+						<TmcDesc GUID="{B28C5681-C728-4F01-901D-FB9630693B30}">
+							<Name>Zusammenbau</Name>
+							<CLSID ClassFactory="SimulationIO">{2DC91CFE-572A-4479-BB91-A9B3CD41ABE6}</CLSID>
+							<Licenses>
+								<License>
+									<LicenseId>{304D006A-8299-4560-AB79-438534B50288}</LicenseId>
+								</License>
+							</Licenses>
+							<InitSequence>PSO</InitSequence>
+							<Contexts>
+								<Context>
+									<Id>1</Id>
+									<DependOn>ParentObject</DependOn>
+								</Context>
+							</Contexts>
+							<Interfaces>
+								<Interface DisableCodeGeneration="true">
+									<Type GUID="{00000012-0000-0000-E000-000000000064}">ITComObject</Type>
+								</Interface>
+								<Interface>
+									<Type GUID="{03000010-0000-0000-E000-000000000064}">ITcCyclic</Type>
+								</Interface>
+								<Interface DisableCodeGeneration="true">
+									<Type GUID="{03000012-0000-0000-E000-000000000064}">ITcADI</Type>
+								</Interface>
+								<Interface DisableCodeGeneration="true">
+									<Type GUID="{03000018-0000-0000-E000-000000000064}">ITcWatchSource</Type>
+								</Interface>
+							</Interfaces>
+							<Parameters>
+								<Parameter HideParameter="true" ReadOnly="true">
+									<Name>DataAreaCfg0</Name>
+									<BitSize>0</BitSize>
+									<BaseType GUID="{BD3BA8A6-FB59-4197-B6BA-A3B09FFC369C}" Namespace="IO">TcIoDataAreaCfg</BaseType>
+									<ArrayInfo>
+										<LBound>0</LBound>
+										<Elements Min="0" MaxUnbounded="true">0</Elements>
+									</ArrayInfo>
+									<PTCID>#x03007000</PTCID>
+									<ContextId>1</ContextId>
+								</Parameter>
+								<Parameter HideParameter="true" ReadOnly="true">
+									<Name>DataAreaCfg1</Name>
+									<BitSize>128</BitSize>
+									<BaseType GUID="{BD3BA8A6-FB59-4197-B6BA-A3B09FFC369C}" Namespace="IO">TcIoDataAreaCfg</BaseType>
+									<ArrayInfo>
+										<LBound>0</LBound>
+										<Elements Min="0" MaxUnbounded="true">1</Elements>
+									</ArrayInfo>
+									<PTCID>#x03007001</PTCID>
+									<ContextId>1</ContextId>
+								</Parameter>
+								<Parameter ReadOnly="true">
+									<Name>DataAreaSizes</Name>
+									<BitSize>128</BitSize>
+									<BaseType GUID="{C636B456-B483-42A5-BD8A-58753433F375}" Namespace="IO">TcIoDataAreaSize</BaseType>
+									<ArrayInfo>
+										<LBound>0</LBound>
+										<Elements Min="0" MaxUnbounded="true">2</Elements>
+									</ArrayInfo>
+									<PTCID>#x0300002a</PTCID>
+									<ContextId>1</ContextId>
+								</Parameter>
+								<Parameter>
+									<Name>Winkel_OutputParameter</Name>
+									<BitSize>128</BitSize>
+									<BaseType GUID="{5B2475B3-CDFC-F4B1-CE59-D046B8F9EB25}">OutPutParameter</BaseType>
+									<Default>
+										<SubItem>
+											<Name>.Offset</Name>
+											<Value>0</Value>
+										</SubItem>
+										<SubItem>
+											<Name>.Scaling</Name>
+											<Value>1</Value>
+										</SubItem>
+									</Default>
+									<PTCID>#x00000000</PTCID>
+									<ContextId>1</ContextId>
+								</Parameter>
+							</Parameters>
+							<DataAreas>
+								<DataArea DisableCodeGeneration="true">
+									<AreaNo AreaType="InputSrc" CreateSymbols="true" DynamicArea="true">0</AreaNo>
+									<Name>Inputs</Name>
+									<ContextId>1</ContextId>
+									<ByteSize>0</ByteSize>
+								</DataArea>
+								<DataArea DisableCodeGeneration="true">
+									<AreaNo AreaType="OutputDst" CreateSymbols="true" DynamicArea="true">1</AreaNo>
+									<Name>Outputs</Name>
+									<ContextId>1</ContextId>
+									<ByteSize>256</ByteSize>
+									<Symbol>
+										<Name>Winkel</Name>
+										<BitSize>2048</BitSize>
+										<BaseType GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}">MC.NCTOPLC_AXIS_REF</BaseType>
+										<PTCID>#x81000000</PTCID>
+										<BitOffs>0</BitOffs>
+									</Symbol>
+								</DataArea>
+							</DataAreas>
+							<InterfacePointers>
+								<InterfacePointer>
+									<PTCID>#x03002060</PTCID>
+									<Name>CyclicCaller</Name>
+									<Type GUID="{0300001E-0000-0000-E000-000000000064}">ITcCyclicCaller</Type>
+								</InterfacePointer>
+							</InterfacePointers>
+							<Properties>
+								<Property>
+									<Name>Category</Name>
+									<Value>TargetInstance</Value>
+								</Property>
+							</Properties>
+							<ParentOTCID>#x01010010</ParentOTCID>
+							<ParameterValues>
+								<Value>
+									<Name>DataAreaCfg1[0].pid</Name>
+									<Value>2164260864</Value>
+								</Value>
+								<Value>
+									<Name>DataAreaCfg1[0].bitSize</Name>
+									<Value>2048</Value>
+								</Value>
+								<Value>
+									<Name>DataAreaCfg1[0].bitOffs</Name>
+									<Value>0</Value>
+								</Value>
+								<Value>
+									<Name>DataAreaSizes[0].area</Name>
+									<Value>0</Value>
+								</Value>
+								<Value>
+									<Name>DataAreaSizes[0].size</Name>
+									<Value>0</Value>
+								</Value>
+								<Value>
+									<Name>DataAreaSizes[1].area</Name>
+									<Value>1</Value>
+								</Value>
+								<Value>
+									<Name>DataAreaSizes[1].size</Name>
+									<Value>256</Value>
+								</Value>
+								<Value>
+									<Name>Winkel_OutputParameter.Offset</Name>
+									<Value>0</Value>
+								</Value>
+								<Value>
+									<Name>Winkel_OutputParameter.Scaling</Name>
+									<Value>1</Value>
+								</Value>
+							</ParameterValues>
+							<InterfacePointerValues>
+								<Value>
+									<Name>CyclicCaller</Name>
+									<OTCID>#x00000000</OTCID>
+								</Value>
+							</InterfacePointerValues>
+						</TmcDesc>
+						<Module Id="#x01010030" KeepUnrestoredLinks="2" ClassFactoryId="Beckhoff Automation|SimulationIO|1.0.0.355">
+							<Name>InventorCollisionSensors</Name>
+							<ImageId>1000</ImageId>
+							<TmcDesc GUID="{F011222F-CC75-406E-A75F-12FCD2850B4B}">
+								<Name>InventorCollisionSensors</Name>
+								<CLSID ClassFactory="SimulationIO">{2DC91CFE-572A-4479-BB91-A9B3CD41ABE6}</CLSID>
+								<Licenses>
+									<License>
+										<LicenseId>{304D006A-8299-4560-AB79-438534B50288}</LicenseId>
+									</License>
+								</Licenses>
+								<InitSequence>PSO</InitSequence>
+								<Contexts>
+									<Context>
+										<Id>1</Id>
+										<DependOn>ParentObject</DependOn>
+									</Context>
+								</Contexts>
+								<Interfaces>
+									<Interface DisableCodeGeneration="true">
+										<Type GUID="{00000012-0000-0000-E000-000000000064}">ITComObject</Type>
+									</Interface>
+									<Interface>
+										<Type GUID="{03000010-0000-0000-E000-000000000064}">ITcCyclic</Type>
+									</Interface>
+									<Interface DisableCodeGeneration="true">
+										<Type GUID="{03000012-0000-0000-E000-000000000064}">ITcADI</Type>
+									</Interface>
+									<Interface DisableCodeGeneration="true">
+										<Type GUID="{03000018-0000-0000-E000-000000000064}">ITcWatchSource</Type>
+									</Interface>
+								</Interfaces>
+								<Parameters>
+									<Parameter HideParameter="true" ReadOnly="true">
+										<Name>DataAreaCfg0</Name>
+										<BitSize>128</BitSize>
+										<BaseType GUID="{BD3BA8A6-FB59-4197-B6BA-A3B09FFC369C}" Namespace="IO">TcIoDataAreaCfg</BaseType>
+										<ArrayInfo>
+											<LBound>0</LBound>
+											<Elements Min="0" MaxUnbounded="true">1</Elements>
+										</ArrayInfo>
+										<PTCID>#x03007000</PTCID>
+										<ContextId>1</ContextId>
+									</Parameter>
+									<Parameter HideParameter="true" ReadOnly="true">
+										<Name>DataAreaCfg1</Name>
+										<BitSize>0</BitSize>
+										<BaseType GUID="{BD3BA8A6-FB59-4197-B6BA-A3B09FFC369C}" Namespace="IO">TcIoDataAreaCfg</BaseType>
+										<ArrayInfo>
+											<LBound>0</LBound>
+											<Elements Min="0" MaxUnbounded="true">0</Elements>
+										</ArrayInfo>
+										<PTCID>#x03007001</PTCID>
+										<ContextId>1</ContextId>
+									</Parameter>
+									<Parameter ReadOnly="true">
+										<Name>DataAreaSizes</Name>
+										<BitSize>128</BitSize>
+										<BaseType GUID="{C636B456-B483-42A5-BD8A-58753433F375}" Namespace="IO">TcIoDataAreaSize</BaseType>
+										<ArrayInfo>
+											<LBound>0</LBound>
+											<Elements Min="0" MaxUnbounded="true">2</Elements>
+										</ArrayInfo>
+										<PTCID>#x0300002a</PTCID>
+										<ContextId>1</ContextId>
+									</Parameter>
+								</Parameters>
+								<DataAreas>
+									<DataArea DisableCodeGeneration="true">
+										<AreaNo AreaType="InputSrc" CreateSymbols="true" DynamicArea="true">0</AreaNo>
+										<Name>Inputs</Name>
+										<ContextId>1</ContextId>
+										<ByteSize>1</ByteSize>
+										<Symbol>
+											<Name>Sensor1</Name>
+											<BitSize>8</BitSize>
+											<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+											<PTCID>#x80000000</PTCID>
+											<BitOffs>0</BitOffs>
+										</Symbol>
+									</DataArea>
+									<DataArea DisableCodeGeneration="true">
+										<AreaNo AreaType="OutputDst" CreateSymbols="true" DynamicArea="true">1</AreaNo>
+										<Name>Outputs</Name>
+										<ContextId>1</ContextId>
+										<ByteSize>0</ByteSize>
+									</DataArea>
+								</DataAreas>
+								<InterfacePointers>
+									<InterfacePointer>
+										<PTCID>#x03002060</PTCID>
+										<Name>CyclicCaller</Name>
+										<Type GUID="{0300001E-0000-0000-E000-000000000064}">ITcCyclicCaller</Type>
+									</InterfacePointer>
+								</InterfacePointers>
+								<Properties>
+									<Property>
+										<Name>Category</Name>
+										<Value>TargetInstance</Value>
+									</Property>
+								</Properties>
+								<ParentOTCID>#x01010020</ParentOTCID>
+								<ParameterValues>
+									<Value>
+										<Name>DataAreaCfg0[0].pid</Name>
+										<Value>2147483648</Value>
+									</Value>
+									<Value>
+										<Name>DataAreaCfg0[0].bitSize</Name>
+										<Value>8</Value>
+									</Value>
+									<Value>
+										<Name>DataAreaCfg0[0].bitOffs</Name>
+										<Value>0</Value>
+									</Value>
+									<Value>
+										<Name>DataAreaSizes[0].area</Name>
+										<Value>0</Value>
+									</Value>
+									<Value>
+										<Name>DataAreaSizes[0].size</Name>
+										<Value>1</Value>
+									</Value>
+									<Value>
+										<Name>DataAreaSizes[1].area</Name>
+										<Value>1</Value>
+									</Value>
+									<Value>
+										<Name>DataAreaSizes[1].size</Name>
+										<Value>0</Value>
+									</Value>
+								</ParameterValues>
+								<InterfacePointerValues>
+									<Value>
+										<Name>CyclicCaller</Name>
+										<OTCID>#x00000000</OTCID>
+									</Value>
+								</InterfacePointerValues>
+							</TmcDesc>
+						</Module>
+					</Module>
+				</Module>
+			</Modules>
 		</System>
 		<Motion>
 			<NC>
@@ -1722,7 +2194,6 @@ External Setpoint Generation:
 						<Dynamic AccelerationMaximum="1000" DecelerationMaximum="1000" Acceleration="1000" Deceleration="1000" Jerk="20160"/>
 						<Velo RefSearch="5" RefSync="5" SlowManual="10" FastManual="30" Maximum="280"/>
 						<OtherSettings AllowMotionCmdToSlave="true"/>
-						<ParameterChanged>9</ParameterChanged>
 					</AxisPara>
 					<Encoder Name="Enc" EncType="4">
 						<EncPara MaxCount="#x0000ffff">
@@ -2043,7 +2514,6 @@ External Setpoint Generation:
 						<Dynamic AccelerationMaximum="500" DecelerationMaximum="500" Acceleration="176.4" Deceleration="176.4" Jerk="1103.44"/>
 						<Velo RefSearch="5" RefSync="5" SlowManual="15" FastManual="30" Maximum="60"/>
 						<OtherSettings AllowMotionCmdToSlave="true" PulseDistancePos="10" PulseDistanceNeg="10"/>
-						<ParameterChanged>9</ParameterChanged>
 					</AxisPara>
 					<Encoder Name="Enc" EncType="4">
 						<EncPara MaxCount="#x0000ffff">
@@ -2839,7 +3309,7 @@ External Setpoint Generation:
 		</Motion>
 		<Plc>
 			<Project GUID="{AF65DB88-1A14-41C2-BABF-23D8DFED744E}" Name="PlcMain" PrjFilePath="PlcMain\PlcMain.plcproj" TmcFilePath="PlcMain\PlcMain.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PlcMain\PlcMain.tmc" TmcHash="{9AD1E672-A4A5-B131-9C4B-D9BAD1547832}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PlcMain\PlcMain.tmc" TmcHash="{D9265BBA-8478-B7AE-C794-1804FC8CE1AD}">
 					<Name>PlcMain Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
@@ -2868,6 +3338,14 @@ External Setpoint Generation:
 							<Name>GVL_SAFETY.bBetrieb_Button</Name>
 							<Comment><![CDATA[ Input start factory button]]></Comment>
 							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>SerialComRFID.ELDataIn_RFID</Name>
+							<Type GUID="{0146173C-D895-D219-E209-CC005AC77636}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>SerialComWaage.ELDataIn_Waage</Name>
+							<Type GUID="{0146173C-D895-D219-E209-CC005AC77636}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
 						</Var>
 						<Var>
 							<Name>IFC_HW.EinzelSens1</Name>
@@ -3001,14 +3479,6 @@ External Setpoint Generation:
 							<Name>IFC_HW.ManAchseGrip.NcToPlc</Name>
 							<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 						</Var>
-						<Var>
-							<Name>SerialComRFID.ELDataIn_RFID</Name>
-							<Type GUID="{0146173C-D895-D219-E209-CC005AC77636}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
-						</Var>
-						<Var>
-							<Name>SerialComWaage.ELDataIn_Waage</Name>
-							<Type GUID="{0146173C-D895-D219-E209-CC005AC77636}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
-						</Var>
 					</Vars>
 					<Vars VarGrpType="2" AreaNo="1">
 						<Name>PlcTask Outputs</Name>
@@ -3042,9 +3512,17 @@ External Setpoint Generation:
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
+							<Name>SerialComRFID.ELDataOut_RFID</Name>
+							<Type GUID="{D6B0A42D-897A-4B90-95E8-3C741C3CE3EE}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+						</Var>
+						<Var>
 							<Name>IFC_HW.AmpelRot</Name>
 							<Comment><![CDATA[ Signal-LED Rot]]></Comment>
 							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>SerialComWaage.ELDataOut_Waage</Name>
+							<Type GUID="{D6B0A42D-897A-4B90-95E8-3C741C3CE3EE}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
 						</Var>
 						<Var>
 							<Name>IFC_HW.AmpelGelb</Name>
@@ -3070,6 +3548,10 @@ External Setpoint Generation:
 							<Name>IFC_HW.R1AKT2</Name>
 							<Comment><![CDATA[ Relais 1 Aktor 2 - offen wenn true]]></Comment>
 							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.test</Name>
+							<Type>LREAL</Type>
 						</Var>
 						<Var>
 							<Name>IFC_HW.R2AKT2</Name>
@@ -3147,14 +3629,6 @@ External Setpoint Generation:
 						<Var>
 							<Name>IFC_HW.ManAchseGrip.PlcToNc</Name>
 							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-						</Var>
-						<Var>
-							<Name>SerialComRFID.ELDataOut_RFID</Name>
-							<Type GUID="{D6B0A42D-897A-4B90-95E8-3C741C3CE3EE}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
-						</Var>
-						<Var>
-							<Name>SerialComWaage.ELDataOut_Waage</Name>
-							<Type GUID="{D6B0A42D-897A-4B90-95E8-3C741C3CE3EE}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
 						</Var>
 					</Vars>
 					<Contexts>

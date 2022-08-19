@@ -2837,7 +2837,7 @@ External Setpoint Generation:
 		</Motion>
 		<Plc>
 			<Project GUID="{AF65DB88-1A14-41C2-BABF-23D8DFED744E}" Name="PlcMain" PrjFilePath="PlcMain\PlcMain.plcproj" TmcFilePath="PlcMain\PlcMain.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PlcMain\PlcMain.tmc" TmcHash="{9AD1E672-A4A5-B131-9C4B-D9BAD1547832}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PlcMain\PlcMain.tmc" TmcHash="{D9265BBA-8478-B7AE-C794-1804FC8CE1AD}">
 					<Name>PlcMain Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
@@ -2866,6 +2866,14 @@ External Setpoint Generation:
 							<Name>GVL_SAFETY.bBetrieb_Button</Name>
 							<Comment><![CDATA[ Input start factory button]]></Comment>
 							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>SerialComRFID.ELDataIn_RFID</Name>
+							<Type GUID="{0146173C-D895-D219-E209-CC005AC77636}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+						</Var>
+						<Var>
+							<Name>SerialComWaage.ELDataIn_Waage</Name>
+							<Type GUID="{0146173C-D895-D219-E209-CC005AC77636}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
 						</Var>
 						<Var>
 							<Name>IFC_HW.EinzelSens1</Name>
@@ -2999,14 +3007,6 @@ External Setpoint Generation:
 							<Name>IFC_HW.ManAchseGrip.NcToPlc</Name>
 							<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 						</Var>
-						<Var>
-							<Name>SerialComRFID.ELDataIn_RFID</Name>
-							<Type GUID="{0146173C-D895-D219-E209-CC005AC77636}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
-						</Var>
-						<Var>
-							<Name>SerialComWaage.ELDataIn_Waage</Name>
-							<Type GUID="{0146173C-D895-D219-E209-CC005AC77636}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
-						</Var>
 					</Vars>
 					<Vars VarGrpType="2" AreaNo="1">
 						<Name>PlcTask Outputs</Name>
@@ -3040,9 +3040,17 @@ External Setpoint Generation:
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
+							<Name>SerialComRFID.ELDataOut_RFID</Name>
+							<Type GUID="{D6B0A42D-897A-4B90-95E8-3C741C3CE3EE}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+						</Var>
+						<Var>
 							<Name>IFC_HW.AmpelRot</Name>
 							<Comment><![CDATA[ Signal-LED Rot]]></Comment>
 							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>SerialComWaage.ELDataOut_Waage</Name>
+							<Type GUID="{D6B0A42D-897A-4B90-95E8-3C741C3CE3EE}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
 						</Var>
 						<Var>
 							<Name>IFC_HW.AmpelGelb</Name>
@@ -3068,6 +3076,10 @@ External Setpoint Generation:
 							<Name>IFC_HW.R1AKT2</Name>
 							<Comment><![CDATA[ Relais 1 Aktor 2 - offen wenn true]]></Comment>
 							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>IFC_HW.test</Name>
+							<Type>LREAL</Type>
 						</Var>
 						<Var>
 							<Name>IFC_HW.R2AKT2</Name>
@@ -3145,14 +3157,6 @@ External Setpoint Generation:
 						<Var>
 							<Name>IFC_HW.ManAchseGrip.PlcToNc</Name>
 							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-						</Var>
-						<Var>
-							<Name>SerialComRFID.ELDataOut_RFID</Name>
-							<Type GUID="{D6B0A42D-897A-4B90-95E8-3C741C3CE3EE}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
-						</Var>
-						<Var>
-							<Name>SerialComWaage.ELDataOut_Waage</Name>
-							<Type GUID="{D6B0A42D-897A-4B90-95E8-3C741C3CE3EE}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
 						</Var>
 					</Vars>
 					<Contexts>

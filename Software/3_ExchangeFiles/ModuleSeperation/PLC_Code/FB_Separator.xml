@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://www.plcopen.org/xml/tc6_0200">
+  <fileHeader companyName="Beckhoff Automation GmbH" productName="TwinCAT PLC Control" productVersion="3.5.13.21" creationDateTime="2022-08-19T12:32:52.6049165" />
+  <contentHeader name="PlcMain" modificationDateTime="2022-08-19T12:32:52.6049165">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="1" y="1" />
+      </fbd>
+      <ld>
+        <scaling x="1" y="1" />
+      </ld>
+      <sfc>
+        <scaling x="1" y="1" />
+      </sfc>
+    </coordinateInfo>
+    <addData>
+      <data name="http://www.3s-software.com/plcopenxml/projectinformation" handleUnknown="implementation">
+        <ProjectInformation />
+      </data>
+    </addData>
+  </contentHeader>
+  <types>
+    <dataTypes />
+    <pous>
+      <pou name="FB_Separator" pouType="functionBlock">
+        <interface>
+          <inputVars>
+            <variable name="bEnable">
+              <type>
+                <BOOL />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml"> start/stops the functionblock</xhtml>
+              </documentation>
+            </variable>
+            <variable name="bExecute">
+              <type>
+                <BOOL />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml"> Ejects 1 flask if true</xhtml>
+              </documentation>
+            </variable>
+            <variable name="bErrorReset">
+              <type>
+                <BOOL />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml">Reset Error </xhtml>
+              </documentation>
+            </variable>
+            <variable name="bSensor1">
+              <type>
+                <BOOL />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml">Hardware Sensor 1	-&gt; Zwischen Schieber</xhtml>
+              </documentation>
+            </variable>
+            <variable name="bSensor2">
+              <type>
+                <BOOL />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml">Hardware Sensor 2	-&gt; Uber Schieber </xhtml>
+              </documentation>
+            </variable>
+            <variable name="bSensor3">
+              <type>
+                <BOOL />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml">Hardware Sensor 3	-&gt; Lager</xhtml>
+              </documentation>
+            </variable>
+          </inputVars>
+          <outputVars>
+            <variable name="bR1AKT1">
+              <type>
+                <BOOL />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml">Relais 1 Aktor 1 (Schieber oben) 	-&gt; Schliessen</xhtml>
+              </documentation>
+            </variable>
+            <variable name="bR2AKT1">
+              <type>
+                <BOOL />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml">Relais 2 Aktor 1					-&gt; Offen</xhtml>
+              </documentation>
+            </variable>
+            <variable name="bR1AKT2">
+              <type>
+                <BOOL />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml">Relais 1 Aktor 2 (Schieber unten)	-&gt; Offen</xhtml>
+              </documentation>
+            </variable>
+            <variable name="bR2AKT2">
+              <type>
+                <BOOL />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml">Relais 2 Aktor 2					-&gt; Schließen</xhtml>
+              </documentation>
+            </variable>
+            <variable name="bNoBottle">
+              <type>
+                <BOOL />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml">Keine Flasche vorhanden</xhtml>
+              </documentation>
+            </variable>
+            <variable name="bWrongBottle">
+              <type>
+                <BOOL />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml">Falsche oder gedrehte Flasche vorhanden</xhtml>
+              </documentation>
+            </variable>
+            <variable name="eStatus">
+              <type>
+                <derived name="State" />
+              </type>
+              <initialValue>
+                <simpleValue value="State.Off" />
+              </initialValue>
+            </variable>
+          </outputVars>
+          <localVars>
+            <variable name="timer">
+              <type>
+                <derived name="TON" />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml">Timer to make sure, that the flask has cleared the slope</xhtml>
+              </documentation>
+            </variable>
+            <variable name="eState">
+              <type>
+                <derived name="StateSeparator" />
+              </type>
+              <initialValue>
+                <simpleValue value="StateSeparator.Off" />
+              </initialValue>
+            </variable>
+          </localVars>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">CASE eState OF
+StateSeparator.Off:
+	eStatus := State.Off;
+	bR1AKT1 := TRUE;	//Eingefahren oben
+	bR2AKT1 := FALSE;	//Eingefahren oben
+	
+	bR1AKT2 := FALSE;	//Eingefahren unten
+	bR2AKT2 := TRUE;	//Eingefahren unten
+
+	IF bEnable	THEN
+		eState := StateSeparator.Init;
+	END_IF
+	
+StateSeparator.Init:
+	
+	eStatus := State.Busy; //Beschaeftigt Signallampe
+
+	bR1AKT1 := FALSE; //Ausgefahren oben
+	bR2AKT1 := TRUE;
+	
+	bR1AKT2 := FALSE; //Eingefahren unten
+	bR2AKT2 := TRUE;
+
+	
+	IF bSensor1 THEN
+		eState := StateSeparator.Init_Wait;	//Zustandswechsel sobald Sensor Flasche zwischen Schiebern sieht
+	END_IF	
+	
+StateSeparator.Init_Wait:
+	timer(IN := TRUE, PT := T#1000MS); //Timer wartet bis Flasche sicher zum Stehen kommt
+	
+	IF timer.Q THEN
+		timer(IN := FALSE);
+		eState := StateSeparator.Ready; //Zustand Ready nach Timer
+	END_IF
+	
+StateSeparator.Ready:
+	eStatus := State.Ready; //Zustand Ready Signallampe
+
+	bR1AKT1 := TRUE;	//Eingefahren oben
+	bR2AKT1 := FALSE;	//Eingefahren oben
+	
+	bR1AKT2 := FALSE;	//Eingefahren unten
+	bR2AKT2 := TRUE;	//Eingefahren unten
+	
+	IF bExecute THEN
+		eState := StateSeparator.Eject_Wait_1; //Auswerfen sobald Exceute TRUE
+	END_IF
+
+StateSeparator.Eject_Wait_1:	// Warten bis Schieber oben ganz geschlossen ist
+		eStatus := State.Busy; //Zustand Busy Signallampe
+	
+		timer(IN := TRUE, PT := T#2500MS); //Timer auf 2,5 S eingestellt
+	
+	IF timer.Q THEN
+		timer(IN := FALSE);
+		eState := StateSeparator.Eject; //Zustand bereit nach Timer
+	END_IF
+	
+StateSeparator.Eject:	//Auswerfen der unteren Flasche
+	bR1AKT2 := TRUE;	//Lässt Flaschen auf Band ab durch Öffnen des unteren Schiebers
+	bR2AKT2 := FALSE;
+	
+	IF NOT bSensor1 THEN
+		eState := StateSeparator.Eject_Wait_2; 
+	END_IF
+	
+StateSeparator.Eject_Wait_2:	// Warten bis Flasche durch Förderband weit genug von Schieber wegtransportiert
+	eStatus := State.Done;
+	timer(IN := TRUE, PT := T#4000MS); //Timer auf 4 S eingestellt
+	
+	IF timer.Q THEN
+		timer(IN := FALSE);
+		eState := StateSeparator.Done_Wait; 
+	END_IF 
+	
+StateSeparator.Done_Wait: // Schließen des unteren Schiebers und Warten bis komplettt geschlossen
+	bR1AKT2 := FALSE;	//Eingefahren unten
+	bR2AKT2 := TRUE;	//Eingefahren unten
+	
+	timer(IN := TRUE, PT := T#3000MS); //Timer wartet bis Schieber geschlossen ist
+	
+	IF timer.Q THEN
+		timer(IN := FALSE);
+		eState := StateSeparator.Done; 
+	END_IF	
+	
+StateSeparator.Done:	//Vereinzelungsvorgang abgeschlossen
+	
+	IF NOT bExecute THEN
+		eState := StateSeparator.Init;
+	END_IF
+
+END_CASE</xhtml>
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/interfaceasplaintext" handleUnknown="implementation">
+            <InterfaceAsPlainText>
+              <xhtml xmlns="http://www.w3.org/1999/xhtml">FUNCTION_BLOCK FB_Separator
+VAR_INPUT
+	bEnable : BOOL; 	// start/stops the functionblock
+	bExecute: BOOL; 	// Ejects 1 flask if true
+	bErrorReset: BOOL;	//Reset Error 
+	
+	bSensor1 : BOOL; //Hardware Sensor 1	-&gt; Zwischen Schieber
+	bSensor2 : BOOL; //Hardware Sensor 2	-&gt; Uber Schieber 
+	bSensor3 : BOOL; //Hardware Sensor 3	-&gt; Lager
+END_VAR
+VAR_OUTPUT
+	bR1AKT1 : BOOL; //Relais 1 Aktor 1 (Schieber oben) 	-&gt; Schliessen
+	bR2AKT1 : BOOL; //Relais 2 Aktor 1					-&gt; Offen
+	bR1AKT2 : BOOL; //Relais 1 Aktor 2 (Schieber unten)	-&gt; Offen
+	bR2AKT2 : BOOL; //Relais 2 Aktor 2					-&gt; Schließen
+	
+	bNoBottle		: BOOL;		//Keine Flasche vorhanden
+	bWrongBottle	: BOOL; //Falsche oder gedrehte Flasche vorhanden
+	
+	eStatus : State := State.Off;
+END_VAR
+VAR
+	timer : TON; //Timer to make sure, that the flask has cleared the slope
+	eState : StateSeparator := StateSeparator.Off;
+END_VAR
+</xhtml>
+            </InterfaceAsPlainText>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>91946f14-5ef9-4883-993a-962cda20c177</ObjectId>
+          </data>
+        </addData>
+      </pou>
+    </pous>
+  </types>
+  <instances>
+    <configurations />
+  </instances>
+  <addData>
+    <data name="http://www.3s-software.com/plcopenxml/projectstructure" handleUnknown="discard">
+      <ProjectStructure>
+        <Object Name="FB_Separator" ObjectId="91946f14-5ef9-4883-993a-962cda20c177" />
+      </ProjectStructure>
+    </data>
+  </addData>
+</project>

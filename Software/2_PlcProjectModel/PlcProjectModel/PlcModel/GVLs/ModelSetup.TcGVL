@@ -23,9 +23,9 @@ VAR_GLOBAL
 	roomTemp 				AT%Q* : UINT := 2000;
 	
 	// Load Cell
-	Prefix 					AT%Q* : matrix_256_SLStringType; 		//  := "N 000";
-	Postfix 				AT%Q* : matrix_256_SLStringType; 		//  := "0 g";
-	currentWeight 			AT%Q* : LREAL := 50;
+	Prefix 					AT%Q* : STRING(255) := 'N 000'; 		//  := "N 000";
+	Postfix 				AT%Q* : STRING(255) := ' g'; 		//  := "0 g";
+	desiredWeight 			AT%Q* : LREAL := 50;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
