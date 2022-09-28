@@ -1,0 +1,20 @@
+
+\usepackage{nomencl}	%% Symbolverzeichnis
+\makenomenclature
+\ifthenelse{\boolean{english}}{\renewcommand{\nomname}{List of Symbols}} {\renewcommand{\nomname}{Symbolverzeichnis}}
+
+
+%% G für Griechisch und S für Symbol
+\nomenclature[G]{$\alpha$}{Thermische Ausdehnungskoeffizient in \si{\per\kelvin}}
+\nomenclature[S]{$p$}{Druck in \si{\pascal}}
+\nomenclature[S]{$V$}{Volumen in \si{m\tothe{3}}}
+
+
+\makeindex
+
+
+
+%Für das Symbolverzeichnis muss Tools -- Befehle -- MakeIndex gestartet werden. Die Symbole werden in der Präambel definiert. Das Symbolverzeichnis wird \textbf{nur} mit Tools -- Index aktualisiert!\\
+%\textbf{Wichtig} bei Optionen -- Texstudio konfigurieren -- Befehle -- MakeIndex muss "makeindex.exe \%.nlo -s nomencl.ist -o \%.nls" stehen!
+
+% Hier nochmal der Text: "makeindex.exe %.nlo -s nomencl.ist -o %.nls"

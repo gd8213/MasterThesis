@@ -1,0 +1,38 @@
+\chapter{Results and Evaluation} \label{sec:ResultsAndEvaluation}
+    The result of this thesis is the proposed data structure shown in \autoref{sec:DataStructure}, bundling information from the CAD design, behaviour model, PLC source code and optional documentation. The structure is modular designed and data is stored in compatible formats. 
+    The practical use of the data structure is also investigated in this thesis using an example in \autoref{sec:Example}. To evaluate the benefits of this data structure, this example is evaluated using the criteria from \autoref{subsec:CriterionsForDataStructure}.\\
+   
+    Through the evaluation it is stated that the data structure can basically be used in a SIL and HIL system, because no dependencies to the used hardware exists. The advantage in a HIL system is the additional computing power for the simulation of the plant with the disadvantage of additional communication. \\
+    The data required for virtual commissioning, such as CAD assemblies, behaviour models, PLC code and documentation, can be represented in the data structure without problems.\\
+    As shown in the example, individual modules of a plant can be reproduced with the data structure and finally integrated into a higher-level system. \\
+    However, there is still room for development in the compatibility of the data formats, especially in the area of kinematized CAD data and in the integration of \textit{.fmu} models in a PLC project. While the integration of behaviour models in the case of \textit{Beckhoff} is only a matter of time, the exchange of kinematization in CAD data represents a bigger challenge. In this case, a practicable solution has not yet been established in the industry. \\
+    In terms of the requirements for the additional know-how needed, no further skills are required in the case of the CAD data and the pure PLC code. When creating the behaviour models, basic knowledge of programming a PLC is an advantage but not absolutely necessary. However, the integration of the behaviour models into the PLC project requires additional knowledge, which can be acquired in a seminar, for example. \\
+    The result of this evaluation is summarized in \autoref{tab:EvaluationExample}. This evaluation is valid for the used software versions shown in \autoref{tab:UsedSoftwareForSelectionFormats}, where upward compatibility is likely but downward compatibility is not guaranteed. 
+      \begin{table}[htp]
+    	\footnotesize
+    	\centering
+    	\caption[Evaluation of proposed data structure with respect to the shown example.] {Evaluation of proposed data structure with respect to the shown example from bad (\fullmoon\fullmoon\fullmoon) to good (\newmoon\newmoon\newmoon). Although the defined information is represented in the data structure, compatibility could be improved, especially for kinematized CAD data. }
+         \begin{tabular}{lc}
+            \toprule 
+            \multicolumn{1}{c}{Criterion} & \multicolumn{1}{c}{Evaluation}  \\
+            \midrule 
+            Independent of hardware setup (HIL/SIL)                    &  \newmoon \newmoon \newmoon   \\
+            Represent all relevant data             &  \newmoon \newmoon \newmoon   \\
+            Modular layout to represent components  &  \newmoon \newmoon \newmoon   \\
+            High compatibility                      &  \newmoon \fullmoon \fullmoon   \\
+            Low level of additional knowledge       &  \newmoon \newmoon \fullmoon   \\
+            \bottomrule 
+        \end{tabular}
+    	\label{tab:EvaluationExample}
+    \end{table}
+    
+    In general, with this data structure, the difficulties of setting up a virtual commissioning can be reduced, which simplifies its implementation. This has the advantage of minimizing the time and cost of commissioning a new plant. 
+
+
+%\subsection{Module \textit{Separation}}
+%    This example shows how the proposed data structure can be used in practice. Therefore the virtual commissioning of a separation is done, where the behavior model is executed in \textit{Simulink}. Via \textit{ADS} communication the signals of the hardware are set in the PLC and read by the PLC. 
+	
+	
+  
+%\subsection{Module \textit{Conveyor Belt}}
+%	This example uses the proposed data structure in a virtual commissioning of a DC motor. Since the CAD data was sent as a \textit{.step} file without kinematization, the customer has to create it again in his CAD software. However, the supplier provides the model of the motor as a \textit{.fmu} file, which is then integrated in the simulation for the virtual commissioning. In addition, the PLC terminal is modeled, since it is needed for the correct control of the motor. Again, the simulation runs on an engineering system in parallel with the PLC and communicates with it via the \textit{ADS} interface. In this way, a reference velocity of the motor is given from the PLC and converted into an actual velocity in the simulation. This value is then returned to the PLC and is used for the calculation of the next reference velocity.

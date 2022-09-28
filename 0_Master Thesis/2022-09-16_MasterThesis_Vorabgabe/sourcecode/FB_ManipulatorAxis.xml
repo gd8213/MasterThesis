@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://www.plcopen.org/xml/tc6_0200">
+  <fileHeader companyName="Beckhoff Automation GmbH" productName="TwinCAT PLC Control" productVersion="3.5.13.21" creationDateTime="2022-08-12T11:34:54.3732365" />
+  <contentHeader name="PlcMain" modificationDateTime="2022-08-12T11:34:54.3752427">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="1" y="1" />
+      </fbd>
+      <ld>
+        <scaling x="1" y="1" />
+      </ld>
+      <sfc>
+        <scaling x="1" y="1" />
+      </sfc>
+    </coordinateInfo>
+    <addData>
+      <data name="http://www.3s-software.com/plcopenxml/projectinformation" handleUnknown="implementation">
+        <ProjectInformation />
+      </data>
+    </addData>
+  </contentHeader>
+  <types>
+    <dataTypes />
+    <pous>
+      <pou name="FB_ManipulatorAxis" pouType="functionBlock">
+        <interface>
+          <inputVars>
+            <variable name="bEnable">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="bExecute">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="bEndschalterMin">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="bEndSchalterMax">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="fPosition">
+              <type>
+                <LREAL />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml"> gewunschte Postition der Achse</xhtml>
+              </documentation>
+            </variable>
+            <variable name="fVelocity">
+              <type>
+                <LREAL />
+              </type>
+            </variable>
+            <variable name="Direction">
+              <type>
+                <derived name="MC_Direction" />
+              </type>
+            </variable>
+          </inputVars>
+          <outputVars>
+            <variable name="eOutState">
+              <type>
+                <derived name="State" />
+              </type>
+              <initialValue>
+                <simpleValue value="State.Off" />
+              </initialValue>
+            </variable>
+            <variable name="fActPos">
+              <type>
+                <LREAL />
+              </type>
+            </variable>
+          </outputVars>
+          <inOutVars>
+            <variable name="aAchse">
+              <type>
+                <derived name="AXIS_REF" />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml"> NC-Achse</xhtml>
+              </documentation>
+            </variable>
+          </inOutVars>
+          <localVars>
+            <variable name="Reset_Achse">
+              <type>
+                <derived name="MC_Reset" />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml"> Fur NC-Achse notig</xhtml>
+              </documentation>
+            </variable>
+            <variable name="Power_Achse">
+              <type>
+                <derived name="MC_Power" />
+              </type>
+            </variable>
+            <variable name="Move_Achse">
+              <type>
+                <derived name="MC_MoveAbsolute" />
+              </type>
+            </variable>
+            <variable name="Move_Vel">
+              <type>
+                <derived name="MC_MoveVelocity" />
+              </type>
+            </variable>
+            <variable name="Home_Achse">
+              <type>
+                <derived name="MC_Home" />
+              </type>
+            </variable>
+            <variable name="Halt_Achse">
+              <type>
+                <derived name="MC_Halt" />
+              </type>
+            </variable>
+            <variable name="Position_Achse">
+              <type>
+                <derived name="MC_ReadActualPosition" />
+              </type>
+            </variable>
+            <variable name="bAchsePower">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="bAchseMove">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="eState">
+              <type>
+                <derived name="StateMan" />
+              </type>
+            </variable>
+          </localVars>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">// Einstellungen der Achse
+aAchse.ReadStatus();
+Reset_Achse(Axis:=aAchse);
+Power_Achse(Axis:=aAchse, Override := 100, Enable := bAchsePower, Enable_Negative := bAchsePower, Enable_Positive := bAchsePower);
+Move_Achse(Axis:=aAchse);
+Home_Achse(Axis:= aAchse, bCalibrationCam := NOT bEndschalterMin, Position := 0);
+Move_Vel(Axis:=aAchse);
+Halt_Achse(Axis:=aAchse);
+
+CASE eState OF
+StateMan.Off:
+	eOutState := State.Off;
+	bAchseMove := FALSE;
+	bAchsePower := FALSE;
+	
+	IF bEnable THEN
+		eState := StateMan.Reset;
+	END_IF
+StateMan.Reset:
+	eOutState := State.Busy;
+	Reset_Achse.Execute := TRUE;
+	
+	IF Reset_Achse.Done THEN
+		Reset_Achse.Execute := FALSE;
+		eState := StateMan.PowerUp;
+	END_IF
+StateMan.PowerUp:
+	eOutState := State.Busy;
+	bAchsePower := TRUE;
+	
+	IF Power_Achse.Status THEN
+		eState := StateMan.Homing;
+	END_IF
+StateMan.Homing:
+	eOutState := State.Busy;
+	Home_Achse.Execute := TRUE;
+	
+	IF Home_Achse.Done THEN
+		Home_Achse.Execute := FALSE;
+		eState := StateMan.Ready;
+	END_IF
+StateMan.Ready:
+		eOutState := State.Ready;
+		Move_Achse.Execute := FALSE;
+	IF bExecute THEN
+		eState := StateMan.Moving;
+	END_IF
+StateMan.Moving:
+	eOutState := State.Busy;
+	Move_Achse.Velocity := fVelocity;
+
+	Move_Achse.Position := fPosition;
+	Move_Achse.Execute := TRUE;
+
+	IF Move_Achse.Done OR ( NOT bEndschalterMin  AND (Move_Achse.Position &lt; Position_Achse.Position)) OR (NOT bEndschalterMax AND (Move_Achse.Position &gt; Position_Achse.Position)) THEN
+		
+		IF NOT(bEndschalterMax) OR NOT(bEndschalterMin) THEN
+				Halt_Achse.Execute := TRUE;
+		END_IF
+		
+		eState := StateMan.Done;
+	END_IF
+StateMan.Done:
+	eOutState := State.Done;
+	Move_Achse.Execute := FALSE;
+	
+	IF NOT bExecute THEN
+		eState := StateMan.Ready;
+	END_IF
+END_CASE</xhtml>
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/interfaceasplaintext" handleUnknown="implementation">
+            <InterfaceAsPlainText>
+              <xhtml xmlns="http://www.w3.org/1999/xhtml">FUNCTION_BLOCK FB_ManipulatorAxis
+	VAR_INPUT
+		bEnable			: BOOL;
+		bExecute		: BOOL;
+		bEndschalterMin	: BOOL;
+		bEndSchalterMax : BOOL;
+		fPosition		: LREAL;			// gewunschte Postition der Achse
+		fVelocity 		: LREAL;
+		Direction  	: MC_Direction;
+	END_VAR
+	
+	VAR_OUTPUT
+		eOutState				: State:=State.Off; 
+		fActPos					: LREAL;		
+	END_VAR
+	
+	VAR_IN_OUT
+		aAchse 			: AXIS_REF;		// NC-Achse
+	END_VAR
+	
+	VAR
+		// Fur NC-Achse notig
+		Reset_Achse			: MC_Reset;
+		Power_Achse			: MC_Power;
+		Move_Achse			: MC_MoveAbsolute;
+		Move_Vel			: MC_MoveVelocity;
+		Home_Achse 			: MC_Home;
+		Halt_Achse			: MC_Halt;
+		Position_Achse		: MC_ReadActualPosition;
+		bAchsePower			: BOOL;
+		bAchseMove			: BOOL;
+
+		eState			: StateMan;
+	END_VAR</xhtml>
+            </InterfaceAsPlainText>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>e010b4d0-16a4-42c7-b4be-1acb68c0d19a</ObjectId>
+          </data>
+        </addData>
+      </pou>
+    </pous>
+  </types>
+  <instances>
+    <configurations />
+  </instances>
+  <addData>
+    <data name="http://www.3s-software.com/plcopenxml/projectstructure" handleUnknown="discard">
+      <ProjectStructure>
+        <Object Name="FB_ManipulatorAxis" ObjectId="e010b4d0-16a4-42c7-b4be-1acb68c0d19a" />
+      </ProjectStructure>
+    </data>
+  </addData>
+</project>

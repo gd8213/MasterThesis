@@ -1,0 +1,27 @@
+\section*{Abstract}
+
+% Introduction
+In this master thesis a concept for component libraries is created consisting of CAD data, simulation models, example control code and documentation. 
+
+% Motivation 1-2
+Virtual commissioning is becoming increasingly important in the engineering process of plants and machines. This is the result of time savings and thus reduced costs in product development. However, implementation can easily become complex.
+
+% Problem definition 2-3
+The behaviour modeling of the different components can be done in several different tools, mostly depending on the manufacturer. The CAD data can also be available in different file formats and are thus no exception of this rule. This variety of possibilities increases the complexity of the integration process enormously. However, in order for virtual commissioning to be efficient, the integration of the used components should be as simple as possible.
+
+% Methods 3-4
+Aiming to solve this problem, an exemplary library structure is developed in this thesis, which consists of the behaviour model, CAD data and code snippets with related documentation. The basis for this are freely available and common interfaces.
+%, like Functional Mock-up Interface (FMI) for the behaviour model and COLLADA or STEP for CAD data.
+This ensures that the widest possible range of applications is achieved. The practical use of this library is further demonstrated in a practical application. 
+
+% Achievements, Results 2-3
+In the example shown, the behaviour model and control are executed on two different machines ensuring real-time capability and forming a HIL system. 
+% Visualization is done directly in the CAD software \textit{Autodesk Inventor} based on the current state of the behavioral model. 
+The behaviour model is generated in \textit{Simulink} and integrated into the PLC run-time.
+
+
+% Conclusions 1-2
+As shown, using the developed library, the process of virtual commissioning can be simplified without the need for additional expertise. However, there is still room for improvement especially in the exchange of the CAD data with a kinematization and the integration of behaviour models in a PLC.
+
+
+\paragraph*{Keywords:} Virtual Commissioning, PLC, Automation, Modularity, Data Library.
