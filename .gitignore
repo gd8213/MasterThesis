@@ -48,5 +48,9 @@
 *.nlo
 *.gz
 *.toc
-0_*
+
+0_Master*Paper/
+0_Master*Thesis/
+0_Master*
+0_Master*/
 
